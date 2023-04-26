@@ -1,0 +1,176 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "trakAgile",
+    "description": "trak Agile description."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/",
+      "description": "dev server"
+    },
+    {
+      "url": "https://localhost:3000/",
+      "description": "prod server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Districts",
+      "description": "Districts routes"
+    },
+    {
+      "name": "Sites",
+      "description": "Sites routes"
+    },
+    {
+      "name": "Trips",
+      "description": "Trips routes"
+    },
+    {
+      "name": "Users",
+      "description": "Users routes"
+    }
+  ],
+  "paths": {
+    "/addUser": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Add user",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddUser"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddUser"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "add user payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getUserById": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get user by their id",
+        "description": "Get user by userid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of the user",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Aman"
+          },
+          "email": {
+            "type": "string",
+            "example": "aman@gmail.com"
+          },
+          "mobile": {
+            "type": "string",
+            "example": "9999999999"
+          },
+          "password": {
+            "type": "string",
+            "example": "*****"
+          }
+        },
+        "xml": {
+          "name": "User"
+        }
+      },
+      "AddUser": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "number",
+            "example": 1
+          },
+          "data": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddUser"
+        }
+      }
+    },
+    "securitySchemes": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      },
+      "petstore_auth": {
+        "type": "oauth2",
+        "authorizationUrl": "https://petstore.swagger.io/oauth/authorize",
+        "flow": "implicit",
+        "scopes": {
+          "read_pets": "read your pets",
+          "write_pets": "modify pets in your account"
+        }
+      }
+    }
+  }
+}

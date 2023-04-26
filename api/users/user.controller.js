@@ -1,11 +1,9 @@
-const { create, getUserById } = require("./user.service");
+const { add, getUserById } = require("./user.service");
 
 module.exports = {
-
-    createUser: (req, res) => {
+    addUser: (req, res) => {
         const body = req.body;
-        
-        create(body, (err, results) => {
+        add(body, (err, results) => {
             if (err) {
                 return res.status(500).json({
                     success: 0,
@@ -18,10 +16,8 @@ module.exports = {
             });
         });
     },
-
     getUserById: (req, res) => {
         const mobile = 123;
-
         getUserById(mobile, (err, results) => {
             if (err) {
                 console.log(err);

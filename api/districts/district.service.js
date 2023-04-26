@@ -21,7 +21,7 @@ module.exports = {
                 }
                 return callback(null, results);
             });
-        },
+    },
 
     getUserById: (id, callback) => {
         pool.query(`select UserID, UserName, Name from tblUser`,

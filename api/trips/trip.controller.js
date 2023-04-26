@@ -1,10 +1,10 @@
-const { create, getUserById } = require("./trips.service");
+const { create, getUserById } = require("./trip.service");
 
 module.exports = {
 
     createUser: (req, res) => {
         const body = req.body;
-        
+
         create(body, (err, results) => {
             if (err) {
                 return res.status(500).json({
