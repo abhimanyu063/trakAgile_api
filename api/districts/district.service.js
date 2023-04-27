@@ -25,11 +25,11 @@ module.exports = {
         }
     },
 
-    getDistrictById: (districtID, callback) => {
+    getDistrict: (id, callback) => {
         try {
             console.log(districtID)
             pool.query(`select districtName, isActive from tblDistrict`,
-                [districtID],
+                [id],
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

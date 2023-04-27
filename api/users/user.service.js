@@ -1,17 +1,15 @@
 const pool = require("../../config/database");
 
 module.exports = {
-    add: (data, callback) => {
+    addUserService: (data, callback) => {
         try {
             console.log(data.id);
 
-            pool.query(`insert into user (id, name, email, mobile, password) values (?,?,?,?,?)`,
+            pool.query(`insert into tblUser (UserName, Password, Name) values (?,?,?)`,
                 [
-                    data.id,
-                    data.name,
-                    data.email,
-                    data.mobile,
-                    data.password,
+                    data.UserName,
+                    data.Password,
+                    data.Name,
                 ],
                 (error, results, fields) => {
                     if (error) {
@@ -24,7 +22,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getUserById: (id, callback) => {
+    getUserByIdService: (id, callback) => {
         try {
 
             pool.query(`select UserID, UserName, Name from tblUser`,

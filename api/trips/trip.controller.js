@@ -1,13 +1,14 @@
-const { create, getTripById } = require("./trip.service");
+const { addTripService, getTripByIdService } = require("./trip.service");
 
 module.exports = {
 
-    createUser: (req, res) => {
+    addTrip: (req, res) => {
         try {
             const body = req.body;
 
-            create(body, (err, results) => {
+            addTripService(body, (err, results) => {
                 if (err) {
+                    console.log(err)
                     return res.status(500).json({
                         success: 0,
                         message: "Database connection error"
@@ -28,7 +29,7 @@ module.exports = {
         try {
             const mobile = 123;
 
-            getTripById(mobile, (err, results) => {
+            getTripByIdService(mobile, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

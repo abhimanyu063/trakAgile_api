@@ -7,11 +7,11 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/",
+      "url": "http://localhost:3000/api/",
       "description": "dev server"
     },
     {
-      "url": "https://localhost:3000/",
+      "url": "https://localhost:3000/api/",
       "description": "prod server"
     }
   ],
@@ -34,7 +34,7 @@
     }
   ],
   "paths": {
-    "/addUser": {
+    "/users/addUser": {
       "post": {
         "tags": [
           "Users"
@@ -74,7 +74,7 @@
         }
       }
     },
-    "/getUserById": {
+    "/users/getUserById": {
       "get": {
         "tags": [
           "Users"
@@ -108,6 +108,31 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/addTrip": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/getTripById": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }

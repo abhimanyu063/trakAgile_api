@@ -1,7 +1,7 @@
 const { addUser, getUserById } = require("./user.controller");
 const router = require("express").Router();
 
-router.post("/addUser", addUser,/*
+router.post("/users/addUser", addUser,/*
 #swagger.description = 'Add user' 
 #swagger.tags = ['Users']
 #swagger.requestBody = {
@@ -19,7 +19,7 @@ router.post("/addUser", addUser,/*
 schema: { '$ref': '#/components/schemas/AddUser' },
 description: 'Ok' } */);
 
-router.get("/getUserById", getUserById,/*
+router.get("/users/getUserById", getUserById,/*
 #swagger.description = 'Get user by userid' 
 #swagger.summary = 'get user by their id',
 #swagger.tags = ['Users']

@@ -11,11 +11,11 @@ const doc = {
     basePath: "/",
     servers: [
         {
-            url: "http://localhost:3000/",
+            url: "http://localhost:3000/api/",
             description: "dev server"
         },
         {
-            url: "https://localhost:3000/",
+            url: "https://localhost:3000/api/",
             description: "prod server"
         }
     ],
@@ -64,7 +64,7 @@ const doc = {
 };
 
 const outputFile = './swagger-output.json';
-const endpointsFiles = ['./api/users/user.router.js'];
+const endpointsFiles = ['./api/users/user.router.js', './api/trips/trip.router.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
     require('./app')           // Your project's root file
