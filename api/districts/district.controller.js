@@ -1,36 +1,47 @@
-const { create, getUserById } = require("./district.service");
+const { create, getDistrictById } = require("./district.service");
 
 module.exports = {
 
     createUser: (req, res) => {
-        const body = req.body;
+        try {
+            const body = req.body;
 
-        create(body, (err, results) => {
-            if (err) {
-                return res.status(500).json({
-                    success: 0,
-                    message: "Database connection error"
+            create(body, (err, results) => {
+                if (err) {
+                    return res.status(500).json({
+                        success: 0,
+                        message: "Database connection error"
+                    });
+                }
+                return res.status(200).json({
+                    success: 1,
+                    data: results
                 });
-            }
-            return res.status(200).json({
-                success: 1,
-                data: results
             });
-        });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
     },
 
-    getUserById: (req, res) => {
-        const mobile = 123;
+    getDistrictById: (req, res) => {
+        try {
+            const districtID = req.districtID;
+            console.log(districtID)
 
-        getUserById(mobile, (err, results) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            return res.json({
-                success: 1,
-                data: results
+            getDistrictById(districtID, (err, results) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                return res.json({
+                    success: 1,
+                    data: results
+                });
             });
-        });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
     }
 }

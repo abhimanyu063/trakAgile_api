@@ -3,34 +3,42 @@ const pool = require("../../config/database");
 module.exports = {
 
     create: (data, callback) => {
+        try {
 
-        console.log(data.id);
+            console.log(data.districtName);
 
-        pool.query(`insert into user (id, name, email, mobile, password) values (?,?,?,?,?)`,
-            [
-                data.id,
-                data.name,
-                data.email,
-                data.mobile,
-                data.password,
-            ],
+            pool.query(`insert into tblDistrict (districtName, isActive) values (?,?)`,
+                [
+                    data.districtName,
+                    data.isActive,
+                ],
 
-            (error, results, fields) => {
-                if (error) {
-                    callback(error);
-                }
-                return callback(null, results);
-            });
+                (error, results, fields) => {
+                    if (error) {
+                        callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
     },
 
-    getUserById: (id, callback) => {
-        pool.query(`select UserID, UserName, Name from tblUser`,
-            [id],
-            (error, results, fields) => {
-                if (error) {
-                    return callback(error);
-                }
-                return callback(null, results[0]);
-            });
+    getDistrictById: (districtID, callback) => {
+        try {
+            console.log(districtID)
+            pool.query(`select districtName, isActive from tblDistrict`,
+                [districtID],
+                (error, results, fields) => {
+                    if (error) {
+                        return callback(error);
+                    }
+                    return callback(null, results[0]);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
     }
 }

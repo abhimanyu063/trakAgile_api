@@ -1,5 +1,5 @@
-const { createUser, getUserById } = require("./trip.controller");
+const { createUser, getTripById } = require("./trip.controller");
 const router = require("express").Router();
 router.post("/", createUser);
-router.get("/", getUserById);
+router.get("/", getTripById);
 module.exports = router;
