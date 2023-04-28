@@ -4,15 +4,11 @@ module.exports = {
 
     addSiteTypeService: (data, callback) => {
         try {
-            console.log(data.id);
 
-            pool.query(`insert into tblSiteType (siteTypeDescription, isActive) values (?,?)`,
+            pool.query(`insert into tblSiteType (siteID, siteTypeDescription, isActive) values (?,?)`,
                 [
-                    data.id,
-                    data.name,
-                    data.email,
-                    data.mobile,
-                    data.password,
+                    data.siteTypeDescription,
+                    data.isActive,
                 ],
 
                 (error, results, fields) => {
@@ -30,7 +26,7 @@ module.exports = {
     getSiteTypeByIdService: (id, callback) => {
         try {
             pool.query(`select siteTypeDescription, isActive from tblSiteType`,
-                [id],
+
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

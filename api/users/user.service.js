@@ -26,7 +26,7 @@ module.exports = {
         try {
 
             pool.query(`select UserID, UserName, Name from tblUser`,
-                [id],
+            
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

@@ -5,8 +5,6 @@ module.exports = {
     addSiteWorkService: (data, callback) => {
         try {
 
-            console.log(data.id);
-
             pool.query(`insert into tblSiteWork (siteID, workTypeID, docPath, isSiteReportedIssue, isWorkCompleted) values (?,?,?,?,?)`,
                 [
                     data.siteID,
@@ -31,7 +29,7 @@ module.exports = {
     getSiteWorkByIdService: (id, callback) => {
         try {
             pool.query(`select siteID, workTypeID, docPath, isSiteReportedIssue, isWorkCompleted from tblSiteWork`,
-                [id],
+
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

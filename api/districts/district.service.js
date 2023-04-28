@@ -23,7 +23,7 @@ module.exports = {
         }
     },
 
-    getDistrictByIDService: (id, callback) => {
+    getDistrictByIdService: (id, callback) => {
         try {
             pool.query(`select districtName, isActive from tblDistrict`,
 

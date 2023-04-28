@@ -26,12 +26,10 @@ module.exports = {
 
     getDistrictById: (req, res) => {
         try {
-            const districtID = req.districtID;
-            console.log(districtID)
+            const districtID = 123
 
             getDistrictByIdService(districtID, (err, results) => {
                 if (err) {
-                    console.log(err);
                     return;
                 }
                 return res.json({
