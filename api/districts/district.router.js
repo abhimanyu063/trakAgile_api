@@ -1,5 +1,5 @@
-const { createUser, getDistrictById } = require("./district.controller");
+const { addDistrict, getDistrictById } = require("./district.controller");
 const router = require("express").Router();
-router.post("/", createUser);
-router.get("/", getDistrictById);
+router.post("/districts/addDistrict", addDistrict);
+router.get("/districts/getDistrictById", getDistrictById);
 module.exports = router;

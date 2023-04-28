@@ -2,18 +2,18 @@ const pool = require("../../config/database");
 
 module.exports = {
 
-    create: (data, callback) => {
+    addSiteWorkService: (data, callback) => {
         try {
 
             console.log(data.id);
 
-            pool.query(`insert into user (id, name, email, mobile, password) values (?,?,?,?,?)`,
+            pool.query(`insert into tblSiteWork (siteID, workTypeID, docPath, isSiteReportedIssue, isWorkCompleted) values (?,?,?,?,?)`,
                 [
-                    data.id,
-                    data.name,
-                    data.email,
-                    data.mobile,
-                    data.password,
+                    data.siteID,
+                    data.workTypeID,
+                    data.docPath,
+                    data.isSiteReportedIssue,
+                    data.isWorkCompleted,
                 ],
 
                 (error, results, fields) => {
@@ -28,9 +28,9 @@ module.exports = {
         }
     },
 
-    getSiteWorkById: (id, callback) => {
+    getSiteWorkByIdService: (id, callback) => {
         try {
-            pool.query(`select UserID, UserName, Name from tblUser`,
+            pool.query(`select siteID, workTypeID, docPath, isSiteReportedIssue, isWorkCompleted from tblSiteWork`,
                 [id],
                 (error, results, fields) => {
                     if (error) {

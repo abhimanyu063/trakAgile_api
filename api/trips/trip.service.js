@@ -30,7 +30,6 @@ module.exports = {
     },
 
     getTripByIdService: (id, callback) => {
-        datetime
         try {
             pool.query(`select tripID, userID, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude from tblTrip`,
                 [id],

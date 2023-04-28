@@ -2,18 +2,18 @@ const pool = require("../../config/database");
 
 module.exports = {
 
-    create: (data, callback) => {
+    addSiteService: (data, callback) => {
         try {
 
-            console.log(data.id);
-
-            pool.query(`insert into user (id, name, email, mobile, password) values (?,?,?,?,?)`,
+            pool.query(`insert into tblSite (siteName, sitetypeID, siteVillegeName, createdBy, createdOn, latitude, longitude) values (?,?,?,?,?,?,?)`,
                 [
-                    data.id,
-                    data.name,
-                    data.email,
-                    data.mobile,
-                    data.password,
+                    data.siteName,
+                    data.sitetypeID,
+                    data.siteVillegeName,
+                    data.createdBy,
+                    new Date(),
+                    data.latitude,
+                    data.longitude,
                 ],
 
                 (error, results, fields) => {
@@ -28,9 +28,9 @@ module.exports = {
         }
     },
 
-    getSiteById: (id, callback) => {
+    getSiteByIdService: (id, callback) => {
         try {
-            pool.query(`select UserID, UserName, Name from tblUser`,
+            pool.query(`select siteName, sitetypeID, siteVillegeName, createdBy, createdOn, latitude, longitude from tblSite`,
                 [id],
                 (error, results, fields) => {
                     if (error) {

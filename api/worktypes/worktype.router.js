@@ -1,5 +1,5 @@
-const { createUser, getWorkTypeById } = require("./worktype.controller");
+const { addWorkType, getWorkTypeById } = require("./worktype.controller");
 const router = require("express").Router();
-router.post("/", createUser);
-router.get("/", getWorkTypeById);
+router.post("/worktypes/addWorkType", addWorkType);
+router.get("/worktypes/getWorkTypeById", getWorkTypeById);
 module.exports = router;

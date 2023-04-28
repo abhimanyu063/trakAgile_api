@@ -1,12 +1,12 @@
-const { create, getSiteTypeById } = require("./sitetype.router");
+const { addSiteTypeService, getSiteTypeByIdService } = require("./sitetype.router");
 
 module.exports = {
 
-    createUser: (req, res) => {
+    addSiteType: (req, res) => {
         try {
             const body = req.body;
 
-            create(body, (err, results) => {
+            addSiteTypeService(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -28,7 +28,7 @@ module.exports = {
         try {
             const mobile = 123;
 
-            getSiteTypeById(mobile, (err, results) => {
+            getSiteTypeByIdService(mobile, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

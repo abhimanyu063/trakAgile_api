@@ -1,13 +1,14 @@
-const { create, getSiteById } = require("./site.service");
+const { addSiteService, getSiteByIdService } = require("./site.service");
 
 module.exports = {
 
-    createUser: (req, res) => {
+    addSite: (req, res) => {
         try {
             const body = req.body;
 
-            create(body, (err, results) => {
+            addSiteService(body, (err, results) => {
                 if (err) {
+                    console.log(err)
                     return res.status(500).json({
                         success: 0,
                         message: "Database connection error"
@@ -28,7 +29,7 @@ module.exports = {
         try {
             const mobile = 123;
 
-            getSiteById(mobile, (err, results) => {
+            getSiteByIdService(mobile, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

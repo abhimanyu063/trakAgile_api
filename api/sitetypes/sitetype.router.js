@@ -1,5 +1,5 @@
-const { createUser, getSiteTypeById } = require("./sitetype.controller");
+const { addSiteType, getSiteTypeById } = require("./sitetype.controller");
 const router = require("express").Router();
-router.post("/", createUser);
-router.get("/", getSiteTypeById);
+router.post("/sitetypes/addSiteType", addSiteType);
+router.get("/sitetypes/getSiteTypeById", getSiteTypeById);
 module.exports = router;

@@ -1,12 +1,12 @@
-const { create, getWorkTypeById } = require("./worktype.service")
+const { addWorkTypeService, getWorkTypeByIdService } = require("./worktype.service")
 
 module.exports = {
 
-    createUser: (req, res) => {
+    addWorkType: (req, res) => {
         try {
             const body = req.body;
 
-            create(body, (err, results) => {
+            addWorkTypeService(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -28,7 +28,7 @@ module.exports = {
         try {
             const mobile = 123;
 
-            getWorkTypeById(mobile, (err, results) => {
+            getWorkTypeByIdService(mobile, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

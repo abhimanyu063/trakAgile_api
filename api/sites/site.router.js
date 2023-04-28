@@ -1,5 +1,5 @@
-const { createUser, getSiteById } = require("./site.controller");
+const { addSite, getSiteById } = require("./site.controller");
 const router = require("express").Router();
-router.post("/", createUser);
-router.get("/", getSiteById);
+router.post("/sites/addSite", addSite);
+router.get("/sites/getSiteById", getSiteById);
 module.exports = router;

@@ -1,12 +1,12 @@
-const { create, getSiteWorkById } = require("./sitework.service");
+const { addSiteWorkService, getSiteWorkByIdService } = require("./sitework.service");
 
 module.exports = {
 
-    createUser: (req, res) => {
+    addSiteWork: (req, res) => {
         try {
             const body = req.body;
 
-            create(body, (err, results) => {
+            addSiteWorkService(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -28,7 +28,7 @@ module.exports = {
         try {
             const mobile = 123;
 
-            getSiteWorkById(mobile, (err, results) => {
+            getSiteWorkByIdService(mobile, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

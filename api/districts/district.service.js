@@ -2,10 +2,8 @@ const pool = require("../../config/database");
 
 module.exports = {
 
-    create: (data, callback) => {
+    addDistrictService: (data, callback) => {
         try {
-
-            console.log(data.districtName);
 
             pool.query(`insert into tblDistrict (districtName, isActive) values (?,?)`,
                 [
@@ -25,11 +23,10 @@ module.exports = {
         }
     },
 
-    getDistrict: (id, callback) => {
+    getDistrictByIDService: (id, callback) => {
         try {
-            console.log(districtID)
             pool.query(`select districtName, isActive from tblDistrict`,
-                [id],
+
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
