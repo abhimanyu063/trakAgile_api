@@ -4,7 +4,7 @@ const app = express();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-output.json');
 
-const router = require('./api/endpoints');
+const router = require('./api/endpoint.router');
 
 const cors = require("cors");
 
@@ -19,12 +19,6 @@ app.listen(3000, () => {
     console.log("Server is up and running");
 })
 
-app.use("/api", router.districts);
-app.use("/api", router.sites);
-app.use("/api", router.sitetypes);
-app.use("/api", router.siteworks);
-app.use("/api", router.trips);
-app.use("/api", router.users);
-app.use("/api", router.worktypes);
-
-//https://github.com/davibaltar/example-swagger-autogen/blob/master/index.js
+router.forEach((path) => {
+    app.use("/api", path);
+});

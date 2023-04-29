@@ -1,5 +1,8 @@
 const { addTrip, getTripById } = require("./trip.controller");
 const router = require("express").Router();
-router.post("/trips/addTrip", addTrip);
-router.get("/trips/getTripById", getTripById);
+const { objectPayload, parameterPayload } = require("./trip.swagger-path-details");
+
+router.post("/trips/addTrip", addTrip, objectPayload);
+router.get("/trips/getTripById", getTripById, parameterPayload);
+
 module.exports = router;

@@ -25,15 +25,417 @@
       "description": "Sites routes"
     },
     {
+      "name": "SiteTypes",
+      "description": "Site Types routes"
+    },
+    {
+      "name": "SiteWorks",
+      "description": "Site Works routes"
+    },
+    {
       "name": "Trips",
       "description": "Trips routes"
     },
     {
       "name": "Users",
       "description": "Users routes"
+    },
+    {
+      "name": "WorkTypes",
+      "description": "Work Types routes"
     }
   ],
   "paths": {
+    "/districts/addDistrict": {
+      "post": {
+        "tags": [
+          "Districts"
+        ],
+        "description": "Add district",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddDistrictResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddDistrictResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "add district payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddDistrict"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/districts/getDistrictById": {
+      "get": {
+        "tags": [
+          "Districts"
+        ],
+        "summary": "get district by their id",
+        "description": "Get district by districtid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of the district",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDistrict"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDistrict"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/addSite": {
+      "post": {
+        "tags": [
+          "Sites"
+        ],
+        "description": "Add site",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "add site payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSite"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/getSiteById": {
+      "get": {
+        "tags": [
+          "Sites"
+        ],
+        "summary": "get site by their id",
+        "description": "Get site by siteid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of the site",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSite"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSite"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sitetypes/addSiteType": {
+      "post": {
+        "tags": [
+          "SiteTypes"
+        ],
+        "description": "Add site type",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteTypeResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteTypeResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "add site type payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSiteType"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sitetypes/getSiteTypeById": {
+      "get": {
+        "tags": [
+          "SiteTypes"
+        ],
+        "summary": "get site work by their id",
+        "description": "Get site type by sitetypeid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of the site type",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSiteType"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSiteType"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/siteworks/addSiteWork": {
+      "post": {
+        "tags": [
+          "SiteWorks"
+        ],
+        "description": "Add site work",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteWorkResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteWorkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "add site work payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSiteWork"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/siteworks/getSiteWorkById": {
+      "get": {
+        "tags": [
+          "SiteWorks"
+        ],
+        "summary": "get site work by their id",
+        "description": "Get site work by siteworkid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of the site work",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSiteWork"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSiteWork"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trips/addTrip": {
+      "post": {
+        "tags": [
+          "Trips"
+        ],
+        "description": "Add trip",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTripResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTripResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "add trip payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTrip"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trips/getTripById": {
+      "get": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "get trip by their id",
+        "description": "Get trip by tripid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of the trip",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTrip"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTrip"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/addUser": {
       "post": {
         "tags": [
@@ -47,12 +449,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddUser"
+                  "$ref": "#/components/schemas/AddUserResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddUser"
+                  "$ref": "#/components/schemas/AddUserResponse"
                 }
               }
             }
@@ -67,7 +469,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/AddUser"
               }
             }
           }
@@ -99,12 +501,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "$ref": "#/components/schemas/GetUser"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "$ref": "#/components/schemas/GetUser"
                 }
               }
             }
@@ -112,27 +514,80 @@
         }
       }
     },
-    "/addTrip": {
+    "/worktypes/addWorkType": {
       "post": {
-        "description": "",
+        "tags": [
+          "WorkTypes"
+        ],
+        "description": "Add work type",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddWorkTypeResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddWorkTypeResponse"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal Server Error"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "add work type payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddWorkType"
+              }
+            }
+          }
         }
       }
     },
-    "/getTripById": {
+    "/worktypes/getWorkTypeById": {
       "get": {
-        "description": "",
-        "parameters": [],
+        "tags": [
+          "WorkTypes"
+        ],
+        "summary": "get work type by their id",
+        "description": "Get work type by worktypeid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of the work type",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkType"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWorkType"
+                }
+              }
+            }
           }
         }
       }
@@ -140,31 +595,23 @@
   },
   "components": {
     "schemas": {
-      "User": {
+      "AddDistrict": {
         "type": "object",
         "properties": {
-          "name": {
+          "DistrictName": {
             "type": "string",
-            "example": "Aman"
+            "example": ""
           },
-          "email": {
-            "type": "string",
-            "example": "aman@gmail.com"
-          },
-          "mobile": {
-            "type": "string",
-            "example": "9999999999"
-          },
-          "password": {
-            "type": "string",
-            "example": "*****"
+          "IsActive": {
+            "type": "number",
+            "example": 1
           }
         },
         "xml": {
-          "name": "User"
+          "name": "AddDistrict"
         }
       },
-      "AddUser": {
+      "AddDistrictResponse": {
         "type": "object",
         "properties": {
           "success": {
@@ -177,7 +624,443 @@
           }
         },
         "xml": {
+          "name": "AddDistrictResponse"
+        }
+      },
+      "GetDistrict": {
+        "type": "object",
+        "properties": {
+          "DistrictID": {
+            "type": "number",
+            "example": 1
+          },
+          "DistrictName": {
+            "type": "string",
+            "example": ""
+          },
+          "IsActive": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "GetDistrict"
+        }
+      },
+      "AddSite": {
+        "type": "object",
+        "properties": {
+          "SiteName": {
+            "type": "string",
+            "example": ""
+          },
+          "SiteTypeID": {
+            "type": "number",
+            "example": 1
+          },
+          "SiteVillegeName": {
+            "type": "string",
+            "example": ""
+          },
+          "CreatedBy": {
+            "type": "number",
+            "example": 1
+          },
+          "CreatedOn": {
+            "type": "string",
+            "example": ""
+          },
+          "Latitude": {
+            "type": "number",
+            "example": 1111111111.222222
+          },
+          "Longitude": {
+            "type": "number",
+            "example": 1111111111.222222
+          }
+        },
+        "xml": {
+          "name": "AddSite"
+        }
+      },
+      "AddSiteResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "number",
+            "example": 1
+          },
+          "data": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddSiteResponse"
+        }
+      },
+      "GetSite": {
+        "type": "object",
+        "properties": {
+          "SiteID": {
+            "type": "number",
+            "example": 1
+          },
+          "SiteName": {
+            "type": "string",
+            "example": ""
+          },
+          "SiteTypeID": {
+            "type": "number",
+            "example": 1
+          },
+          "SiteVillegeName": {
+            "type": "string",
+            "example": ""
+          },
+          "CreatedBy": {
+            "type": "number",
+            "example": 1
+          },
+          "CreatedOn": {
+            "type": "string",
+            "example": ""
+          },
+          "Latitude": {
+            "type": "number",
+            "example": 1111111111.222222
+          },
+          "Longitude": {
+            "type": "number",
+            "example": 1111111111.222222
+          }
+        },
+        "xml": {
+          "name": "GetSite"
+        }
+      },
+      "AddSiteType": {
+        "type": "object",
+        "properties": {
+          "SiteTypeDescription": {
+            "type": "string",
+            "example": ""
+          },
+          "IsActive": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "AddSiteType"
+        }
+      },
+      "AddSiteTypeResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "number",
+            "example": 1
+          },
+          "data": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddSiteTypeResponse"
+        }
+      },
+      "GetSiteType": {
+        "type": "object",
+        "properties": {
+          "SiteTypeID": {
+            "type": "number",
+            "example": 1
+          },
+          "SiteTypeDescription": {
+            "type": "string",
+            "example": ""
+          },
+          "IsActive": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "GetSiteType"
+        }
+      },
+      "AddSiteWork": {
+        "type": "object",
+        "properties": {
+          "SiteID": {
+            "type": "number",
+            "example": 1
+          },
+          "WorkTypeID": {
+            "type": "number",
+            "example": 1
+          },
+          "DocPath": {
+            "type": "string",
+            "example": ""
+          },
+          "IsSiteReportedIssue": {
+            "type": "number",
+            "example": 0
+          },
+          "IsWorkCompleted": {
+            "type": "number",
+            "example": 0
+          }
+        },
+        "xml": {
+          "name": "AddSiteWork"
+        }
+      },
+      "AddSiteWorkResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "number",
+            "example": 1
+          },
+          "data": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddSiteWorkResponse"
+        }
+      },
+      "GetSiteWork": {
+        "type": "object",
+        "properties": {
+          "SiteWorkID": {
+            "type": "number",
+            "example": 1
+          },
+          "SiteID": {
+            "type": "number",
+            "example": 1
+          },
+          "WorkTypeID": {
+            "type": "number",
+            "example": 1
+          },
+          "DocPath": {
+            "type": "string",
+            "example": ""
+          },
+          "IsSiteReportedIssue": {
+            "type": "number",
+            "example": 0
+          },
+          "IsWorkCompleted": {
+            "type": "number",
+            "example": 0
+          }
+        },
+        "xml": {
+          "name": "GetSiteWork"
+        }
+      },
+      "AddTrip": {
+        "type": "object",
+        "properties": {
+          "UserID": {
+            "type": "string",
+            "example": "1"
+          },
+          "IsTripStarted": {
+            "type": "number",
+            "example": 1
+          },
+          "IsTripEnded": {
+            "type": "number",
+            "example": 0
+          },
+          "CreatedOn": {
+            "type": "string",
+            "example": "2023-04-27T17:15:03.000Z"
+          },
+          "IsWorkCompleted": {
+            "type": "number",
+            "example": 0
+          },
+          "Latitude": {
+            "type": "number",
+            "example": 1000000000.111111
+          },
+          "Longitude": {
+            "type": "number",
+            "example": 1000000000.111111
+          }
+        },
+        "xml": {
+          "name": "AddTrip"
+        }
+      },
+      "AddTripResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "number",
+            "example": 1
+          },
+          "data": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddTripResponse"
+        }
+      },
+      "GetTrip": {
+        "type": "object",
+        "properties": {
+          "TripID": {
+            "type": "number",
+            "example": 1
+          },
+          "UserID": {
+            "type": "string",
+            "example": "1"
+          },
+          "IsTripStarted": {
+            "type": "number",
+            "example": 1
+          },
+          "IsTripEnded": {
+            "type": "number",
+            "example": 0
+          },
+          "CreatedOn": {
+            "type": "string",
+            "example": "2023-04-27T17:15:03.000Z"
+          },
+          "IsWorkCompleted": {
+            "type": "number",
+            "example": 0
+          },
+          "Latitude": {
+            "type": "number",
+            "example": 1000000000.111111
+          },
+          "Longitude": {
+            "type": "number",
+            "example": 1000000000.111111
+          }
+        },
+        "xml": {
+          "name": "GetTrip"
+        }
+      },
+      "AddUser": {
+        "type": "object",
+        "properties": {
+          "UserName": {
+            "type": "string",
+            "example": "Aman123"
+          },
+          "Password": {
+            "type": "string",
+            "example": "*****"
+          },
+          "Name": {
+            "type": "string",
+            "example": "Aman"
+          }
+        },
+        "xml": {
           "name": "AddUser"
+        }
+      },
+      "AddUserResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "number",
+            "example": 1
+          },
+          "data": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddUserResponse"
+        }
+      },
+      "GetUser": {
+        "type": "object",
+        "properties": {
+          "UserID": {
+            "type": "number",
+            "example": 1
+          },
+          "UserName": {
+            "type": "string",
+            "example": "Aman123"
+          },
+          "Name": {
+            "type": "string",
+            "example": "Aman"
+          }
+        },
+        "xml": {
+          "name": "GetUser"
+        }
+      },
+      "AddWorkType": {
+        "type": "object",
+        "properties": {
+          "WorkTypeName": {
+            "type": "string",
+            "example": "Work type"
+          },
+          "IsActive": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "AddWorkType"
+        }
+      },
+      "AddWorkTypeResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "number",
+            "example": 1
+          },
+          "data": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddWorkTypeResponse"
+        }
+      },
+      "GetWorkType": {
+        "type": "object",
+        "properties": {
+          "WorkTypeName": {
+            "type": "string",
+            "example": "Work type"
+          },
+          "IsActive": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "GetWorkType"
         }
       }
     },

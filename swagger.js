@@ -1,5 +1,6 @@
 const swaggerAutogen = require('swagger-autogen')({ openapi: '3.0.0' });
-const { userSchema, addUserSchema } = require('./schema/user.schema');
+const tags = require('./swagger/tags');
+const schemas = require('./swagger/schemas');
 
 const doc = {
     info: {
@@ -21,24 +22,7 @@ const doc = {
     ],
     consumes: ['application/json'],
     produces: ['application/json'],
-    tags: [
-        {
-            name: "Districts",
-            description: "Districts routes",
-        },
-        {
-            name: "Sites",
-            description: "Sites routes",
-        },
-        {
-            name: "Trips",
-            description: "Trips routes",
-        },
-        {
-            name: "Users",
-            description: "Users routes",
-        },
-    ],
+    tags: tags,
     securityDefinitions: {
         api_key: {
             type: "apiKey",
@@ -56,15 +40,12 @@ const doc = {
         }
     },
     components: {
-        schemas: {
-            User: userSchema,
-            AddUser: addUserSchema
-        }
+        schemas: schemas
     }
 };
 
 const outputFile = './swagger-output.json';
-const endpointsFiles = ['./api/users/user.router.js', './api/trips/trip.router.js'];
+const endpointsFiles = require('./api/endpoint.routerpath');
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
     require('./app')           // Your project's root file
