@@ -1,8 +1,8 @@
-const { addDistrict, getDistrictById } = require("./district.controller");
 const router = require("express").Router();
-const { objectPayload, parameterPayload } = require("./district.swagger-path-details");
+const { addDistrict, getDistricts } = require("./district.controller");
+const { objectPayload, getlist } = require("./district.swagger-path-details");
 
 router.post("/districts/addDistrict", addDistrict, objectPayload);
-router.get("/districts/getDistrictById", getDistrictById, parameterPayload);
+router.get("/districts/getDistricts", getDistricts, getlist);
 
 module.exports = router;

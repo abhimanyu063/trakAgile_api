@@ -1,9 +1,9 @@
 const addSiteWork = {
-    SiteID: 1,
-    WorkTypeID: 1,
-    DocPath: "",
-    IsSiteReportedIssue: 0,
-    IsWorkCompleted: 0,
+    siteId: 1,
+    workTypeId: 1,
+    docPath: "",
+    isSiteReportedIssue: 0,
+    isWorkCompleted: 0,
 }
 
 const addSiteWorkResponse = {
@@ -12,12 +12,14 @@ const addSiteWorkResponse = {
 }
 
 const getSiteWork = {
-    SiteWorkID: 1,
-    SiteID: 1,
-    WorkTypeID: 1,
-    DocPath: "",
-    IsSiteReportedIssue: 0,
-    IsWorkCompleted: 0,
+    siteWorkId: 1,
+    siteId: 1,
+    workTypeId: 1,
+    docPath: "",
+    isSiteReportedIssue: 0,
+    isWorkCompleted: 0,
 }
 
-module.exports = { addSiteWork, addSiteWorkResponse, getSiteWork };
+const getSiteWorks = [getSiteWork]
+
+module.exports = { addSiteWork, addSiteWorkResponse, getSiteWork, getSiteWorks };

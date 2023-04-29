@@ -1,7 +1,6 @@
-const { addSiteWorkService, getSiteWorkByIdService } = require("./sitework.service");
+const { addSiteWorkService, getSiteWorkBySiteIdService } = require("./sitework.service");
 
 module.exports = {
-
     addSiteWork: (req, res) => {
         try {
             const body = req.body;
@@ -24,12 +23,9 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-
-    getSiteWorkById: (req, res) => {
+    getSiteWorkBySiteId: (req, res) => {
         try {
-            const mobile = 123;
-
-            getSiteWorkByIdService(mobile, (err, results) => {
+            getSiteWorkBySiteIdService(req.params.siteId, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

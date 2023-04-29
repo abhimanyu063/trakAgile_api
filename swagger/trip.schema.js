@@ -1,11 +1,11 @@
 const addTrip = {
-    UserID: "1",
-    IsTripStarted: 1,
-    IsTripEnded: 0,
-    CreatedOn:"2023-04-27T17:15:03.000Z",
-    IsWorkCompleted: 0,
-    Latitude: 1000000000.111111,
-    Longitude: 1000000000.111111,
+    userId: "1",
+    isTripStarted: 1,
+    isTripEnded: 0,
+    createdOn: "2023-04-27T17:15:03.000Z",
+    isWorkCompleted: 0,
+    latitude: 1000000000.111111,
+    longitude: 1000000000.111111,
 }
 
 const addTripResponse = {
@@ -14,14 +14,16 @@ const addTripResponse = {
 }
 
 const getTrip = {
-    TripID:1,
-    UserID: "1",
-    IsTripStarted: 1,
-    IsTripEnded: 0,
-    CreatedOn:"2023-04-27T17:15:03.000Z",
-    IsWorkCompleted: 0,
-    Latitude: 1000000000.111111,
-    Longitude: 1000000000.111111,
+    tripId: 1,
+    userId: "1",
+    isTripStarted: 1,
+    isTripEnded: 0,
+    createdOn: "2023-04-27T17:15:03.000Z",
+    isWorkCompleted: 0,
+    latitude: 1000000000.111111,
+    longitude: 1000000000.111111,
 }
 
-module.exports = { addTrip, addTripResponse, getTrip };
+const getTrips = [getTrip]
+
+module.exports = { addTrip, addTripResponse, getTrip, getTrips };

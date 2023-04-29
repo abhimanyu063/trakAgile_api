@@ -1,6 +1,6 @@
 const addSiteType = {
-    SiteTypeDescription: "",
-    IsActive: 1,
+    siteTypeDescription: "",
+    isActive: 1,
 }
 
 const addSiteTypeResponse = {
@@ -9,9 +9,11 @@ const addSiteTypeResponse = {
 }
 
 const getSiteType = {
-    SiteTypeID: 1,
-    SiteTypeDescription: "",
-    IsActive: 1,
+    siteTypeId: 1,
+    siteTypeDescription: "",
+    isActive: 1,
 }
 
-module.exports = { addSiteType, addSiteTypeResponse, getSiteType };
+const getSiteTypes = [getSiteType]
+
+module.exports = { addSiteType, addSiteTypeResponse, getSiteType, getSiteTypes };

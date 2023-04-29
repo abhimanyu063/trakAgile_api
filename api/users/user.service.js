@@ -4,12 +4,11 @@ module.exports = {
     addUserService: (data, callback) => {
         try {
             console.log(data.id);
-
-            pool.query(`insert into tblUser (UserName, Password, Name) values (?,?,?)`,
+            pool.query(`insert into tblUser (userName, password, name) values (?,?,?)`,
                 [
-                    data.UserName,
-                    data.Password,
-                    data.Name,
+                    data.userName,
+                    data.password,
+                    data.name,
                 ],
                 (error, results, fields) => {
                     if (error) {
@@ -22,11 +21,9 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getUserByIdService: (id, callback) => {
+    getUserByIdService: (userId, callback) => {
         try {
-
-            pool.query(`select UserID, UserName, Name from tblUser`,
-            
+            pool.query(`select userId, userName, name from tblUser where userId = ${userId}`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

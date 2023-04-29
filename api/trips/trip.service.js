@@ -1,14 +1,12 @@
 const pool = require("../../config/database");
 
 module.exports = {
-
     addTripService: (data, callback) => {
         try {
             console.log(data.id);
-
-            pool.query(`insert into tblTrip (userID, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude) values (?,?,?,?,?,?,?)`,
+            pool.query(`insert into tblTrip (userId, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude) values (?,?,?,?,?,?,?)`,
                 [
-                    data.userID,
+                    data.userId,
                     data.isTripStarted,
                     data.isTripEnded,
                     new Date(),
@@ -16,7 +14,6 @@ module.exports = {
                     data.latitude,
                     data.longitude,
                 ],
-
                 (error, results, fields) => {
                     if (error) {
                         callback(error);
@@ -28,16 +25,14 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-
-    getTripByIdService: (id, callback) => {
+    getTripsByUserIdService: (userId, callback) => {
         try {
-            pool.query(`select tripID, userID, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude from tblTrip`,
-                [id],
+            pool.query(`select tripId, userId, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude from tblTrip where userId = ${userId}`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
                     }
-                    return callback(null, results[0]);
+                    return callback(null, results);
                 });
         }
         catch (error) {

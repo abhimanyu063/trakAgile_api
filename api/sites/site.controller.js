@@ -1,11 +1,9 @@
-const { addSiteService, getSiteByIdService } = require("./site.service");
+const { addSiteService, getSitesByUserIdService } = require("./site.service");
 
 module.exports = {
-
     addSite: (req, res) => {
         try {
             const body = req.body;
-
             addSiteService(body, (err, results) => {
                 if (err) {
                     console.log(err)
@@ -24,12 +22,9 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-
-    getSiteById: (req, res) => {
+    getSitesByUserId: (req, res) => {
         try {
-            const mobile = 123;
-
-            getSiteByIdService(mobile, (err, results) => {
+            getSitesByUserIdService(req.params.userId, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

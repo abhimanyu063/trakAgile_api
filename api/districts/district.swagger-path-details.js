@@ -20,24 +20,16 @@ const objectPayload = () => {
     */
 };
 
-const parameterPayload = () => {
+const getlist = () => {
     /*
-    #swagger.description = 'Get district by districtid' 
-    #swagger.summary = 'get district by their id',
+    #swagger.description = 'Get districts' 
+    #swagger.summary = 'get districts',
     #swagger.tags = ['Districts']
-    #swagger.parameters = {
-            name: 'id',
-            in: 'query',
-            description: 'id of the district',
-            required: true,
-            type: 'number',
-            example: 1,
-    } 
     #swagger.responses[200] = { 
-    schema: { '$ref': '#/components/schemas/GetDistrict' },
+    schema: { '$ref': '#/components/schemas/GetDistricts' },
     description: 'Ok' 
     }
     */
 };
 
-module.exports = { objectPayload, parameterPayload };
+module.exports = { objectPayload, getlist };

@@ -20,24 +20,16 @@ const objectPayload = () => {
     */
 };
 
-const parameterPayload = () => {
+const getlist = () => {
     /*
-    #swagger.description = 'Get work type by worktypeid' 
-    #swagger.summary = 'get work type by their id',
+    #swagger.description = 'Get work types' 
+    #swagger.summary = 'get work types',
     #swagger.tags = ['WorkTypes']
-    #swagger.parameters = {
-            name: 'id',
-            in: 'query',
-            description: 'id of the work type',
-            required: true,
-            type: 'number',
-            example: 1,
-    } 
     #swagger.responses[200] = { 
-    schema: { '$ref': '#/components/schemas/GetWorkType' },
+    schema: { '$ref': '#/components/schemas/GetWorkTypes' },
     description: 'Ok' 
     }
     */
 };
 
-module.exports = { objectPayload, parameterPayload };
+module.exports = { objectPayload, getlist };

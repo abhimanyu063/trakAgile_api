@@ -21,6 +21,10 @@
       "description": "Districts routes"
     },
     {
+      "name": "Requests",
+      "description": "Requests routes"
+    },
+    {
       "name": "Sites",
       "description": "Sites routes"
     },
@@ -86,22 +90,87 @@
         }
       }
     },
-    "/districts/getDistrictById": {
+    "/districts/getDistricts": {
       "get": {
         "tags": [
           "Districts"
         ],
-        "summary": "get district by their id",
-        "description": "Get district by districtid",
+        "summary": "get districts",
+        "description": "Get districts",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDistricts"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDistricts"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests/addRequest": {
+      "post": {
+        "tags": [
+          "Requests"
+        ],
+        "description": "Add request",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddRequestResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddRequestResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "add request payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests/getRequestsByUserId/{userId}": {
+      "get": {
+        "tags": [
+          "Requests"
+        ],
+        "summary": "get request by userId",
+        "description": "Get reuest by userId",
         "parameters": [
           {
-            "name": "id",
-            "in": "query",
-            "description": "id of the district",
+            "name": "userId",
+            "in": "path",
             "required": true,
-            "example": 1,
             "schema": {
-              "type": "number"
+              "type": "string"
             }
           }
         ],
@@ -111,12 +180,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetDistrict"
+                  "$ref": "#/components/schemas/GetRequests"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetDistrict"
+                  "$ref": "#/components/schemas/GetRequests"
                 }
               }
             }
@@ -164,22 +233,20 @@
         }
       }
     },
-    "/sites/getSiteById": {
+    "/sites/getSitesByUserId/{userId}": {
       "get": {
         "tags": [
           "Sites"
         ],
-        "summary": "get site by their id",
-        "description": "Get site by siteid",
+        "summary": "get site by their userId",
+        "description": "Get site by userId",
         "parameters": [
           {
-            "name": "id",
-            "in": "query",
-            "description": "id of the site",
+            "name": "userId",
+            "in": "path",
             "required": true,
-            "example": 1,
             "schema": {
-              "type": "number"
+              "type": "string"
             }
           }
         ],
@@ -242,37 +309,26 @@
         }
       }
     },
-    "/sitetypes/getSiteTypeById": {
+    "/sitetypes/getSiteTypes": {
       "get": {
         "tags": [
           "SiteTypes"
         ],
-        "summary": "get site work by their id",
-        "description": "Get site type by sitetypeid",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "description": "id of the site type",
-            "required": true,
-            "example": 1,
-            "schema": {
-              "type": "number"
-            }
-          }
-        ],
+        "summary": "get site types",
+        "description": "Get site types",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Ok",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSiteType"
+                  "$ref": "#/components/schemas/GetSiteTypes"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSiteType"
+                  "$ref": "#/components/schemas/GetSiteTypes"
                 }
               }
             }
@@ -320,22 +376,20 @@
         }
       }
     },
-    "/siteworks/getSiteWorkById": {
+    "/siteworks/getSiteWorkBySiteId/{siteId}": {
       "get": {
         "tags": [
           "SiteWorks"
         ],
-        "summary": "get site work by their id",
-        "description": "Get site work by siteworkid",
+        "summary": "get site work by siteId",
+        "description": "Get site work by siteId",
         "parameters": [
           {
-            "name": "id",
-            "in": "query",
-            "description": "id of the site work",
+            "name": "siteId",
+            "in": "path",
             "required": true,
-            "example": 1,
             "schema": {
-              "type": "number"
+              "type": "string"
             }
           }
         ],
@@ -345,12 +399,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSiteWork"
+                  "$ref": "#/components/schemas/GetSiteWorks"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSiteWork"
+                  "$ref": "#/components/schemas/GetSiteWorks"
                 }
               }
             }
@@ -398,22 +452,20 @@
         }
       }
     },
-    "/trips/getTripById": {
+    "/trips/getTripsById/{userId}": {
       "get": {
         "tags": [
           "Trips"
         ],
-        "summary": "get trip by their id",
-        "description": "Get trip by tripid",
+        "summary": "get trip by userId",
+        "description": "Get trip by userId",
         "parameters": [
           {
-            "name": "id",
-            "in": "query",
-            "description": "id of the trip",
+            "name": "userId",
+            "in": "path",
             "required": true,
-            "example": 1,
             "schema": {
-              "type": "number"
+              "type": "string"
             }
           }
         ],
@@ -423,12 +475,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetTrip"
+                  "$ref": "#/components/schemas/GetTrips"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetTrip"
+                  "$ref": "#/components/schemas/GetTrips"
                 }
               }
             }
@@ -476,22 +528,20 @@
         }
       }
     },
-    "/users/getUserById": {
+    "/users/getUserById/{userId}": {
       "get": {
         "tags": [
           "Users"
         ],
         "summary": "get user by their id",
-        "description": "Get user by userid",
+        "description": "Get user by userId",
         "parameters": [
           {
-            "name": "id",
-            "in": "query",
-            "description": "id of the user",
+            "name": "userId",
+            "in": "path",
             "required": true,
-            "example": 1,
             "schema": {
-              "type": "number"
+              "type": "string"
             }
           }
         ],
@@ -554,37 +604,26 @@
         }
       }
     },
-    "/worktypes/getWorkTypeById": {
+    "/worktypes/getWorkTypes": {
       "get": {
         "tags": [
           "WorkTypes"
         ],
-        "summary": "get work type by their id",
-        "description": "Get work type by worktypeid",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "description": "id of the work type",
-            "required": true,
-            "example": 1,
-            "schema": {
-              "type": "number"
-            }
-          }
-        ],
+        "summary": "get work types",
+        "description": "Get work types",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Ok",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetWorkType"
+                  "$ref": "#/components/schemas/GetWorkTypes"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetWorkType"
+                  "$ref": "#/components/schemas/GetWorkTypes"
                 }
               }
             }
@@ -598,11 +637,11 @@
       "AddDistrict": {
         "type": "object",
         "properties": {
-          "DistrictName": {
+          "districtName": {
             "type": "string",
             "example": ""
           },
-          "IsActive": {
+          "isActive": {
             "type": "number",
             "example": 1
           }
@@ -630,15 +669,15 @@
       "GetDistrict": {
         "type": "object",
         "properties": {
-          "DistrictID": {
+          "districtId": {
             "type": "number",
             "example": 1
           },
-          "DistrictName": {
+          "districtName": {
             "type": "string",
             "example": ""
           },
-          "IsActive": {
+          "isActive": {
             "type": "number",
             "example": 1
           }
@@ -647,36 +686,202 @@
           "name": "GetDistrict"
         }
       },
+      "GetDistricts": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "districtId": {
+              "type": "number",
+              "example": 1
+            },
+            "districtName": {
+              "type": "string",
+              "example": ""
+            },
+            "isActive": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        },
+        "xml": {
+          "name": "GetDistricts"
+        }
+      },
+      "AddRequest": {
+        "type": "object",
+        "properties": {
+          "requestComment": {
+            "type": "string",
+            "example": ""
+          },
+          "requestTypeId": {
+            "type": "number",
+            "example": 1
+          },
+          "userId": {
+            "type": "number",
+            "example": 1
+          },
+          "isApproved": {
+            "type": "number",
+            "example": 1
+          },
+          "approvedByUserId": {
+            "type": "number",
+            "example": 1
+          },
+          "requestDate": {
+            "type": "string",
+            "example": ""
+          },
+          "createdOn": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddRequest"
+        }
+      },
+      "AddRequestResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "number",
+            "example": 1
+          },
+          "data": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddRequestResponse"
+        }
+      },
+      "GetRequest": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "number",
+            "example": 1
+          },
+          "requestComment": {
+            "type": "string",
+            "example": ""
+          },
+          "requestTypeId": {
+            "type": "number",
+            "example": 1
+          },
+          "userId": {
+            "type": "number",
+            "example": 1
+          },
+          "isApproved": {
+            "type": "number",
+            "example": 1
+          },
+          "approvedByUserid": {
+            "type": "number",
+            "example": 1
+          },
+          "requestDate": {
+            "type": "string",
+            "example": ""
+          },
+          "createdOn": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "GetRequest"
+        }
+      },
+      "GetRequests": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "requestId": {
+              "type": "number",
+              "example": 1
+            },
+            "requestComment": {
+              "type": "string",
+              "example": ""
+            },
+            "requestTypeId": {
+              "type": "number",
+              "example": 1
+            },
+            "userId": {
+              "type": "number",
+              "example": 1
+            },
+            "isApproved": {
+              "type": "number",
+              "example": 1
+            },
+            "approvedByUserid": {
+              "type": "number",
+              "example": 1
+            },
+            "requestDate": {
+              "type": "string",
+              "example": ""
+            },
+            "createdOn": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        },
+        "xml": {
+          "name": "GetRequests"
+        }
+      },
       "AddSite": {
         "type": "object",
         "properties": {
-          "SiteName": {
+          "siteName": {
             "type": "string",
             "example": ""
           },
-          "SiteTypeID": {
+          "siteTypeId": {
             "type": "number",
             "example": 1
           },
-          "SiteVillegeName": {
+          "siteVillegeName": {
             "type": "string",
             "example": ""
           },
-          "CreatedBy": {
+          "createdBy": {
             "type": "number",
             "example": 1
           },
-          "CreatedOn": {
+          "createdOn": {
             "type": "string",
             "example": ""
           },
-          "Latitude": {
+          "latitude": {
             "type": "number",
             "example": 1111111111.222222
           },
-          "Longitude": {
+          "longitude": {
             "type": "number",
             "example": 1111111111.222222
+          },
+          "district": {
+            "type": "number",
+            "example": 1
+          },
+          "tripTypeId": {
+            "type": "number",
+            "example": 1
           }
         },
         "xml": {
@@ -700,39 +905,58 @@
         }
       },
       "GetSite": {
-        "type": "object",
-        "properties": {
-          "SiteID": {
-            "type": "number",
-            "example": 1
-          },
-          "SiteName": {
-            "type": "string",
-            "example": ""
-          },
-          "SiteTypeID": {
-            "type": "number",
-            "example": 1
-          },
-          "SiteVillegeName": {
-            "type": "string",
-            "example": ""
-          },
-          "CreatedBy": {
-            "type": "number",
-            "example": 1
-          },
-          "CreatedOn": {
-            "type": "string",
-            "example": ""
-          },
-          "Latitude": {
-            "type": "number",
-            "example": 1111111111.222222
-          },
-          "Longitude": {
-            "type": "number",
-            "example": 1111111111.222222
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "siteId": {
+              "type": "number",
+              "example": 1
+            },
+            "diteName": {
+              "type": "string",
+              "example": ""
+            },
+            "siteTypeId": {
+              "type": "number",
+              "example": 1
+            },
+            "siteTypeDescription": {
+              "type": "string",
+              "example": ""
+            },
+            "siteVillegeName": {
+              "type": "string",
+              "example": ""
+            },
+            "createdBy": {
+              "type": "number",
+              "example": 1
+            },
+            "createdOn": {
+              "type": "string",
+              "example": ""
+            },
+            "latitude": {
+              "type": "number",
+              "example": 1111111111.222222
+            },
+            "longitude": {
+              "type": "number",
+              "example": 1111111111.222222
+            },
+            "district": {
+              "type": "number",
+              "example": 1
+            },
+            "tripTypeId": {
+              "type": "number",
+              "example": 1
+            },
+            "tripTypeDescription": {
+              "type": "string",
+              "example": ""
+            }
           }
         },
         "xml": {
@@ -742,11 +966,11 @@
       "AddSiteType": {
         "type": "object",
         "properties": {
-          "SiteTypeDescription": {
+          "siteTypeDescription": {
             "type": "string",
             "example": ""
           },
-          "IsActive": {
+          "isActive": {
             "type": "number",
             "example": 1
           }
@@ -774,15 +998,15 @@
       "GetSiteType": {
         "type": "object",
         "properties": {
-          "SiteTypeID": {
+          "siteTypeId": {
             "type": "number",
             "example": 1
           },
-          "SiteTypeDescription": {
+          "siteTypeDescription": {
             "type": "string",
             "example": ""
           },
-          "IsActive": {
+          "isActive": {
             "type": "number",
             "example": 1
           }
@@ -791,26 +1015,49 @@
           "name": "GetSiteType"
         }
       },
+      "GetSiteTypes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "siteTypeId": {
+              "type": "number",
+              "example": 1
+            },
+            "siteTypeDescription": {
+              "type": "string",
+              "example": ""
+            },
+            "isActive": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        },
+        "xml": {
+          "name": "GetSiteTypes"
+        }
+      },
       "AddSiteWork": {
         "type": "object",
         "properties": {
-          "SiteID": {
+          "siteId": {
             "type": "number",
             "example": 1
           },
-          "WorkTypeID": {
+          "workTypeId": {
             "type": "number",
             "example": 1
           },
-          "DocPath": {
+          "docPath": {
             "type": "string",
             "example": ""
           },
-          "IsSiteReportedIssue": {
+          "isSiteReportedIssue": {
             "type": "number",
             "example": 0
           },
-          "IsWorkCompleted": {
+          "isWorkCompleted": {
             "type": "number",
             "example": 0
           }
@@ -838,27 +1085,27 @@
       "GetSiteWork": {
         "type": "object",
         "properties": {
-          "SiteWorkID": {
+          "siteWorkId": {
             "type": "number",
             "example": 1
           },
-          "SiteID": {
+          "siteId": {
             "type": "number",
             "example": 1
           },
-          "WorkTypeID": {
+          "workTypeId": {
             "type": "number",
             "example": 1
           },
-          "DocPath": {
+          "docPath": {
             "type": "string",
             "example": ""
           },
-          "IsSiteReportedIssue": {
+          "isSiteReportedIssue": {
             "type": "number",
             "example": 0
           },
-          "IsWorkCompleted": {
+          "isWorkCompleted": {
             "type": "number",
             "example": 0
           }
@@ -867,34 +1114,69 @@
           "name": "GetSiteWork"
         }
       },
+      "GetSiteWorks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "siteWorkId": {
+              "type": "number",
+              "example": 1
+            },
+            "siteId": {
+              "type": "number",
+              "example": 1
+            },
+            "workTypeId": {
+              "type": "number",
+              "example": 1
+            },
+            "docPath": {
+              "type": "string",
+              "example": ""
+            },
+            "isSiteReportedIssue": {
+              "type": "number",
+              "example": 0
+            },
+            "isWorkCompleted": {
+              "type": "number",
+              "example": 0
+            }
+          }
+        },
+        "xml": {
+          "name": "GetSiteWorks"
+        }
+      },
       "AddTrip": {
         "type": "object",
         "properties": {
-          "UserID": {
+          "userId": {
             "type": "string",
             "example": "1"
           },
-          "IsTripStarted": {
+          "isTripStarted": {
             "type": "number",
             "example": 1
           },
-          "IsTripEnded": {
+          "isTripEnded": {
             "type": "number",
             "example": 0
           },
-          "CreatedOn": {
+          "createdOn": {
             "type": "string",
             "example": "2023-04-27T17:15:03.000Z"
           },
-          "IsWorkCompleted": {
+          "isWorkCompleted": {
             "type": "number",
             "example": 0
           },
-          "Latitude": {
+          "latitude": {
             "type": "number",
             "example": 1000000000.111111
           },
-          "Longitude": {
+          "longitude": {
             "type": "number",
             "example": 1000000000.111111
           }
@@ -922,35 +1204,35 @@
       "GetTrip": {
         "type": "object",
         "properties": {
-          "TripID": {
+          "tripId": {
             "type": "number",
             "example": 1
           },
-          "UserID": {
+          "userId": {
             "type": "string",
             "example": "1"
           },
-          "IsTripStarted": {
+          "isTripStarted": {
             "type": "number",
             "example": 1
           },
-          "IsTripEnded": {
+          "isTripEnded": {
             "type": "number",
             "example": 0
           },
-          "CreatedOn": {
+          "createdOn": {
             "type": "string",
             "example": "2023-04-27T17:15:03.000Z"
           },
-          "IsWorkCompleted": {
+          "isWorkCompleted": {
             "type": "number",
             "example": 0
           },
-          "Latitude": {
+          "latitude": {
             "type": "number",
             "example": 1000000000.111111
           },
-          "Longitude": {
+          "longitude": {
             "type": "number",
             "example": 1000000000.111111
           }
@@ -959,18 +1241,61 @@
           "name": "GetTrip"
         }
       },
+      "GetTrips": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "tripId": {
+              "type": "number",
+              "example": 1
+            },
+            "userId": {
+              "type": "string",
+              "example": "1"
+            },
+            "isTripStarted": {
+              "type": "number",
+              "example": 1
+            },
+            "isTripEnded": {
+              "type": "number",
+              "example": 0
+            },
+            "createdOn": {
+              "type": "string",
+              "example": "2023-04-27T17:15:03.000Z"
+            },
+            "isWorkCompleted": {
+              "type": "number",
+              "example": 0
+            },
+            "latitude": {
+              "type": "number",
+              "example": 1000000000.111111
+            },
+            "longitude": {
+              "type": "number",
+              "example": 1000000000.111111
+            }
+          }
+        },
+        "xml": {
+          "name": "GetTrips"
+        }
+      },
       "AddUser": {
         "type": "object",
         "properties": {
-          "UserName": {
+          "userName": {
             "type": "string",
             "example": "Aman123"
           },
-          "Password": {
+          "password": {
             "type": "string",
             "example": "*****"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "example": "Aman"
           }
@@ -998,15 +1323,15 @@
       "GetUser": {
         "type": "object",
         "properties": {
-          "UserID": {
+          "userId": {
             "type": "number",
             "example": 1
           },
-          "UserName": {
+          "userName": {
             "type": "string",
             "example": "Aman123"
           },
-          "Name": {
+          "name": {
             "type": "string",
             "example": "Aman"
           }
@@ -1018,11 +1343,11 @@
       "AddWorkType": {
         "type": "object",
         "properties": {
-          "WorkTypeName": {
+          "workTypeName": {
             "type": "string",
             "example": "Work type"
           },
-          "IsActive": {
+          "isActive": {
             "type": "number",
             "example": 1
           }
@@ -1050,17 +1375,44 @@
       "GetWorkType": {
         "type": "object",
         "properties": {
-          "WorkTypeName": {
+          "workTypeId": {
+            "type": "number",
+            "example": 1
+          },
+          "workTypeName": {
             "type": "string",
             "example": "Work type"
           },
-          "IsActive": {
+          "isActive": {
             "type": "number",
             "example": 1
           }
         },
         "xml": {
           "name": "GetWorkType"
+        }
+      },
+      "GetWorkTypes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "workTypeId": {
+              "type": "number",
+              "example": 1
+            },
+            "workTypeName": {
+              "type": "string",
+              "example": "Work type"
+            },
+            "isActive": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        },
+        "xml": {
+          "name": "GetWorkTypes"
         }
       }
     },

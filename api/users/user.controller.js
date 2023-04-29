@@ -27,9 +27,7 @@ module.exports = {
     },
     getUserById: (req, res) => {
         try {
-            const mobile = 123;
-
-            getUserByIdService(mobile, (err, results) => {
+            getUserByIdService(req.params.userId, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

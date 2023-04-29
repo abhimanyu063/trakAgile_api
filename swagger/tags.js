@@ -4,6 +4,10 @@ module.exports = [
         description: "Districts routes",
     },
     {
+        name: "Requests",
+        description: "Requests routes",
+    },
+    {
         name: "Sites",
         description: "Sites routes",
     },

@@ -1,6 +1,6 @@
 const addWorkType = {
-    WorkTypeName: "Work type",
-    IsActive: 1,
+    workTypeName: "Work type",
+    isActive: 1,
 }
 
 const addWorkTypeResponse = {
@@ -9,8 +9,11 @@ const addWorkTypeResponse = {
 }
 
 const getWorkType = {
-    WorkTypeName: "Work type",
-    IsActive: 1,
+    workTypeId: 1,
+    workTypeName: "Work type",
+    isActive: 1,
 }
 
-module.exports = { addWorkType, addWorkTypeResponse, getWorkType };
+const getWorkTypes = [getWorkType]
+
+module.exports = { addWorkType, addWorkTypeResponse, getWorkType, getWorkTypes };

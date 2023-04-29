@@ -1,7 +1,6 @@
-const { addWorkTypeService, getWorkTypeByIdService } = require("./worktype.service")
+const { addWorkTypeService, getWorkTypesService } = require("./worktype.service")
 
 module.exports = {
-
     addWorkType: (req, res) => {
         try {
             const body = req.body;
@@ -23,12 +22,9 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-
-    getWorkTypeById: (req, res) => {
+    getWorkTypes: (req, res) => {
         try {
-            const mobile = 123;
-
-            getWorkTypeByIdService(mobile, (err, results) => {
+            getWorkTypesService((err, results) => {
                 if (err) {
                     console.log(err);
                     return;

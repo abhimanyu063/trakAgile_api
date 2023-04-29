@@ -1,7 +1,6 @@
-const { addSiteTypeService, getSiteTypeByIdService } = require("./sitetype.service");
+const { addSiteTypeService, getSiteTypesService } = require("./sitetype.service");
 
 module.exports = {
-
     addSiteType: (req, res) => {
         try {
             const body = req.body;
@@ -24,12 +23,9 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-
-    getSiteTypeById: (req, res) => {
+    getSiteTypes: (req, res) => {
         try {
-            const mobile = 123;
-
-            getSiteTypeByIdService(mobile, (err, results) => {
+            getSiteTypesService((err, results) => {
                 if (err) {
                     console.log(err);
                     return;

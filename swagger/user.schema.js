@@ -1,7 +1,7 @@
 const addUser = {
-    UserName: "Aman123",
-    Password: "*****",
-    Name: "Aman",
+    userName: "Aman123",
+    password: "*****",
+    name: "Aman",
 }
 
 const addUserResponse = {
@@ -10,9 +10,9 @@ const addUserResponse = {
 }
 
 const getUser = {
-    UserID: 1,
-    UserName: "Aman123",
-    Name: "Aman",
+    userId: 1,
+    userName: "Aman123",
+    name: "Aman",
 }
 
 module.exports = { addUser, addUserResponse, getUser };

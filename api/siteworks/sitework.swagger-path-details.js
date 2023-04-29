@@ -22,19 +22,11 @@ const objectPayload = () => {
 
 const parameterPayload = () => {
     /*
-    #swagger.description = 'Get site work by siteworkid' 
-    #swagger.summary = 'get site work by their id',
+    #swagger.description = 'Get site work by siteId' 
+    #swagger.summary = 'get site work by siteId',
     #swagger.tags = ['SiteWorks']
-    #swagger.parameters = {
-            name: 'id',
-            in: 'query',
-            description: 'id of the site work',
-            required: true,
-            type: 'number',
-            example: 1,
-    } 
     #swagger.responses[200] = { 
-    schema: { '$ref': '#/components/schemas/GetSiteWork' },
+    schema: { '$ref': '#/components/schemas/GetSiteWorks' },
     description: 'Ok' 
     }
     */

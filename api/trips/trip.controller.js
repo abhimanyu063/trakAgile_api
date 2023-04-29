@@ -1,11 +1,9 @@
-const { addTripService, getTripByIdService } = require("./trip.service");
+const { addTripService, getTripsByUserIdService } = require("./trip.service");
 
 module.exports = {
-
     addTrip: (req, res) => {
         try {
             const body = req.body;
-
             addTripService(body, (err, results) => {
                 if (err) {
                     console.log(err)
@@ -24,12 +22,9 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-
-    getTripById: (req, res) => {
+    getTripsByUserId: (req, res) => {
         try {
-            const mobile = 123;
-
-            getTripByIdService(mobile, (err, results) => {
+            getTripsByUserIdService(req.params.userId, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

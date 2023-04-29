@@ -1,11 +1,9 @@
-const { addDistrictService, getDistrictByIdService } = require("./district.service");
+const { addDistrictService, getDistrictsService } = require("./district.service");
 
 module.exports = {
-
     addDistrict: (req, res) => {
         try {
             const body = req.body;
-
             addDistrictService(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
@@ -23,12 +21,9 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-
-    getDistrictById: (req, res) => {
+    getDistricts: (req, res) => {
         try {
-            const districtID = 123
-
-            getDistrictByIdService(districtID, (err, results) => {
+            getDistrictsService((err, results) => {
                 if (err) {
                     return;
                 }
