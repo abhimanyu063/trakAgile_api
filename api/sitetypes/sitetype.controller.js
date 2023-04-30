@@ -4,7 +4,6 @@ module.exports = {
     addSiteType: (req, res) => {
         try {
             const body = req.body;
-
             addSiteTypeService(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({

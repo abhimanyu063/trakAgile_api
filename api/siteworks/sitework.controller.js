@@ -4,7 +4,6 @@ module.exports = {
     addSiteWork: (req, res) => {
         try {
             const body = req.body;
-
             addSiteWorkService(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({

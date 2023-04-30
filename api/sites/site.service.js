@@ -3,7 +3,7 @@ const pool = require("../../config/database");
 module.exports = {
     addSiteService: (data, callback) => {
         try {
-            pool.query(`insert into tblSite (siteName, sitetypeId, siteVillegeName, createdBy, createdOn, latitude, longitude, districtId, tripTypeId) values (?,?,?,?,?,?,?)`,
+            pool.query(`insert into tblSite (siteName, sitetypeId, siteVillegeName, createdBy, createdOn, latitude, longitude, districtId, tripTypeId) values (?,?,?,?,?,?,?,?,?)`,
                 [
                     data.siteName,
                     data.sitetypeId,
