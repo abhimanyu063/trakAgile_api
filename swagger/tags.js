@@ -8,6 +8,10 @@ module.exports = [
         description: "Requests routes",
     },
     {
+        name: "RequestTypes",
+        description: "Request types routes",
+    },
+    {
         name: "Sites",
         description: "Sites routes",
     },

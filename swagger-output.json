@@ -25,6 +25,10 @@
       "description": "Requests routes"
     },
     {
+      "name": "RequestTypes",
+      "description": "Request types routes"
+    },
+    {
       "name": "Sites",
       "description": "Sites routes"
     },
@@ -186,6 +190,73 @@
               "application/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/GetRequests"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests/addRequestType": {
+      "post": {
+        "tags": [
+          "RequestTypes"
+        ],
+        "description": "Add request types",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddRequestTypeResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddRequestTypeResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "add request types payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddRequestType"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests/getRequestTypes": {
+      "get": {
+        "tags": [
+          "RequestTypes"
+        ],
+        "summary": "get request types",
+        "description": "Get reuest types",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRequestTypes"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRequestTypes"
                 }
               }
             }
@@ -564,6 +635,46 @@
         }
       }
     },
+    "/users/validateAndGetUser": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Validate and get user",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUser"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUser"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "validate user payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateUser"
+              }
+            }
+          }
+        }
+      }
+    },
     "/worktypes/addWorkType": {
       "post": {
         "tags": [
@@ -842,6 +953,81 @@
         },
         "xml": {
           "name": "GetRequests"
+        }
+      },
+      "AddRequestType": {
+        "type": "object",
+        "properties": {
+          "requestTypeDescription": {
+            "type": "string",
+            "example": ""
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "AddRequestType"
+        }
+      },
+      "AddRequestTypeResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "number",
+            "example": 1
+          },
+          "data": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddRequestTypeResponse"
+        }
+      },
+      "GetRequestType": {
+        "type": "object",
+        "properties": {
+          "requestTypeId": {
+            "type": "number",
+            "example": 1
+          },
+          "requestTypeDescription": {
+            "type": "string",
+            "example": ""
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "GetRequestType"
+        }
+      },
+      "GetRequestTypes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "requestTypeId": {
+              "type": "number",
+              "example": 1
+            },
+            "requestTypeDescription": {
+              "type": "string",
+              "example": ""
+            },
+            "isActive": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        },
+        "xml": {
+          "name": "GetRequestTypes"
         }
       },
       "AddSite": {
@@ -1298,6 +1484,10 @@
           "name": {
             "type": "string",
             "example": "Aman"
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
           }
         },
         "xml": {
@@ -1334,10 +1524,30 @@
           "name": {
             "type": "string",
             "example": "Aman"
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
           }
         },
         "xml": {
           "name": "GetUser"
+        }
+      },
+      "ValidateUser": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "example": "Aman123"
+          },
+          "password": {
+            "type": "string",
+            "example": "*****"
+          }
+        },
+        "xml": {
+          "name": "ValidateUser"
         }
       },
       "AddWorkType": {

@@ -1,16 +1,14 @@
-const { addUserService, getUserByIdService } = require("./user.service");
+const { addUserService, getUserByIdService, validateAndGetUserService } = require("./user.service");
 
 module.exports = {
     addUser: (req, res) => {
         try {
             const body = req.body;
-
             addUserService(body, (err, results) => {
                 if (err) {
-                    console.log(err)
                     return res.status(500).json({
                         success: 0,
-                        message: "Database connection error"
+                        message: err
                     });
                 }
                 else {
@@ -41,5 +39,27 @@ module.exports = {
         catch (error) {
             console.log('Error ', error)
         }
-    }
+    },
+    validateAndGetUser: (req, res) => {
+        try {
+            const body = req.body;
+            validateAndGetUserService(body, (err, results) => {
+                if (err) {
+                    return res.status(500).json({
+                        success: 0,
+                        message: err
+                    });
+                }
+                else {
+                    return res.status(200).json({
+                        success: results === undefined ? 0 : 1,
+                        data: results
+                    });
+                }
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }

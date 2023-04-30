@@ -20,6 +20,28 @@ const objectPayload = () => {
     */
 };
 
+const objectValidatePayload = () => {
+    /*
+    #swagger.description = 'Validate and get user' 
+    #swagger.tags = ['Users']
+    #swagger.requestBody = {
+            required: true,
+            description: 'validate user payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/ValidateUser"
+                    }  
+                }
+            }
+        } 
+    #swagger.responses[200] = { 
+    schema: { '$ref': '#/components/schemas/GetUser' },
+    description: 'Ok' 
+    }
+    */
+};
+
 const parameterPayload = () => {
     /*
     #swagger.description = 'Get user by userId' 
@@ -32,4 +54,4 @@ const parameterPayload = () => {
     */
 };
 
-module.exports = { objectPayload, parameterPayload };
+module.exports = { objectPayload, parameterPayload, objectValidatePayload };

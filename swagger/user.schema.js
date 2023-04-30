@@ -2,6 +2,7 @@ const addUser = {
     userName: "Aman123",
     password: "*****",
     name: "Aman",
+    isActive: 1,
 }
 
 const addUserResponse = {
@@ -13,6 +14,12 @@ const getUser = {
     userId: 1,
     userName: "Aman123",
     name: "Aman",
+    isActive: 1
 }
 
-module.exports = { addUser, addUserResponse, getUser };
+const validateUser = {
+    userName: "Aman123",
+    password: "*****",
+}
+
+module.exports = { addUser, addUserResponse, getUser, validateUser };
