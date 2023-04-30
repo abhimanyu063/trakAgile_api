@@ -25,7 +25,6 @@ module.exports = {
         try {
             siteTypeService.getSiteTypes((err, results) => {
                 if (err) {
-                    console.log(err);
                     return;
                 }
                 return res.json({

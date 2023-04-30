@@ -25,7 +25,6 @@ module.exports = {
         try {
             siteWorkService.getSiteWorkBySiteId(req.params.siteId, (err, results) => {
                 if (err) {
-                    console.log(err);
                     return;
                 }
                 return res.json({

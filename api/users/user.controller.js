@@ -27,7 +27,6 @@ module.exports = {
         try {
             userService.getUserById(req.params.userId, (err, results) => {
                 if (err) {
-                    console.log(err);
                     return;
                 }
                 return res.json({

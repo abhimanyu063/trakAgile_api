@@ -20,7 +20,7 @@ const getRequest = {
     requestTypeDescription: "",
     userId: 1,
     isApproved: 1,
-    approvedByUserid: 1,
+    approvedByUserId: 1,
     approvedBuUserName: "",
     requestDate: "",
     createdOn: ""
