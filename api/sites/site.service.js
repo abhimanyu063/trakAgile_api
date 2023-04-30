@@ -35,9 +35,9 @@ module.exports = {
                 ELSE '' END tripTypeDescription, tripId
             FROM tblSite s
             LEFT JOIN tblSiteType st
-                ON st.siteTypeId = s.siteTypeId
+                ON st.siteTypeId = s.siteTypeId AND st.isActive = 1
             LEFT JOIN tblDistrict d
-                ON d.districtId = s.districtId
+                ON d.districtId = s.districtId AND d.isActive = 1
             where userId = ${userId}`,
                 [userId],
                 (error, results, fields) => {

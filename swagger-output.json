@@ -939,7 +939,7 @@
             "type": "number",
             "example": 1
           },
-          "approvedByUserid": {
+          "approvedByUserId": {
             "type": "number",
             "example": 1
           },
@@ -989,7 +989,7 @@
               "type": "number",
               "example": 1
             },
-            "approvedByUserid": {
+            "approvedByUserId": {
               "type": "number",
               "example": 1
             },
