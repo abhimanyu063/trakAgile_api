@@ -3,7 +3,6 @@ const pool = require("../../config/database");
 module.exports = {
     addWorkType: (data, callback) => {
         try {
-            console.log(data.id);
             pool.query(`insert into tblWorkType (workTypeName, isActive) values (?,?)`,
                 [
                     data.workTypeName,
@@ -22,7 +21,7 @@ module.exports = {
     },
     getWorkTypes: (callback) => {
         try {
-            pool.query(`select workTypeId, workTypeName, isActive from tblWorkType`,
+            pool.query(`select workTypeId, workTypeName, isActive from tblWorkType where isActive = 1`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

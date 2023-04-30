@@ -559,6 +559,46 @@
         }
       }
     },
+    "/trips/updateTrip": {
+      "post": {
+        "tags": [
+          "Trips"
+        ],
+        "description": "Update trip",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTripResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTripResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "update trip payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTrip"
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/addUser": {
       "post": {
         "tags": [
@@ -887,6 +927,10 @@
             "type": "number",
             "example": 1
           },
+          "requestTypeDescription": {
+            "type": "string",
+            "example": ""
+          },
           "userId": {
             "type": "number",
             "example": 1
@@ -898,6 +942,10 @@
           "approvedByUserid": {
             "type": "number",
             "example": 1
+          },
+          "approvedBuUserName": {
+            "type": "string",
+            "example": ""
           },
           "requestDate": {
             "type": "string",
@@ -929,6 +977,10 @@
               "type": "number",
               "example": 1
             },
+            "requestTypeDescription": {
+              "type": "string",
+              "example": ""
+            },
             "userId": {
               "type": "number",
               "example": 1
@@ -940,6 +992,10 @@
             "approvedByUserid": {
               "type": "number",
               "example": 1
+            },
+            "approvedBuUserName": {
+              "type": "string",
+              "example": ""
             },
             "requestDate": {
               "type": "string",
@@ -1045,7 +1101,7 @@
             "type": "string",
             "example": ""
           },
-          "createdBy": {
+          "userId": {
             "type": "number",
             "example": 1
           },
@@ -1066,6 +1122,10 @@
             "example": 1
           },
           "tripTypeId": {
+            "type": "number",
+            "example": 1
+          },
+          "tripId": {
             "type": "number",
             "example": 1
           }
@@ -1115,7 +1175,7 @@
               "type": "string",
               "example": ""
             },
-            "createdBy": {
+            "userId": {
               "type": "number",
               "example": 1
             },
@@ -1142,6 +1202,10 @@
             "tripTypeDescription": {
               "type": "string",
               "example": ""
+            },
+            "tripId": {
+              "type": "number",
+              "example": 1
             }
           }
         },
@@ -1350,10 +1414,6 @@
             "type": "number",
             "example": 0
           },
-          "createdOn": {
-            "type": "string",
-            "example": "2023-04-27T17:15:03.000Z"
-          },
           "isWorkCompleted": {
             "type": "number",
             "example": 0
@@ -1369,6 +1429,30 @@
         },
         "xml": {
           "name": "AddTrip"
+        }
+      },
+      "UpdateTrip": {
+        "type": "object",
+        "properties": {
+          "tripId": {
+            "type": "number",
+            "example": 1
+          },
+          "isTripStarted": {
+            "type": "number",
+            "example": 1
+          },
+          "isTripEnded": {
+            "type": "number",
+            "example": 0
+          },
+          "isWorkCompleted": {
+            "type": "number",
+            "example": 0
+          }
+        },
+        "xml": {
+          "name": "UpdateTrip"
         }
       },
       "AddTripResponse": {
@@ -1421,6 +1505,10 @@
           "longitude": {
             "type": "number",
             "example": 10.111111
+          },
+          "updatedOn": {
+            "type": "string",
+            "example": "2023-04-27T17:15:03.000Z"
           }
         },
         "xml": {
@@ -1463,6 +1551,10 @@
             "longitude": {
               "type": "number",
               "example": 10.111111
+            },
+            "updatedOn": {
+              "type": "string",
+              "example": "2023-04-27T17:15:03.000Z"
             }
           }
         },

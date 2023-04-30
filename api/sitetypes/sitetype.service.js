@@ -21,7 +21,7 @@ module.exports = {
     },
     getSiteTypes: (callback) => {
         try {
-            pool.query(`select siteTypeId, siteTypeDescription, isActive from tblSiteType`,
+            pool.query(`select siteTypeId, siteTypeDescription, isActive from tblSiteType where isActive = 1`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

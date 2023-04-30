@@ -21,7 +21,7 @@ module.exports = {
     },
     getDistricts: (callback) => {
         try {
-            pool.query(`select districtId, districtName, isActive from tblDistrict`,
+            pool.query(`select districtId, districtName, isActive from tblDistrict where isActive = 1`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

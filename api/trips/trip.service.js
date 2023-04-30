@@ -3,7 +3,6 @@ const pool = require("../../config/database");
 module.exports = {
     addTrip: (data, callback) => {
         try {
-            console.log(data.id);
             pool.query(`insert into tblTrip (userId, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude) values (?,?,?,?,?,?,?)`,
                 [
                     data.userId,
@@ -38,5 +37,20 @@ module.exports = {
         catch (error) {
             console.log('Error ', error)
         }
-    }
+    },
+    updateTrip: (data, callback) => {
+        try {
+            pool.query(`update tblTrip set isTripStarted = ${data.isTripStarted}, isTripEnded = ${data.isTripEnded}, isWorkCompleted = ${data.isWorkCompleted}, updatedOn = ? where tripId = ${data.tripId}`,
+                [new Date()],
+                (error, results, fields) => {
+                    if (error) {
+                        callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }

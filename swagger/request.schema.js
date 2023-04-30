@@ -17,9 +17,11 @@ const getRequest = {
     requestId: 1,
     requestComment: "",
     requestTypeId: 1,
+    requestTypeDescription: "",
     userId: 1,
     isApproved: 1,
     approvedByUserid: 1,
+    approvedBuUserName: "",
     requestDate: "",
     createdOn: ""
 }

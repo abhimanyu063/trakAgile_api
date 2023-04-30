@@ -3,17 +3,18 @@ const pool = require("../../config/database");
 module.exports = {
     addSite: (data, callback) => {
         try {
-            pool.query(`insert into tblSite (siteName, sitetypeId, siteVillageName, createdBy, createdOn, latitude, longitude, districtId, tripTypeId) values (?,?,?,?,?,?,?,?,?)`,
+            pool.query(`insert into tblSite (siteName, sitetypeId, siteVillageName, userId, createdOn, latitude, longitude, districtId, tripTypeId, tripId) values (?,?,?,?,?,?,?,?,?,?)`,
                 [
                     data.siteName,
                     data.sitetypeId,
                     data.siteVillageName,
-                    data.createdBy,
+                    data.userId,
                     new Date(),
                     data.latitude,
                     data.longitude,
                     data.districtId,
                     data.tripTypeId,
+                    data.tripId
                 ],
                 (error, results, fields) => {
                     if (error) {
@@ -28,16 +29,16 @@ module.exports = {
     },
     getSitesByUserId: (userId, callback) => {
         try {
-            pool.query(`select siteName, siteTypeDescription, s.sitetypeId, siteVillageName, createdBy, createdOn, latitude, longitude, s.districtId, districtName, tripTypeId, 
+            pool.query(`select siteName, siteTypeDescription, s.sitetypeId, siteVillageName, userId, createdOn, latitude, longitude, s.districtId, districtName, tripTypeId,
             CASE WHEN tripTypeId = 1 THEN 'Local' 
                 WHEN tripTypeId = 2 THEN 'Non-Local' 
-                ELSE '' END tripTypeDescription
+                ELSE '' END tripTypeDescription, tripId
             FROM tblSite s
             LEFT JOIN tblSiteType st
                 ON st.siteTypeId = s.siteTypeId
             LEFT JOIN tblDistrict d
                 ON d.districtId = s.districtId
-            where createdBy = ${userId}`,
+            where userId = ${userId}`,
                 [userId],
                 (error, results, fields) => {
                     if (error) {

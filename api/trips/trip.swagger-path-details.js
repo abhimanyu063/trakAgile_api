@@ -32,4 +32,26 @@ const parameterPayload = () => {
     */
 };
 
-module.exports = { objectPayload, parameterPayload };
+const objectUpdatePayload = () => {
+    /*
+    #swagger.description = 'Update trip' 
+    #swagger.tags = ['Trips']
+    #swagger.requestBody = {
+            required: true,
+            description: 'update trip payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/UpdateTrip"
+                    }  
+                }
+            }
+        } 
+    #swagger.responses[200] = { 
+    schema: { '$ref': '#/components/schemas/AddTripResponse' },
+    description: 'Ok' 
+    }
+    */
+};
+
+module.exports = { objectPayload, parameterPayload, objectUpdatePayload };

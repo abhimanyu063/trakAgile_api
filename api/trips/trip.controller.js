@@ -37,5 +37,25 @@ module.exports = {
         catch (error) {
             console.log('Error ', error)
         }
-    }
+    },
+    updateTrip: (req, res) => {
+        try {
+            const body = req.body;
+            tripService.updateTrip(body, (err, results) => {
+                if (err) {
+                    return res.status(500).json({
+                        success: 0,
+                        message: err
+                    });
+                }
+                return res.status(200).json({
+                    success: 1,
+                    data: results
+                });
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }

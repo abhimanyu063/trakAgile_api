@@ -26,7 +26,13 @@ module.exports = {
     },
     getRequestsByUserId: (userId, callback) => {
         try {
-            pool.query(`select requestId, requestComment, requestTypeId, userId, isApproved, approvedByUserId, requestDate, createdOn from tblRequest where userId = ${userId}`,
+            pool.query(`select requestId, requestComment, r.requestTypeId, rt.requestTypeDescription, r.userId, isApproved, approvedByUserId, u.name approvedByUserName, requestDate, createdOn 
+            from tblRequest r
+            INNER JOIN tblRequestType rt
+                on rt.requestTypeId = r.requestTypeId AND rt.isActive = 1
+            LEFT JOIN tblUser u
+                on u.userId = r.approvedByUserId
+            where r.userId = ${userId}`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
