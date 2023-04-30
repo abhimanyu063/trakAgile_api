@@ -1,7 +1,7 @@
 const pool = require("../../config/database");
 
 module.exports = {
-    addUserService: (data, callback) => {
+    addUser: (data, callback) => {
         try {
             console.log(data.id);
             pool.query(`insert into tblUser (userName, password, name, isActive) values (?,?,?,?)`,
@@ -22,7 +22,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getUserByIdService: (userId, callback) => {
+    getUserById: (userId, callback) => {
         try {
             pool.query(`select userId, userName, name from tblUser where userId = ${userId}`,
                 (error, results, fields) => {
@@ -36,7 +36,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    validateAndGetUserService: (data, callback) => {
+    validateAndGetUser: (data, callback) => {
         try {
             console.log(data.id);
             pool.query(`Select userid, userName, name from tblUser where userName = '${data.userName}' AND password = '${data.password}' AND isActive = 1`,

@@ -1,11 +1,11 @@
 const addTrip = {
-    userId: "1",
+    userId: 1,
     isTripStarted: 1,
     isTripEnded: 0,
     createdOn: "2023-04-27T17:15:03.000Z",
     isWorkCompleted: 0,
-    latitude: 1000000000.111111,
-    longitude: 1000000000.111111,
+    latitude: 10.111111,
+    longitude: 10.111111,
 }
 
 const addTripResponse = {
@@ -15,13 +15,13 @@ const addTripResponse = {
 
 const getTrip = {
     tripId: 1,
-    userId: "1",
+    userId: 1,
     isTripStarted: 1,
     isTripEnded: 0,
     createdOn: "2023-04-27T17:15:03.000Z",
     isWorkCompleted: 0,
-    latitude: 1000000000.111111,
-    longitude: 1000000000.111111,
+    latitude: 10.111111,
+    longitude: 10.111111,
 }
 
 const getTrips = [getTrip]

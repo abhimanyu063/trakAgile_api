@@ -1,10 +1,10 @@
-const { addRequestTypeService, getRequestTypesService } = require("./requesttype.service");
+const requestTypeService = require("./requesttype.service");
 
 module.exports = {
     addRequestType: (req, res) => {
         try {
             const body = req.body;
-            addRequestTypeService(body, (err, results) => {
+            requestTypeService.addRequestType(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -23,7 +23,7 @@ module.exports = {
     },
     getRequestTypes: (req, res) => {
         try {
-            getRequestTypesService((err, results) => {
+            requestTypeService.getRequestTypes((err, results) => {
                 if (err) {
                     return;
                 }

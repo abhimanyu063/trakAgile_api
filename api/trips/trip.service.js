@@ -1,7 +1,7 @@
 const pool = require("../../config/database");
 
 module.exports = {
-    addTripService: (data, callback) => {
+    addTrip: (data, callback) => {
         try {
             console.log(data.id);
             pool.query(`insert into tblTrip (userId, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude) values (?,?,?,?,?,?,?)`,
@@ -25,7 +25,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getTripsByUserIdService: (userId, callback) => {
+    getTripsByUserId: (userId, callback) => {
         try {
             pool.query(`select tripId, userId, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude from tblTrip where userId = ${userId}`,
                 (error, results, fields) => {

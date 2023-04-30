@@ -1,7 +1,7 @@
 const pool = require("../../config/database");
 
 module.exports = {
-    addRequestService: (data, callback) => {
+    addRequest: (data, callback) => {
         try {
             pool.query(`insert into tblRequest (requestComment, requestTypeId, userId, isApproved, approvedByUserId, requestDate, createdOn) values (?,?,?,?,?,?,?)`,
                 [
@@ -24,7 +24,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getRequestsByUserIdService: (userId, callback) => {
+    getRequestsByUserId: (userId, callback) => {
         try {
             pool.query(`select requestId, requestComment, requestTypeId, userId, isApproved, approvedByUserId, requestDate, createdOn from tblRequest where userId = ${userId}`,
                 (error, results, fields) => {

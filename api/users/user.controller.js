@@ -1,10 +1,10 @@
-const { addUserService, getUserByIdService, validateAndGetUserService } = require("./user.service");
+const userService = require("./user.service");
 
 module.exports = {
     addUser: (req, res) => {
         try {
             const body = req.body;
-            addUserService(body, (err, results) => {
+            userService.addUser(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -25,7 +25,7 @@ module.exports = {
     },
     getUserById: (req, res) => {
         try {
-            getUserByIdService(req.params.userId, (err, results) => {
+            userService.getUserById(req.params.userId, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;
@@ -43,7 +43,7 @@ module.exports = {
     validateAndGetUser: (req, res) => {
         try {
             const body = req.body;
-            validateAndGetUserService(body, (err, results) => {
+            userService.validateAndGetUser(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,

@@ -1,10 +1,10 @@
-const { addSiteTypeService, getSiteTypesService } = require("./sitetype.service");
+const siteTypeService = require("./sitetype.service");
 
 module.exports = {
     addSiteType: (req, res) => {
         try {
             const body = req.body;
-            addSiteTypeService(body, (err, results) => {
+            siteTypeService.addSiteType(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -23,7 +23,7 @@ module.exports = {
     },
     getSiteTypes: (req, res) => {
         try {
-            getSiteTypesService((err, results) => {
+            siteTypeService.getSiteTypes((err, results) => {
                 if (err) {
                     console.log(err);
                     return;

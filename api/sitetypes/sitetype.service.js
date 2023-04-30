@@ -1,9 +1,9 @@
 const pool = require("../../config/database");
 
 module.exports = {
-    addSiteTypeService: (data, callback) => {
+    addSiteType: (data, callback) => {
         try {
-            pool.query(`insert into tblSiteType (siteId, siteTypeDescription, isActive) values (?,?)`,
+            pool.query(`insert into tblSiteType (siteTypeDescription, isActive) values (?,?)`,
                 [
                     data.siteTypeDescription,
                     data.isActive,
@@ -19,7 +19,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getSiteTypesService: (callback) => {
+    getSiteTypes: (callback) => {
         try {
             pool.query(`select siteTypeId, siteTypeDescription, isActive from tblSiteType`,
                 (error, results, fields) => {

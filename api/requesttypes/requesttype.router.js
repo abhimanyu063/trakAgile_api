@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const { addRequestType, getRequestTypes } = require("./requesttype.controller");
+const requestTypeController = require("./requesttype.controller");
 const { objectPayload, getlist } = require("./requesttype.swagger-path-details");
 
-router.post("/requests/addRequestType", addRequestType, objectPayload);
-router.get("/requests/getRequestTypes", getRequestTypes, getlist);
+router.post("/requestTypes/addRequestType", requestTypeController.addRequestType, objectPayload);
+router.get("/requestTypes/getRequestTypes", requestTypeController.getRequestTypes, getlist);
 
 module.exports = router;

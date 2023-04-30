@@ -1,7 +1,7 @@
 const pool = require("../../config/database");
 
 module.exports = {
-    addRequestTypeService: (data, callback) => {
+    addRequestType: (data, callback) => {
         try {
             pool.query(`insert into tblRequestType (requestTypeDescription, isActive) values (?,?)`,
                 [
@@ -19,7 +19,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getRequestTypesService: (callback) => {
+    getRequestTypes: (callback) => {
         try {
             pool.query(`select requestTypeId, requestTypeDescription, isActive from tblRequestType`,
                 (error, results, fields) => {

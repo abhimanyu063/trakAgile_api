@@ -1,10 +1,10 @@
-const { addDistrictService, getDistrictsService } = require("./district.service");
+const districtService = require("./district.service");
 
 module.exports = {
     addDistrict: (req, res) => {
         try {
             const body = req.body;
-            addDistrictService(body, (err, results) => {
+            districtService.addDistrict(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -23,7 +23,7 @@ module.exports = {
     },
     getDistricts: (req, res) => {
         try {
-            getDistrictsService((err, results) => {
+            districtService.getDistricts((err, results) => {
                 if (err) {
                     return;
                 }

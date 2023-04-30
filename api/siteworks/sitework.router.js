@@ -1,8 +1,8 @@
-const { addSiteWork, getSiteWorkBySiteId } = require("./sitework.controller");
 const router = require("express").Router();
+const siteWorkController = require("./sitework.controller");
 const { objectPayload, parameterPayload } = require("./sitework.swagger-path-details");
 
-router.post("/siteworks/addSiteWork", addSiteWork, objectPayload);
-router.get("/siteworks/getSiteWorkBySiteId/:siteId", getSiteWorkBySiteId, parameterPayload);
+router.post("/siteWorks/addSiteWork", siteWorkController.addSiteWork, objectPayload);
+router.get("/siteWorks/getSiteWorkBySiteId/:siteId", siteWorkController.getSiteWorkBySiteId, parameterPayload);
 
 module.exports = router;

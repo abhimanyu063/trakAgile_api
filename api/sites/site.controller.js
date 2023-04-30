@@ -1,10 +1,10 @@
-const { addSiteService, getSitesByUserIdService } = require("./site.service");
+const siteService = require("./site.service");
 
 module.exports = {
     addSite: (req, res) => {
         try {
             const body = req.body;
-            addSiteService(body, (err, results) => {
+            siteService.addSite(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -23,7 +23,7 @@ module.exports = {
     },
     getSitesByUserId: (req, res) => {
         try {
-            getSitesByUserIdService(req.params.userId, (err, results) => {
+            siteService.getSitesByUserId(req.params.userId, (err, results) => {
                 if (err) {
                     console.log(err);
                     return;

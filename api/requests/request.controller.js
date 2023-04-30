@@ -1,10 +1,10 @@
-const { addRequestService, getRequestsByUserIdService } = require("./request.service");
+const requestService = require("./request.service");
 
 module.exports = {
     addRequest: (req, res) => {
         try {
             const body = req.body;
-            addRequestService(body, (err, results) => {
+            requestService.addRequest(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -23,7 +23,7 @@ module.exports = {
     },
     getRequestsByUserId: (req, res) => {
         try {
-            getRequestsByUserIdService(req.params.userId, (err, results) => {
+            requestService.getRequestsByUserId(req.params.userId, (err, results) => {
                 if (err) {
                     return;
                 }
