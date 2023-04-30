@@ -38,7 +38,7 @@ module.exports = {
     validateAndGetUser: (data, callback) => {
         try {
             console.log(data.id);
-            pool.query(`Select userid, userName, name from tblUser where userName = '${data.userName}' AND password = '${data.password}' AND isActive = 1`,
+            pool.query(`Select userId, userName, name from tblUser where userName = '${data.userName}' AND password = '${data.password}' AND isActive = 1`,
                 [],
                 (error, results, fields) => {
                     if (error) {
