@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const requestController = require("./request.controller");
-const { objectPayload, getlist } = require("./request.swagger-path-details");
+const router = require('express').Router();
+const requestController = require('./request.controller');
+const apiPathDetails = require('./request.swagger-path-details');
 
-router.post("/requests/addRequest", requestController.addRequest, objectPayload);
-router.get("/requests/getRequestsByUserId/:userId", requestController.getRequestsByUserId, getlist);
+router.post('/requests/addRequest', requestController.addRequest, apiPathDetails.objectPayload);
+router.get('/requests/getRequestsByUserId/:userId', requestController.getRequestsByUserId, apiPathDetails.getlist);
 
 module.exports = router;

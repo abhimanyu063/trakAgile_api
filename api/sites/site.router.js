@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const siteController = require("./site.controller");
-const { objectPayload, parameterPayload } = require("./site.swagger-path-details");
+const router = require('express').Router();
+const siteController = require('./site.controller');
+const apiPathDetails = require('./site.swagger-path-details');
 
-router.post("/sites/addSite", siteController.addSite, objectPayload);
-router.get("/sites/getSitesByUserId/:userId", siteController.getSitesByUserId, parameterPayload);
+router.post('/sites/addSite', siteController.addSite, apiPathDetails.objectPayload);
+router.get('/sites/getSitesByUserId/:userId', siteController.getSitesByUserId, apiPathDetails.parameterPayload);
 
 module.exports = router;

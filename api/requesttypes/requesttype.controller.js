@@ -1,4 +1,4 @@
-const requestTypeService = require("./requesttype.service");
+const requestTypeService = require('./requesttype.service');
 
 module.exports = {
     addRequestType: (req, res) => {

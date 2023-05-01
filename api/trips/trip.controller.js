@@ -1,4 +1,4 @@
-const tripService = require("./trip.service");
+const tripService = require('./trip.service');
 
 module.exports = {
     addTrip: (req, res) => {

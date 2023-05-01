@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 
 const swaggerUi = require('swagger-ui-express');
@@ -6,7 +6,7 @@ const swaggerDocument = require('./swagger-output.json');
 
 const router = require('./api/endpoint.router');
 
-const cors = require("cors");
+const cors = require('cors');
 
 app.use(cors({
     origin: "*"
@@ -20,5 +20,5 @@ app.listen(3000, () => {
 })
 
 router.forEach((path) => {
-    app.use("/api", path);
+    app.use('/api', path);
 });

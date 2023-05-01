@@ -1,4 +1,4 @@
-const { createPool } = require("mysql");
+const { createPool } = require('mysql');
 
 const pool = createPool({
     host: '45.90.109.227',

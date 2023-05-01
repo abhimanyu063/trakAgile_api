@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const workTypeController= require("./worktype.controller");
-const { objectPayload, getlist } = require("./worktype.swagger-path-details");
+const router = require('express').Router();
+const workTypeController = require('./worktype.controller');
+const apiPathDetails = require('./worktype.swagger-path-details');
 
-router.post("/workTypes/addWorkType", workTypeController.addWorkType, objectPayload);
-router.get("/workTypes/getWorkTypes", workTypeController.getWorkTypes, getlist);
+router.post('/workTypes/addWorkType', workTypeController.addWorkType, apiPathDetails.objectPayload);
+router.get('/workTypes/getWorkTypes', workTypeController.getWorkTypes, apiPathDetails.getlist);
 
 module.exports = router;

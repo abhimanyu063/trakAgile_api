@@ -1,4 +1,4 @@
-const districtService = require("./district.service");
+const districtService = require('./district.service');
 
 module.exports = {
     addDistrict: (req, res) => {

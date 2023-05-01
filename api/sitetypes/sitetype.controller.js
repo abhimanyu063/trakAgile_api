@@ -1,4 +1,4 @@
-const siteTypeService = require("./sitetype.service");
+const siteTypeService = require('./sitetype.service');
 
 module.exports = {
     addSiteType: (req, res) => {

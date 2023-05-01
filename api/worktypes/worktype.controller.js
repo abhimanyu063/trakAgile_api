@@ -1,4 +1,4 @@
-const workTypeService = require("./worktype.service")
+const workTypeService = require('./worktype.service')
 
 module.exports = {
     addWorkType: (req, res) => {

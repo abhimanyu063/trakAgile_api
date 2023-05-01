@@ -1,4 +1,4 @@
-const siteWorkService = require("./sitework.service");
+const siteWorkService = require('./sitework.service');
 
 module.exports = {
     addSiteWork: (req, res) => {
