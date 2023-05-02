@@ -41,7 +41,7 @@ module.exports = {
         }
         */
     },
-    parameterPayload: () => {
+    pathPayload: () => {
         /*
         #swagger.description = 'Get user by userId' 
         #swagger.summary = 'get user by their id',

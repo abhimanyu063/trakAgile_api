@@ -20,7 +20,7 @@ module.exports = {
         }
         */
     },
-    parameterPayload: () => {
+    pathPayload: () => {
         /*
         #swagger.description = 'Get trip by userId' 
         #swagger.summary = 'get trip by userId',

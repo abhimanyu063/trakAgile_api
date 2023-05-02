@@ -20,7 +20,7 @@ module.exports = {
         }
         */
     },
-    parameterPayload: () => {
+    pathPayload: () => {
         /*
         #swagger.description = 'Get site work by siteId' 
         #swagger.summary = 'get site work by siteId',

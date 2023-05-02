@@ -32,7 +32,8 @@ module.exports = {
                 on rt.requestTypeId = r.requestTypeId AND rt.isActive = 1
             LEFT JOIN tblUser u
                 on u.userId = r.approvedByUserId
-            where r.userId = ${userId}`,
+            where r.userId = ${userId}
+            order by requestId desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
