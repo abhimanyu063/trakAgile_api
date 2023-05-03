@@ -13,11 +13,11 @@ const doc = {
     servers: [
         {
             url: "http://localhost:3000/api/",
-            description: "dev server"
+            description: "local server"
         },
         {
-            url: "https://localhost:3000/api/",
-            description: "prod server"
+            url: "http://45.90.109.227:3000/api/",
+            description: "dev server"
         }
     ],
     consumes: ['application/json', 'multipart/form-data'],
