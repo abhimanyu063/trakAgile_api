@@ -4,13 +4,21 @@ const multer = require('multer');
 let fileName = '';
 const fileLocation = 'uploads/sitework';
 
+const randomNumber = (min = 1, max = 100000000000000000) => {
+    return Math.floor(
+        Math.random() * (max - min + 1) + min
+    )
+}
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, fileLocation)//path to upload file
     },
     filename: (req, file, cb) => {
-        fileName = file.originalname;
-        cb(null, file.originalname)// can modilfy file name here
+        const date = new Date();
+        const uniqueId = date.valueOf() + randomNumber();
+        fileName = (file.originalname !== undefined && file.originalname !== null) ? `${uniqueId}.${file.originalname.split('.')[1]}` : '';
+        cb(null, fileName)// can modilfy file name here
     }
 })
 
