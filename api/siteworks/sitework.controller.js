@@ -17,7 +17,9 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
         const date = new Date();
         const uniqueId = date.valueOf() + randomNumber();
-        fileName = (file.originalname !== undefined && file.originalname !== null) ? `${uniqueId}.${file.originalname.split('.')[1]}` : '';
+        const arr = file.originalname.split('.');
+        const ext = arr[arr.length - 1];
+        fileName = (file.originalname !== undefined && file.originalname !== null) ? `${uniqueId}.${ext}` : '';
         cb(null, fileName)// can modilfy file name here
     }
 })
