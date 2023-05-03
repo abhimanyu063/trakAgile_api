@@ -4,19 +4,19 @@ module.exports = {
         #swagger.description = 'Add user' 
         #swagger.tags = ['Users']
         #swagger.requestBody = {
-                required: true,
-                description: 'add user payload',
-                content: {
-                    "application/json": {
-                        schema: {
-                            $ref: "#/components/schemas/AddUser"
-                        }  
-                    }
+            required: true,
+            description: 'add user payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/AddUser"
+                    }  
                 }
-            } 
+            }
+        } 
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/AddUserResponse' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/AddUserResponse' },
+            description: 'Ok' 
         }
         */
     },
@@ -25,19 +25,19 @@ module.exports = {
         #swagger.description = 'Validate and get user' 
         #swagger.tags = ['Users']
         #swagger.requestBody = {
-                required: true,
-                description: 'validate user payload',
-                content: {
-                    "application/json": {
-                        schema: {
-                            $ref: "#/components/schemas/ValidateUser"
-                        }  
-                    }
+            required: true,
+            description: 'validate user payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/ValidateUser"
+                    }  
                 }
-            } 
+            }
+        } 
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/GetUser' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/GetUser' },
+            description: 'Ok' 
         }
         */
     },
@@ -47,8 +47,8 @@ module.exports = {
         #swagger.summary = 'get user by their id',
         #swagger.tags = ['Users']
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/GetUser' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/GetUser' },
+            description: 'Ok' 
         }
         */
     }

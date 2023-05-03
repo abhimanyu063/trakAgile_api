@@ -20,7 +20,7 @@ const doc = {
             description: "prod server"
         }
     ],
-    consumes: ['application/json'],
+    consumes: ['application/json', 'multipart/form-data'],
     produces: ['application/json'],
     tags: tags,
     securityDefinitions: {

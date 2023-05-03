@@ -4,19 +4,19 @@ module.exports = {
         #swagger.description = 'Add trip' 
         #swagger.tags = ['Trips']
         #swagger.requestBody = {
-                required: true,
-                description: 'add trip payload',
-                content: {
-                    "application/json": {
-                        schema: {
-                            $ref: "#/components/schemas/AddTrip"
-                        }  
-                    }
+            required: true,
+            description: 'add trip payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/AddTrip"
+                    }  
                 }
-            } 
+            }
+        } 
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/AddTripResponse' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/AddTripResponse' },
+            description: 'Ok' 
         }
         */
     },
@@ -26,8 +26,8 @@ module.exports = {
         #swagger.summary = 'get trip by userId',
         #swagger.tags = ['Trips']
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/GetTrips' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/GetTrips' },
+            description: 'Ok' 
         }
         */
     },
@@ -36,19 +36,19 @@ module.exports = {
         #swagger.description = 'Update trip' 
         #swagger.tags = ['Trips']
         #swagger.requestBody = {
-                required: true,
-                description: 'update trip payload',
-                content: {
-                    "application/json": {
-                        schema: {
-                            $ref: "#/components/schemas/UpdateTrip"
-                        }  
-                    }
+            required: true,
+            description: 'update trip payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/UpdateTrip"
+                    }  
                 }
-            } 
+            }
+        } 
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/AddTripResponse' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/AddTripResponse' },
+            description: 'Ok' 
         }
         */
     }

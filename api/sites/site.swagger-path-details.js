@@ -4,19 +4,19 @@ module.exports = {
         #swagger.description = 'Add site' 
         #swagger.tags = ['Sites']
         #swagger.requestBody = {
-                required: true,
-                description: 'add site payload',
-                content: {
-                    "application/json": {
-                        schema: {
-                            $ref: "#/components/schemas/AddSite"
-                        }  
-                    }
+            required: true,
+            description: 'add site payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/AddSite"
+                    }  
                 }
-            } 
+            }
+        } 
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/AddSiteResponse' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/AddSiteResponse' },
+            description: 'Ok' 
         }
         */
     },
@@ -26,8 +26,8 @@ module.exports = {
         #swagger.summary = 'get site by their userId',
         #swagger.tags = ['Sites']
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/GetSite' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/GetSite' },
+            description: 'Ok' 
         }
         */
     }

@@ -4,19 +4,19 @@ module.exports = {
         #swagger.description = 'Add work type' 
         #swagger.tags = ['WorkTypes']
         #swagger.requestBody = {
-                required: true,
-                description: 'add work type payload',
-                content: {
-                    "application/json": {
-                        schema: {
-                            $ref: "#/components/schemas/AddWorkType"
-                        }  
-                    }
+            required: true,
+            description: 'add work type payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/AddWorkType"
+                    }  
                 }
-            } 
+            }
+        } 
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/AddWorkTypeResponse' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/AddWorkTypeResponse' },
+            description: 'Ok' 
         }
         */
     },
@@ -26,8 +26,8 @@ module.exports = {
         #swagger.summary = 'get work types',
         #swagger.tags = ['WorkTypes']
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/GetWorkTypes' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/GetWorkTypes' },
+            description: 'Ok' 
         }
         */
     }

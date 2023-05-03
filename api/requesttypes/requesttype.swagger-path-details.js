@@ -4,19 +4,19 @@ module.exports = {
         #swagger.description = 'Add request types' 
         #swagger.tags = ['RequestTypes']
         #swagger.requestBody = {
-                required: true,
-                description: 'add request types payload',
-                content: {
-                    "application/json": {
-                        schema: {
-                            $ref: "#/components/schemas/AddRequestType"
-                        }  
-                    }
+            required: true,
+            description: 'add request types payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/AddRequestType"
+                    }  
                 }
-            } 
+            }
+        } 
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/AddRequestTypeResponse' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/AddRequestTypeResponse' },
+            description: 'Ok' 
         }
         */
     },
@@ -26,8 +26,8 @@ module.exports = {
         #swagger.summary = 'get request types',
         #swagger.tags = ['RequestTypes']
         #swagger.responses[200] = { 
-        schema: { '$ref': '#/components/schemas/GetRequestTypes' },
-        description: 'Ok' 
+            schema: { '$ref': '#/components/schemas/GetRequestTypes' },
+            description: 'Ok' 
         }
         */
     }

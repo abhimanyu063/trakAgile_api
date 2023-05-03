@@ -438,9 +438,31 @@
           "required": true,
           "description": "add site work payload",
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/AddSiteWork"
+                "type": "object",
+                "properties": {
+                  "siteId": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "workTypeId": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "docPath": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "isSiteReportedIssue": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "isWorkCompleted": {
+                    "type": "number",
+                    "example": 1
+                  }
+                }
               }
             }
           }
