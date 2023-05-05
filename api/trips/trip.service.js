@@ -40,7 +40,7 @@ module.exports = {
     },
     updateTrip: (data, callback) => {
         try {
-            pool.query(`update tblTrip set isTripStarted = ${data.isTripStarted}, isTripEnded = ${data.isTripEnded}, isWorkCompleted = ${data.isWorkCompleted}, endLatitude = ${data.endLatitude}, endLongitude = ${data.endLongitude}, updatedOn = ? where tripId = ${data.tripId}`,
+            pool.query(`update tblTrip set isTripStarted = ${data.isTripStarted}, isTripEnded = ${data.isTripEnded}, isWorkCompleted = ${data.isWorkCompleted}, endLatitude = '${data.endLatitude}', endLongitude = '${data.endLongitude}', updatedOn = ? where tripId = ${data.tripId}`,
                 [new Date()],
                 (error, results, fields) => {
                     if (error) {
