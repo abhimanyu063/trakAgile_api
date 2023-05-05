@@ -3,6 +3,9 @@ module.exports = {
         /*
         #swagger.description = 'Add site' 
         #swagger.tags = ['Sites']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.requestBody = {
             required: true,
             description: 'add site payload',
@@ -25,6 +28,9 @@ module.exports = {
         #swagger.description = 'Get site by userId' 
         #swagger.summary = 'get site by their userId',
         #swagger.tags = ['Sites']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.responses[200] = { 
             schema: { '$ref': '#/components/schemas/GetSite' },
             description: 'Ok' 

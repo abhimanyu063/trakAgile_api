@@ -8,49 +8,11 @@
   "servers": [
     {
       "url": "http://localhost:3000/api/",
+      "description": "local server"
+    },
+    {
+      "url": "http://45.90.109.227:3000/api/",
       "description": "dev server"
-    },
-    {
-      "url": "https://localhost:3000/api/",
-      "description": "prod server"
-    }
-  ],
-  "tags": [
-    {
-      "name": "Districts",
-      "description": "Districts routes"
-    },
-    {
-      "name": "Requests",
-      "description": "Requests routes"
-    },
-    {
-      "name": "RequestTypes",
-      "description": "Request types routes"
-    },
-    {
-      "name": "Sites",
-      "description": "Sites routes"
-    },
-    {
-      "name": "SiteTypes",
-      "description": "Site Types routes"
-    },
-    {
-      "name": "SiteWorks",
-      "description": "Site Works routes"
-    },
-    {
-      "name": "Trips",
-      "description": "Trips routes"
-    },
-    {
-      "name": "Users",
-      "description": "Users routes"
-    },
-    {
-      "name": "WorkTypes",
-      "description": "Work Types routes"
     }
   ],
   "paths": {
@@ -81,6 +43,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "add district payload",
@@ -118,7 +81,8 @@
               }
             }
           }
-        }
+        },
+        "security": []
       }
     },
     "/requests/addRequest": {
@@ -148,6 +112,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "add request payload",
@@ -194,7 +159,8 @@
               }
             }
           }
-        }
+        },
+        "security": []
       }
     },
     "/requestTypes/addRequestType": {
@@ -224,6 +190,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "add request types payload",
@@ -261,7 +228,8 @@
               }
             }
           }
-        }
+        },
+        "security": []
       }
     },
     "/sites/addSite": {
@@ -291,6 +259,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "add site payload",
@@ -337,7 +306,8 @@
               }
             }
           }
-        }
+        },
+        "security": []
       }
     },
     "/siteTypes/addSiteType": {
@@ -367,6 +337,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "add site type payload",
@@ -404,7 +375,8 @@
               }
             }
           }
-        }
+        },
+        "security": []
       }
     },
     "/siteWorks/addSiteWork": {
@@ -434,6 +406,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "add site work payload",
@@ -502,7 +475,8 @@
               }
             }
           }
-        }
+        },
+        "security": []
       }
     },
     "/trips/addTrip": {
@@ -532,6 +506,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "add trip payload",
@@ -578,7 +553,8 @@
               }
             }
           }
-        }
+        },
+        "security": []
       }
     },
     "/trips/updateTrip": {
@@ -608,6 +584,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "update trip payload",
@@ -648,6 +625,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "add user payload",
@@ -694,7 +672,8 @@
               }
             }
           }
-        }
+        },
+        "security": []
       }
     },
     "/users/validateAndGetUser": {
@@ -724,6 +703,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "validate user payload",
@@ -764,6 +744,7 @@
             "description": "Internal Server Error"
           }
         },
+        "security": [],
         "requestBody": {
           "required": true,
           "description": "add work type payload",
@@ -801,11 +782,18 @@
               }
             }
           }
-        }
+        },
+        "security": []
       }
     }
   },
   "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
     "schemas": {
       "AddDistrict": {
         "type": "object",
@@ -1739,22 +1727,9 @@
           "name": "GetWorkTypes"
         }
       }
-    },
-    "securitySchemes": {
-      "api_key": {
-        "type": "apiKey",
-        "name": "api_key",
-        "in": "header"
-      },
-      "petstore_auth": {
-        "type": "oauth2",
-        "authorizationUrl": "https://petstore.swagger.io/oauth/authorize",
-        "flow": "implicit",
-        "scopes": {
-          "read_pets": "read your pets",
-          "write_pets": "modify pets in your account"
-        }
-      }
     }
+  },
+  "security": {
+    "basicAuth": []
   }
 }

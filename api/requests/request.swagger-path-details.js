@@ -3,6 +3,9 @@ module.exports = {
         /*
         #swagger.description = 'Add request' 
         #swagger.tags = ['Requests']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.requestBody = {
             required: true,
             description: 'add request payload',
@@ -25,6 +28,9 @@ module.exports = {
         #swagger.description = 'Get reuest by userId' 
         #swagger.summary = 'get request by userId',
         #swagger.tags = ['Requests']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.responses[200] = { 
             schema: { '$ref': '#/components/schemas/GetRequests' },
             description: 'Ok' 

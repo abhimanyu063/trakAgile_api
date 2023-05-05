@@ -3,6 +3,9 @@ module.exports = {
         /*
         #swagger.description = 'Add district' 
         #swagger.tags = ['Districts']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.requestBody = {
             required: true,
             description: 'add district payload',
@@ -25,6 +28,9 @@ module.exports = {
         #swagger.description = 'Get districts' 
         #swagger.summary = 'get districts',
         #swagger.tags = ['Districts']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.responses[200] = { 
             schema: { '$ref': '#/components/schemas/GetDistricts' },
             description: 'Ok' 

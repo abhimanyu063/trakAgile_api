@@ -3,6 +3,9 @@ module.exports = {
         /*
         #swagger.description = 'Add request types' 
         #swagger.tags = ['RequestTypes']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.requestBody = {
             required: true,
             description: 'add request types payload',
@@ -25,6 +28,9 @@ module.exports = {
         #swagger.description = 'Get reuest types' 
         #swagger.summary = 'get request types',
         #swagger.tags = ['RequestTypes']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.responses[200] = { 
             schema: { '$ref': '#/components/schemas/GetRequestTypes' },
             description: 'Ok' 

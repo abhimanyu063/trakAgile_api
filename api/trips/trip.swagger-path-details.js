@@ -3,6 +3,9 @@ module.exports = {
         /*
         #swagger.description = 'Add trip' 
         #swagger.tags = ['Trips']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.requestBody = {
             required: true,
             description: 'add trip payload',
@@ -25,6 +28,9 @@ module.exports = {
         #swagger.description = 'Get trip by userId' 
         #swagger.summary = 'get trip by userId',
         #swagger.tags = ['Trips']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.responses[200] = { 
             schema: { '$ref': '#/components/schemas/GetTrips' },
             description: 'Ok' 
@@ -35,6 +41,9 @@ module.exports = {
         /*
         #swagger.description = 'Update trip' 
         #swagger.tags = ['Trips']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.requestBody = {
             required: true,
             description: 'update trip payload',

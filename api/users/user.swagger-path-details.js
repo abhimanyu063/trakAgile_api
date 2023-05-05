@@ -3,6 +3,9 @@ module.exports = {
         /*
         #swagger.description = 'Add user' 
         #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.requestBody = {
             required: true,
             description: 'add user payload',
@@ -24,6 +27,9 @@ module.exports = {
         /*
         #swagger.description = 'Validate and get user' 
         #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.requestBody = {
             required: true,
             description: 'validate user payload',
@@ -46,6 +52,9 @@ module.exports = {
         #swagger.description = 'Get user by userId' 
         #swagger.summary = 'get user by their id',
         #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
         #swagger.responses[200] = { 
             schema: { '$ref': '#/components/schemas/GetUser' },
             description: 'Ok' 
