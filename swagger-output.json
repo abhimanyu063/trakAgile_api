@@ -1432,10 +1432,6 @@
             "type": "number",
             "example": 1
           },
-          "isTripStarted": {
-            "type": "number",
-            "example": 1
-          },
           "isTripEnded": {
             "type": "number",
             "example": 0

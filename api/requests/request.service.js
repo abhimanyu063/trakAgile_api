@@ -26,7 +26,7 @@ module.exports = {
     },
     getRequestsByUserId: (userId, callback) => {
         try {
-            pool.query(`select requestId, requestComment, r.requestTypeId, rt.requestTypeDescription, r.userId, isApproved, approvedByUserId, u.name approvedByUserName, requestDate, createdOn 
+            pool.query(`select requestId, requestComment, r.requestTypeId, rt.requestTypeDescription, r.userId, isApproved, approvedByUserId, u.name approvedByUserName, requestDate, r.createdOn 
             from tblRequest r
             INNER JOIN tblRequestType rt
                 on rt.requestTypeId = r.requestTypeId AND rt.isActive = 1
