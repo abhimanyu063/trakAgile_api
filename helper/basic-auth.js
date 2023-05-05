@@ -15,13 +15,10 @@ const basicAuth = (req, res, next) => {
     const base64Credentials = req.headers.authorization.split(' ')[1];
     const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
     const [userName, password] = credentials.split(':');
-    if (!(userName === 'testing' && password === 'testing')) {
+    if (!(userName === 'TrakAgile' && password === 'TrakAgile@1234')) {
         return res.status(401).json({ message: 'Invalid Authentication Credentials' });
     }
     next();
 }
 
 module.exports = basicAuth;
-
-//https://jasonwatmore.com/post/2018/09/24/nodejs-basic-authentication-tutorial-with-example-api
-//dGVzdGluZzp0ZXN0aW5n
