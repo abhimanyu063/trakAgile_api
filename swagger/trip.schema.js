@@ -9,7 +9,6 @@ const addTrip = {
 
 const updateTrip = {
     tripId: 1,
-    isTripStarted: 1,
     isTripEnded: 0,
     isWorkCompleted: 0,
     endLatitude: "10.111111111111111",
