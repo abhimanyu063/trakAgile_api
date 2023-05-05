@@ -26,7 +26,7 @@ module.exports = {
     },
     getTripsByUserId: (userId, callback) => {
         try {
-            pool.query(`select tripId, userId, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude from tblTrip where userId = ${userId}`,
+            pool.query(`select tripId, userId, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude, endLatitude, endLongitude from tblTrip where userId = ${userId}`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
@@ -40,7 +40,7 @@ module.exports = {
     },
     updateTrip: (data, callback) => {
         try {
-            pool.query(`update tblTrip set isTripStarted = ${data.isTripStarted}, isTripEnded = ${data.isTripEnded}, isWorkCompleted = ${data.isWorkCompleted}, updatedOn = ? where tripId = ${data.tripId}`,
+            pool.query(`update tblTrip set isTripStarted = ${data.isTripStarted}, isTripEnded = ${data.isTripEnded}, isWorkCompleted = ${data.isWorkCompleted}, endLatitude = ${data.endLatitude}, endLongitude = ${data.endLongitude}, updatedOn = ? where tripId = ${data.tripId}`,
                 [new Date()],
                 (error, results, fields) => {
                     if (error) {

@@ -14,7 +14,8 @@ const getUser = {
     userId: 1,
     userName: "Aman123",
     name: "Aman",
-    isActive: 1
+    isActive: 1,
+    createdOn: ""
 }
 
 const validateUser = {

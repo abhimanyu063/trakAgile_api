@@ -896,10 +896,6 @@
           "requestDate": {
             "type": "string",
             "example": ""
-          },
-          "createdOn": {
-            "type": "string",
-            "example": ""
           }
         },
         "xml": {
@@ -1115,18 +1111,6 @@
             "type": "number",
             "example": 1
           },
-          "createdOn": {
-            "type": "string",
-            "example": ""
-          },
-          "latitude": {
-            "type": "number",
-            "example": 11.222222
-          },
-          "longitude": {
-            "type": "number",
-            "example": 11.222222
-          },
           "district": {
             "type": "number",
             "example": 1
@@ -1192,14 +1176,6 @@
             "createdOn": {
               "type": "string",
               "example": ""
-            },
-            "latitude": {
-              "type": "number",
-              "example": 11.222222
-            },
-            "longitude": {
-              "type": "number",
-              "example": 11.222222
             },
             "district": {
               "type": "number",
@@ -1368,6 +1344,10 @@
           "isWorkCompleted": {
             "type": "number",
             "example": 0
+          },
+          "createdOn": {
+            "type": "string",
+            "example": ""
           }
         },
         "xml": {
@@ -1402,6 +1382,10 @@
             "isWorkCompleted": {
               "type": "number",
               "example": 0
+            },
+            "createdOn": {
+              "type": "string",
+              "example": ""
             }
           }
         },
@@ -1429,12 +1413,12 @@
             "example": 0
           },
           "latitude": {
-            "type": "number",
-            "example": 10.111111
+            "type": "string",
+            "example": "10.111111111111111"
           },
           "longitude": {
-            "type": "number",
-            "example": 10.111111
+            "type": "string",
+            "example": "10.1111111111111"
           }
         },
         "xml": {
@@ -1459,6 +1443,14 @@
           "isWorkCompleted": {
             "type": "number",
             "example": 0
+          },
+          "endLatitude": {
+            "type": "string",
+            "example": "10.111111111111111"
+          },
+          "endLongitude": {
+            "type": "string",
+            "example": "10.1111111111111"
           }
         },
         "xml": {
@@ -1509,12 +1501,20 @@
             "example": 0
           },
           "latitude": {
-            "type": "number",
-            "example": 10.111111
+            "type": "string",
+            "example": "10.111111111111111"
           },
           "longitude": {
-            "type": "number",
-            "example": 10.111111
+            "type": "string",
+            "example": "10.1111111111111"
+          },
+          "endLatitude": {
+            "type": "string",
+            "example": "10.111111111111111"
+          },
+          "endLongitude": {
+            "type": "string",
+            "example": "10.1111111111111"
           },
           "updatedOn": {
             "type": "string",
@@ -1555,12 +1555,20 @@
               "example": 0
             },
             "latitude": {
-              "type": "number",
-              "example": 10.111111
+              "type": "string",
+              "example": "10.111111111111111"
             },
             "longitude": {
-              "type": "number",
-              "example": 10.111111
+              "type": "string",
+              "example": "10.1111111111111"
+            },
+            "endLatitude": {
+              "type": "string",
+              "example": "10.111111111111111"
+            },
+            "endLongitude": {
+              "type": "string",
+              "example": "10.1111111111111"
             },
             "updatedOn": {
               "type": "string",
@@ -1630,6 +1638,10 @@
           "isActive": {
             "type": "number",
             "example": 1
+          },
+          "createdOn": {
+            "type": "string",
+            "example": ""
           }
         },
         "xml": {

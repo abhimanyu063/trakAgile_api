@@ -18,6 +18,7 @@ const getSiteWork = {
     docPath: "",
     isSiteReportedIssue: 0,
     isWorkCompleted: 0,
+    createdOn:""
 }
 
 const getSiteWorks = [getSiteWork]

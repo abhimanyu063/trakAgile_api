@@ -3,9 +3,6 @@ const addSite = {
     siteTypeId: 1,
     siteVillageName: "",
     userId: 1,
-    createdOn: "",
-    latitude: 11.222222,
-    longitude: 11.222222,
     district: 1,
     tripTypeId: 1,
     tripId: 1
@@ -24,8 +21,6 @@ const getSite = [{
     siteVillageName: "",
     userId: 1,
     createdOn: "",
-    latitude: 11.222222,
-    longitude: 11.222222,
     district: 1,
     tripTypeId: 1,
     tripTypeDescription: "",

@@ -3,8 +3,8 @@ const addTrip = {
     isTripStarted: 1,
     isTripEnded: 0,
     isWorkCompleted: 0,
-    latitude: 10.111111,
-    longitude: 10.111111,
+    latitude: "10.111111111111111",
+    longitude: "10.1111111111111",
 }
 
 const updateTrip = {
@@ -12,6 +12,8 @@ const updateTrip = {
     isTripStarted: 1,
     isTripEnded: 0,
     isWorkCompleted: 0,
+    endLatitude: "10.111111111111111",
+    endLongitude: "10.1111111111111",
 }
 
 const addTripResponse = {
@@ -26,8 +28,10 @@ const getTrip = {
     isTripEnded: 0,
     createdOn: "2023-04-27T17:15:03.000Z",
     isWorkCompleted: 0,
-    latitude: 10.111111,
-    longitude: 10.111111,
+    latitude: "10.111111111111111",
+    longitude: "10.1111111111111",
+    endLatitude: "10.111111111111111",
+    endLongitude: "10.1111111111111",
     updatedOn: "2023-04-27T17:15:03.000Z",
 }
 

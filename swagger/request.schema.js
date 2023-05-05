@@ -5,7 +5,6 @@ const addRequest = {
     isApproved: 1,
     approvedByUserId: 1,
     requestDate: "",
-    createdOn: ""
 }
 
 const addRequestResponse = {

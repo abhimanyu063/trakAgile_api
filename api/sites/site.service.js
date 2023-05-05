@@ -3,15 +3,13 @@ const pool = require('../../config/database');
 module.exports = {
     addSite: (data, callback) => {
         try {
-            pool.query(`insert into tblSite (siteName, siteTypeId, siteVillageName, userId, createdOn, latitude, longitude, districtId, tripTypeId, tripId) values (?,?,?,?,?,?,?,?,?,?)`,
+            pool.query(`insert into tblSite (siteName, siteTypeId, siteVillageName, userId, createdOn, districtId, tripTypeId, tripId) values (?,?,?,?,?,?,?,?)`,
                 [
                     data.siteName,
                     data.siteTypeId,
                     data.siteVillageName,
                     data.userId,
                     new Date(),
-                    data.latitude,
-                    data.longitude,
                     data.districtId,
                     data.tripTypeId,
                     data.tripId
@@ -29,7 +27,7 @@ module.exports = {
     },
     getSitesByUserId: (userId, callback) => {
         try {
-            pool.query(`select siteName, siteTypeDescription, s.siteTypeId, siteVillageName, userId, createdOn, latitude, longitude, s.districtId, districtName, tripTypeId,
+            pool.query(`select siteName, siteTypeDescription, s.siteTypeId, siteVillageName, userId, createdOn, s.districtId, districtName, tripTypeId,
             CASE WHEN tripTypeId = 1 THEN 'Local' 
                 WHEN tripTypeId = 2 THEN 'Non-Local' 
                 ELSE '' END tripTypeDescription, tripId
