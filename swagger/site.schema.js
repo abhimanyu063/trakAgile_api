@@ -25,6 +25,13 @@ const getSite = [{
     tripTypeDescription: "",
     tripId: 1,
     createdOn: "",
+    isTripStarted: 1,
+    isTripEnded: 0,
+    isWorkCompleted: 0,
+    latitude: "10.111111111111111",
+    longitude: "10.1111111111111",
+    endLatitude: "10.111111111111111",
+    endLongitude: "10.1111111111111",
 }]
 
 module.exports = { addSite, addSiteResponse, getSite };

@@ -1233,6 +1233,34 @@
             "createdOn": {
               "type": "string",
               "example": ""
+            },
+            "isTripStarted": {
+              "type": "number",
+              "example": 1
+            },
+            "isTripEnded": {
+              "type": "number",
+              "example": 0
+            },
+            "isWorkCompleted": {
+              "type": "number",
+              "example": 0
+            },
+            "latitude": {
+              "type": "string",
+              "example": "10.111111111111111"
+            },
+            "longitude": {
+              "type": "string",
+              "example": "10.1111111111111"
+            },
+            "endLatitude": {
+              "type": "string",
+              "example": "10.111111111111111"
+            },
+            "endLongitude": {
+              "type": "string",
+              "example": "10.1111111111111"
             }
           }
         },
