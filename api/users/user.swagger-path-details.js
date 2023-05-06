@@ -60,5 +60,29 @@ module.exports = {
             description: 'Ok' 
         }
         */
-    }
+    },
+    objectChangePassPayload: () => {
+        /*
+        #swagger.description = 'Change user password' 
+        #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.requestBody = {
+            required: true,
+            description: 'change user password payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/ChangePassword"
+                    }  
+                }
+            }
+        } 
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/AddUserResponse' },
+            description: 'Ok' 
+        }
+        */
+    },
 }

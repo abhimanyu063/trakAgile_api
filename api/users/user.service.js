@@ -51,4 +51,19 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    changePassword: (data, callback) => {
+        try {
+            pool.query(`Update tblUser set password = '${data.newPassword}' where userId = ${data.userId} and password = '${data.oldPassword}'`,
+                [],
+                (error, results, fields) => {
+                    if (error) {
+                        callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }

@@ -23,4 +23,10 @@ const validateUser = {
     password: "*****",
 }
 
-module.exports = { addUser, addUserResponse, getUser, validateUser };
+const changePassword = {
+    userId: 1,
+    oldPassword: "*****",
+    newPassword: "*****",
+}
+
+module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword };

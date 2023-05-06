@@ -717,6 +717,47 @@
         }
       }
     },
+    "/users/changePassword": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Change user password",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddUserResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddUserResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "description": "change user password payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePassword"
+              }
+            }
+          }
+        }
+      }
+    },
     "/workTypes/addWorkType": {
       "post": {
         "tags": [
@@ -1658,6 +1699,26 @@
         },
         "xml": {
           "name": "ValidateUser"
+        }
+      },
+      "ChangePassword": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "example": 1
+          },
+          "oldPassword": {
+            "type": "string",
+            "example": "*****"
+          },
+          "newPassword": {
+            "type": "string",
+            "example": "*****"
+          }
+        },
+        "xml": {
+          "name": "ChangePassword"
         }
       },
       "AddWorkType": {

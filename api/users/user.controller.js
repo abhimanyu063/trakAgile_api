@@ -61,4 +61,26 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    changePassword: (req, res) => {
+        try {
+            const body = req.body;
+            userService.changePassword(body, (err, results) => {
+                if (err) {
+                    return res.status(500).json({
+                        success: 0,
+                        message: err
+                    });
+                }
+                else {
+                    return res.status(200).json({
+                        success: (results !== undefined && results.affectedRows > 0) ? 1 : 0,
+                        data: results
+                    });
+                }
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }
