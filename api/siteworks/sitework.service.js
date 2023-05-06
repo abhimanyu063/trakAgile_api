@@ -25,7 +25,7 @@ module.exports = {
     },
     getSiteWorkBySiteId: (siteId, callback) => {
         try {
-            pool.query(`select siteWorkId, siteId, workTypeId, docPath, isSiteReportedIssue, isWorkCompleted, createdOn from tblSiteWork where siteId = ${siteId}`,
+            pool.query(`select siteWorkId, siteId, workTypeId, docPath, isSiteReportedIssue, isWorkCompleted, createdOn from tblSiteWork where siteId = ${siteId} order by siteWorkId desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

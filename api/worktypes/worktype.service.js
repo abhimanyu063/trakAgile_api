@@ -21,7 +21,7 @@ module.exports = {
     },
     getWorkTypes: (callback) => {
         try {
-            pool.query(`select workTypeId, workTypeName, isActive from tblWorkType where isActive = 1`,
+            pool.query(`select workTypeId, workTypeName, isActive from tblWorkType where isActive = 1 order by workTypeName`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

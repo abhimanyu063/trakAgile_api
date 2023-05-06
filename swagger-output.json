@@ -1153,7 +1153,7 @@
               "type": "number",
               "example": 1
             },
-            "diteName": {
+            "siteName": {
               "type": "string",
               "example": ""
             },
@@ -1173,10 +1173,6 @@
               "type": "number",
               "example": 1
             },
-            "createdOn": {
-              "type": "string",
-              "example": ""
-            },
             "district": {
               "type": "number",
               "example": 1
@@ -1192,6 +1188,10 @@
             "tripId": {
               "type": "number",
               "example": 1
+            },
+            "createdOn": {
+              "type": "string",
+              "example": ""
             }
           }
         },
@@ -1488,10 +1488,6 @@
             "type": "number",
             "example": 0
           },
-          "createdOn": {
-            "type": "string",
-            "example": "2023-04-27T17:15:03.000Z"
-          },
           "isWorkCompleted": {
             "type": "number",
             "example": 0
@@ -1511,6 +1507,10 @@
           "endLongitude": {
             "type": "string",
             "example": "10.1111111111111"
+          },
+          "createdOn": {
+            "type": "string",
+            "example": "2023-04-27T17:15:03.000Z"
           },
           "updatedOn": {
             "type": "string",
@@ -1542,10 +1542,6 @@
               "type": "number",
               "example": 0
             },
-            "createdOn": {
-              "type": "string",
-              "example": "2023-04-27T17:15:03.000Z"
-            },
             "isWorkCompleted": {
               "type": "number",
               "example": 0
@@ -1565,6 +1561,10 @@
             "endLongitude": {
               "type": "string",
               "example": "10.1111111111111"
+            },
+            "createdOn": {
+              "type": "string",
+              "example": "2023-04-27T17:15:03.000Z"
             },
             "updatedOn": {
               "type": "string",

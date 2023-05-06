@@ -25,12 +25,12 @@ const getTrip = {
     userId: 1,
     isTripStarted: 1,
     isTripEnded: 0,
-    createdOn: "2023-04-27T17:15:03.000Z",
     isWorkCompleted: 0,
     latitude: "10.111111111111111",
     longitude: "10.1111111111111",
     endLatitude: "10.111111111111111",
     endLongitude: "10.1111111111111",
+    createdOn: "2023-04-27T17:15:03.000Z",
     updatedOn: "2023-04-27T17:15:03.000Z",
 }
 

@@ -26,7 +26,7 @@ module.exports = {
     },
     getTripsByUserId: (userId, callback) => {
         try {
-            pool.query(`select tripId, userId, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude, endLatitude, endLongitude from tblTrip where userId = ${userId}`,
+            pool.query(`select tripId, userId, isTripStarted, isTripEnded, isWorkCompleted, latitude, longitude, endLatitude, endLongitude, createdOn from tblTrip where userId = ${userId} order by tripId desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

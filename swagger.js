@@ -18,7 +18,6 @@ const doc = {
             description: "dev server"
         }
     ],
-    //tags: tags,
     components: {
         securitySchemes: {
             basicAuth: {

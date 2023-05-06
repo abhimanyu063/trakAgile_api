@@ -27,16 +27,17 @@ module.exports = {
     },
     getSitesByUserId: (userId, callback) => {
         try {
-            pool.query(`select siteName, siteTypeDescription, s.siteTypeId, siteVillageName, userId, createdOn, s.districtId, districtName, tripTypeId,
+            pool.query(`select siteId, siteName, s.siteTypeId, siteTypeDescription, siteVillageName, userId, s.districtId, districtName, tripTypeId,
             CASE WHEN tripTypeId = 1 THEN 'Local' 
                 WHEN tripTypeId = 2 THEN 'Non-Local' 
-                ELSE '' END tripTypeDescription, tripId
+                ELSE '' END tripTypeDescription, tripId, createdOn
             FROM tblSite s
             LEFT JOIN tblSiteType st
                 ON st.siteTypeId = s.siteTypeId AND st.isActive = 1
             LEFT JOIN tblDistrict d
                 ON d.districtId = s.districtId AND d.isActive = 1
-            where userId = ${userId}`,
+            where userId = ${userId}
+            order by s.siteId desc`,
                 [userId],
                 (error, results, fields) => {
                     if (error) {

@@ -21,7 +21,7 @@ module.exports = {
     },
     getRequestTypes: (callback) => {
         try {
-            pool.query(`select requestTypeId, requestTypeDescription, isActive from tblRequestType where isActive = 1`,
+            pool.query(`select requestTypeId, requestTypeDescription, isActive from tblRequestType where isActive = 1 order by requestTypeDescription`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
