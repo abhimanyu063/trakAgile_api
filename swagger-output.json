@@ -1246,6 +1246,10 @@
               "type": "number",
               "example": 0
             },
+            "isSiteReportedIssue": {
+              "type": "number",
+              "example": 0
+            },
             "latitude": {
               "type": "string",
               "example": "10.111111111111111"
