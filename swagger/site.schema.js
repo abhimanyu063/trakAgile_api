@@ -2,8 +2,7 @@ const addSite = {
     siteName: "",
     siteTypeId: 1,
     siteVillageName: "",
-    userId: 1,
-    district: 1,
+    districtId: 1,
     tripTypeId: 1,
     tripId: 1
 }
@@ -13,13 +12,14 @@ const addSiteResponse = {
     data: "",
 }
 
-const getSite = [{
+const getSite = {
     siteId: 1,
     siteName: "",
     siteTypeId: 1,
     siteTypeDescription: "",
     siteVillageName: "",
     userId: 1,
+    userName: "",
     district: 1,
     tripTypeId: 1,
     tripTypeDescription: "",
@@ -33,6 +33,8 @@ const getSite = [{
     longitude: "10.1111111111111",
     endLatitude: "10.111111111111111",
     endLongitude: "10.1111111111111",
-}]
+}
 
-module.exports = { addSite, addSiteResponse, getSite };
+const getSites = [getSite]
+
+module.exports = { addSite, addSiteResponse, getSite, getSites };

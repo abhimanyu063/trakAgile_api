@@ -23,10 +23,22 @@ module.exports = {
         }
         */
     },
-    getlist: () => {
+    getList: () => {
         /*
         #swagger.description = 'Get reuest by userId' 
-        #swagger.summary = 'get request by userId',
+        #swagger.tags = ['Requests']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/GetRequests' },
+            description: 'Ok' 
+        }
+        */
+    },
+    getListByDates: () => {
+        /*
+        #swagger.description = 'Get reuest by dates {date format : yyyy-MM-dd}' 
         #swagger.tags = ['Requests']
         #swagger.security: [{
             basicAuth: [],
@@ -37,5 +49,4 @@ module.exports = {
         }
         */
     }
-
 }

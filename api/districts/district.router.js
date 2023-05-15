@@ -3,6 +3,6 @@ const districtController = require('./district.controller');
 const apiPathDetails = require('./district.swagger-path-details');
 
 router.post('/districts/addDistrict', districtController.addDistrict, apiPathDetails.objectPayload);
-router.get('/districts/getDistricts', districtController.getDistricts, apiPathDetails.getlist);
+router.get('/districts/getDistricts', districtController.getDistricts, apiPathDetails.getList);
 
 module.exports = router;

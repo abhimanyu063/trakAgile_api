@@ -23,7 +23,7 @@ module.exports = {
         }
         */
     },
-    pathPayload: () => {
+    getList: () => {
         /*
         #swagger.description = 'Get trip by userId' 
         #swagger.summary = 'get trip by userId',

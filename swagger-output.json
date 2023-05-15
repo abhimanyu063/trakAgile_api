@@ -131,11 +131,54 @@
         "tags": [
           "Requests"
         ],
-        "summary": "get request by userId",
         "description": "Get reuest by userId",
         "parameters": [
           {
             "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRequests"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRequests"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/requests/getRequests/{startDate}/{endDate}": {
+      "get": {
+        "tags": [
+          "Requests"
+        ],
+        "description": "Get reuest by dates {date format : yyyy-MM-dd}",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDate",
             "in": "path",
             "required": true,
             "schema": {
@@ -278,7 +321,6 @@
         "tags": [
           "Sites"
         ],
-        "summary": "get site by their userId",
         "description": "Get site by userId",
         "parameters": [
           {
@@ -296,12 +338,56 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSite"
+                  "$ref": "#/components/schemas/GetSites"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSite"
+                  "$ref": "#/components/schemas/GetSites"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/sites/getSites/{startDate}/{endDate}": {
+      "get": {
+        "tags": [
+          "Sites"
+        ],
+        "description": "Get site by dates {date format : yyyy-MM-dd}",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSites"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSites"
                 }
               }
             }
@@ -982,6 +1068,10 @@
             "type": "number",
             "example": 1
           },
+          "requestByUserName": {
+            "type": "string",
+            "example": ""
+          },
           "isApproved": {
             "type": "number",
             "example": 1
@@ -1031,6 +1121,10 @@
             "userId": {
               "type": "number",
               "example": 1
+            },
+            "requestByUserName": {
+              "type": "string",
+              "example": ""
             },
             "isApproved": {
               "type": "number",
@@ -1148,11 +1242,7 @@
             "type": "string",
             "example": ""
           },
-          "userId": {
-            "type": "number",
-            "example": 1
-          },
-          "district": {
+          "districtId": {
             "type": "number",
             "example": 1
           },
@@ -1186,6 +1276,94 @@
         }
       },
       "GetSite": {
+        "type": "object",
+        "properties": {
+          "siteId": {
+            "type": "number",
+            "example": 1
+          },
+          "siteName": {
+            "type": "string",
+            "example": ""
+          },
+          "siteTypeId": {
+            "type": "number",
+            "example": 1
+          },
+          "siteTypeDescription": {
+            "type": "string",
+            "example": ""
+          },
+          "siteVillageName": {
+            "type": "string",
+            "example": ""
+          },
+          "userId": {
+            "type": "number",
+            "example": 1
+          },
+          "userName": {
+            "type": "string",
+            "example": ""
+          },
+          "district": {
+            "type": "number",
+            "example": 1
+          },
+          "tripTypeId": {
+            "type": "number",
+            "example": 1
+          },
+          "tripTypeDescription": {
+            "type": "string",
+            "example": ""
+          },
+          "tripId": {
+            "type": "number",
+            "example": 1
+          },
+          "createdOn": {
+            "type": "string",
+            "example": ""
+          },
+          "isTripStarted": {
+            "type": "number",
+            "example": 1
+          },
+          "isTripEnded": {
+            "type": "number",
+            "example": 0
+          },
+          "isWorkCompleted": {
+            "type": "number",
+            "example": 0
+          },
+          "isSiteReportedIssue": {
+            "type": "number",
+            "example": 0
+          },
+          "latitude": {
+            "type": "string",
+            "example": "10.111111111111111"
+          },
+          "longitude": {
+            "type": "string",
+            "example": "10.1111111111111"
+          },
+          "endLatitude": {
+            "type": "string",
+            "example": "10.111111111111111"
+          },
+          "endLongitude": {
+            "type": "string",
+            "example": "10.1111111111111"
+          }
+        },
+        "xml": {
+          "name": "GetSite"
+        }
+      },
+      "GetSites": {
         "type": "array",
         "items": {
           "type": "object",
@@ -1213,6 +1391,10 @@
             "userId": {
               "type": "number",
               "example": 1
+            },
+            "userName": {
+              "type": "string",
+              "example": ""
             },
             "district": {
               "type": "number",
@@ -1269,7 +1451,7 @@
           }
         },
         "xml": {
-          "name": "GetSite"
+          "name": "GetSites"
         }
       },
       "AddSiteType": {
@@ -1481,10 +1663,6 @@
             "type": "number",
             "example": 0
           },
-          "isWorkCompleted": {
-            "type": "number",
-            "example": 0
-          },
           "latitude": {
             "type": "string",
             "example": "10.111111111111111"
@@ -1506,10 +1684,6 @@
             "example": 1
           },
           "isTripEnded": {
-            "type": "number",
-            "example": 0
-          },
-          "isWorkCompleted": {
             "type": "number",
             "example": 0
           },
@@ -1561,10 +1735,6 @@
             "type": "number",
             "example": 0
           },
-          "isWorkCompleted": {
-            "type": "number",
-            "example": 0
-          },
           "latitude": {
             "type": "string",
             "example": "10.111111111111111"
@@ -1612,10 +1782,6 @@
               "example": 1
             },
             "isTripEnded": {
-              "type": "number",
-              "example": 0
-            },
-            "isWorkCompleted": {
               "type": "number",
               "example": 0
             },

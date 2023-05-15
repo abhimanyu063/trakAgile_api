@@ -3,6 +3,6 @@ const siteTypeController = require('./sitetype.controller');
 const apiPathDetails = require('./sitetype.swagger-path-details');
 
 router.post('/siteTypes/addSiteType', siteTypeController.addSiteType, apiPathDetails.objectPayload);
-router.get('/siteTypes/getSiteTypes', siteTypeController.getSiteTypes, apiPathDetails.getlist);
+router.get('/siteTypes/getSiteTypes', siteTypeController.getSiteTypes, apiPathDetails.getList);
 
 module.exports = router;

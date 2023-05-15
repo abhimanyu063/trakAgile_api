@@ -23,7 +23,7 @@ module.exports = {
         }
         */
     },
-    getlist: () => {
+    getList: () => {
         /*
         #swagger.description = 'Get work types' 
         #swagger.summary = 'get work types',

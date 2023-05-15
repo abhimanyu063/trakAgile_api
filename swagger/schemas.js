@@ -1,7 +1,7 @@
 const { addDistrict, addDistrictResponse, getDistrict, getDistricts } = require('./district.schema');
 const { addRequest, addRequestResponse, getRequest, getRequests } = require('./request.schema');
 const { addRequestType, addRequestTypeResponse, getRequestType, getRequestTypes } = require('./requesttype.schema');
-const { addSite, addSiteResponse, getSite } = require('./site.schema');
+const { addSite, addSiteResponse, getSite, getSites } = require('./site.schema');
 const { addSiteType, addSiteTypeResponse, getSiteType, getSiteTypes } = require('./sitetype.schema');
 const { addSiteWork, addSiteWorkResponse, getSiteWork, getSiteWorks } = require('./sitework.schema');
 const { addTrip, updateTrip, addTripResponse, getTrip, getTrips } = require('./trip.schema');
@@ -24,6 +24,7 @@ module.exports = {
     AddSite: addSite,
     AddSiteResponse: addSiteResponse,
     GetSite: getSite,
+    GetSites: getSites,
     AddSiteType: addSiteType,
     AddSiteTypeResponse: addSiteTypeResponse,
     GetSiteType: getSiteType,

@@ -3,13 +3,12 @@ const pool = require('../../config/database');
 module.exports = {
     addTrip: (data, callback) => {
         try {
-            pool.query(`insert into tblTrip (userId, isTripStarted, isTripEnded, createdOn, isWorkCompleted, latitude, longitude) values (?,?,?,?,?,?,?)`,
+            pool.query(`insert into tblTrip (userId, isTripStarted, isTripEnded, createdOn, latitude, longitude) values (?,?,?,?,?,?)`,
                 [
                     data.userId,
                     data.isTripStarted,
                     data.isTripEnded,
                     new Date(),
-                    data.isWorkCompleted,
                     data.latitude,
                     data.longitude,
                 ],
@@ -26,7 +25,7 @@ module.exports = {
     },
     getTripsByUserId: (userId, callback) => {
         try {
-            pool.query(`select tripId, userId, isTripStarted, isTripEnded, isWorkCompleted, latitude, longitude, endLatitude, endLongitude, createdOn from tblTrip where userId = ${userId} order by tripId desc`,
+            pool.query(`select tripId, userId, isTripStarted, isTripEnded, latitude, longitude, endLatitude, endLongitude, createdOn from tblTrip where userId = ${userId} order by tripId desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
@@ -40,7 +39,7 @@ module.exports = {
     },
     updateTrip: (data, callback) => {
         try {
-            pool.query(`update tblTrip set isTripEnded = ${data.isTripEnded}, isWorkCompleted = ${data.isWorkCompleted}, endLatitude = '${data.endLatitude}', endLongitude = '${data.endLongitude}', updatedOn = ? where tripId = ${data.tripId}`,
+            pool.query(`update tblTrip set isTripEnded = ${data.isTripEnded}, endLatitude = '${data.endLatitude}', endLongitude = '${data.endLongitude}', updatedOn = ? where tripId = ${data.tripId}`,
                 [new Date()],
                 (error, results, fields) => {
                     if (error) {

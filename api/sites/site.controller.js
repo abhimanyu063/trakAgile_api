@@ -36,5 +36,21 @@ module.exports = {
         catch (error) {
             console.log('Error ', error)
         }
+    },
+    getSites: (req, res) => {
+        try {
+            siteService.getSites(req.params.startDate, req.params.endDate, (err, results) => {
+                if (err) {
+                    return;
+                }
+                return res.json({
+                    success: 1,
+                    data: results
+                });
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
     }
 }

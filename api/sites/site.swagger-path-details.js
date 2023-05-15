@@ -23,16 +23,28 @@ module.exports = {
         }
         */
     },
-    pathPayload: () => {
+    getList: () => {
         /*
         #swagger.description = 'Get site by userId' 
-        #swagger.summary = 'get site by their userId',
         #swagger.tags = ['Sites']
         #swagger.security: [{
             basicAuth: [],
         }],
         #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/GetSite' },
+            schema: { '$ref': '#/components/schemas/GetSites' },
+            description: 'Ok' 
+        }
+        */
+    },
+    getListByDates: () => {
+        /*
+        #swagger.description = 'Get site by dates {date format : yyyy-MM-dd}' 
+        #swagger.tags = ['Sites']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/GetSites' },
             description: 'Ok' 
         }
         */

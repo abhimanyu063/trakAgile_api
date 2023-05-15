@@ -45,7 +45,7 @@ module.exports = {
         }
         */
     },
-    pathPayload: () => {
+    getList: () => {
         /*
         #swagger.description = 'Get site work by siteId' 
         #swagger.summary = 'get site work by siteId',

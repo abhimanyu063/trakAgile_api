@@ -3,6 +3,6 @@ const workTypeController = require('./worktype.controller');
 const apiPathDetails = require('./worktype.swagger-path-details');
 
 router.post('/workTypes/addWorkType', workTypeController.addWorkType, apiPathDetails.objectPayload);
-router.get('/workTypes/getWorkTypes', workTypeController.getWorkTypes, apiPathDetails.getlist);
+router.get('/workTypes/getWorkTypes', workTypeController.getWorkTypes, apiPathDetails.getList);
 
 module.exports = router;
