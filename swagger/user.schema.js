@@ -3,6 +3,12 @@ const addUser = {
     password: "*****",
     name: "Aman",
     isActive: 1,
+    email: "email@gmail.com",
+    mobile: "+91-9999222333",
+    address: "WhiteField",
+    city: "Bangalore",
+    state: "KA",
+    country: "India",
 }
 
 const addUserResponse = {
