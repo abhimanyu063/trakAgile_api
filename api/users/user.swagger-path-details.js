@@ -84,19 +84,5 @@ module.exports = {
             description: 'Ok' 
         }
         */
-    },
-    getList: () => {
-        /*
-        #swagger.description = 'Get roles' 
-        #swagger.summary = 'get roles',
-        #swagger.tags = ['Users']
-        #swagger.security: [{
-            basicAuth: [],
-        }],
-        #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/GetRoles' },
-            description: 'Ok' 
-        }
-        */
     }
 }

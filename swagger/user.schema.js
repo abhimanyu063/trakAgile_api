@@ -43,9 +43,4 @@ const changePassword = {
     newPassword: "*****",
 }
 
-const getRoles = [{
-    roleId: 1,
-    roleName: "",
-}]
-
-module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getRoles };
+module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword };

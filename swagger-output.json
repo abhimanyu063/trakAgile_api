@@ -16,6 +16,34 @@
     }
   ],
   "paths": {
+    "/dashboard/getDashboardDetails": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "get dashboard details",
+        "description": "Get dashboard details",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDashboardDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDashboardDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
     "/districts/addDistrict": {
       "post": {
         "tags": [
@@ -267,6 +295,34 @@
               "application/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/GetRequestTypes"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/roles/getRoles": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "get roles",
+        "description": "Get roles",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRoles"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRoles"
                 }
               }
             }
@@ -926,34 +982,6 @@
         }
       }
     },
-    "/users/getRoles": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "summary": "get roles",
-        "description": "Get roles",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetRoles"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetRoles"
-                }
-              }
-            }
-          }
-        },
-        "security": []
-      }
-    },
     "/workTypes/addWorkType": {
       "post": {
         "tags": [
@@ -1032,6 +1060,46 @@
       }
     },
     "schemas": {
+      "GetDashboardDetails": {
+        "type": "object",
+        "properties": {
+          "tripStartedCount": {
+            "type": "number",
+            "example": 100
+          },
+          "tripEndedCount": {
+            "type": "number",
+            "example": 34
+          },
+          "siteWorkCompletedCount": {
+            "type": "number",
+            "example": 13
+          },
+          "reportedSiteIssueCount": {
+            "type": "number",
+            "example": 5
+          },
+          "siteWorkInprogressCount": {
+            "type": "number",
+            "example": 18
+          },
+          "activeUserCount": {
+            "type": "number",
+            "example": 100
+          },
+          "approvedRequestCount": {
+            "type": "number",
+            "example": 12
+          },
+          "pendingRequestCount": {
+            "type": "number",
+            "example": 10
+          }
+        },
+        "xml": {
+          "name": "GetDashboardDetails"
+        }
+      },
       "AddDistrict": {
         "type": "object",
         "properties": {
@@ -1335,6 +1403,25 @@
         },
         "xml": {
           "name": "GetRequestTypes"
+        }
+      },
+      "GetRoles": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "roleId": {
+              "type": "number",
+              "example": 1
+            },
+            "roleName": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        },
+        "xml": {
+          "name": "GetRoles"
         }
       },
       "AddSite": {
@@ -2119,25 +2206,6 @@
         },
         "xml": {
           "name": "ChangePassword"
-        }
-      },
-      "GetRoles": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "roleId": {
-              "type": "number",
-              "example": 1
-            },
-            "roleName": {
-              "type": "string",
-              "example": ""
-            }
-          }
-        },
-        "xml": {
-          "name": "GetRoles"
         }
       },
       "AddWorkType": {
