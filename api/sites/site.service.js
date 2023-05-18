@@ -30,7 +30,7 @@ module.exports = {
             CASE WHEN tripTypeId = 1 THEN 'Local' 
                 WHEN tripTypeId = 2 THEN 'Non-Local' 
                 ELSE '' END tripTypeDescription, 
-            s.tripId, isTripStarted, isTripEnded, IFNULL(sw.isWorkCompleted,0) isWorkCompleted, IFNULL(sw.isSiteReportedIssue,0) isSiteReportedIssue, latitude, longitude, endLatitude, endLongitude, s.createdOn
+            s.tripId, isTripStarted, isTripEnded, IFNULL(sw.isWorkCompleted,0) isWorkCompleted, IFNULL(sw.isSiteReportedIssue,0) isSiteReportedIssue, sw.comment, latitude, longitude, endLatitude, endLongitude, s.createdOn
             FROM tblTrip t
             INNER JOIN tblSite s
                 ON s.tripId = t.tripId
@@ -62,7 +62,7 @@ module.exports = {
             CASE WHEN tripTypeId = 1 THEN 'Local' 
                 WHEN tripTypeId = 2 THEN 'Non-Local' 
                 ELSE '' END tripTypeDescription, 
-            s.tripId, isTripStarted, isTripEnded, IFNULL(sw.isWorkCompleted,0) isWorkCompleted, IFNULL(sw.isSiteReportedIssue,0) isSiteReportedIssue, latitude, longitude, endLatitude, endLongitude, s.createdOn
+            s.tripId, isTripStarted, isTripEnded, IFNULL(sw.isWorkCompleted,0) isWorkCompleted, IFNULL(sw.isSiteReportedIssue,0) isSiteReportedIssue, sw.comment, latitude, longitude, endLatitude, endLongitude, s.createdOn
             FROM tblTrip t
             INNER JOIN tblSite s
                 ON s.tripId = t.tripId

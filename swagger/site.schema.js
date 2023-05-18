@@ -29,6 +29,7 @@ const getSite = {
     isTripEnded: 0,
     isWorkCompleted: 0,
     isSiteReportedIssue: 0,
+    comment: "",
     latitude: "10.111111111111111",
     longitude: "10.1111111111111",
     endLatitude: "10.111111111111111",

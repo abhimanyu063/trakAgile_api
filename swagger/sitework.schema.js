@@ -18,9 +18,16 @@ const getSiteWork = {
     docPath: "",
     isSiteReportedIssue: 0,
     isWorkCompleted: 0,
-    createdOn:""
+    comment: "",
+    createdOn: ""
+}
+
+const reportIssue = {
+    siteId: 1,
+    isSiteReportedIssue: 1,
+    comment: ""
 }
 
 const getSiteWorks = [getSiteWork]
 
-module.exports = { addSiteWork, addSiteWorkResponse, getSiteWork, getSiteWorks };
+module.exports = { addSiteWork, addSiteWorkResponse, getSiteWork, getSiteWorks, reportIssue };

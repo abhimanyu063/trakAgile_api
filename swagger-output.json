@@ -565,6 +565,47 @@
         "security": []
       }
     },
+    "/siteWorks/reportIssue": {
+      "post": {
+        "tags": [
+          "SiteWorks"
+        ],
+        "description": "Report site issue",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteTypeResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteTypeResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "description": "add report site issue payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportIssue"
+              }
+            }
+          }
+        }
+      }
+    },
     "/trips/addTrip": {
       "post": {
         "tags": [
@@ -803,6 +844,47 @@
         }
       }
     },
+    "/users/validateAdminAndGetDetails": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Validate and get user",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUser"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUser"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "description": "validate user payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateUser"
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/changePassword": {
       "post": {
         "tags": [
@@ -842,6 +924,34 @@
             }
           }
         }
+      }
+    },
+    "/users/getRoles": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get roles",
+        "description": "Get roles",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRoles"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRoles"
+                }
+              }
+            }
+          }
+        },
+        "security": []
       }
     },
     "/workTypes/addWorkType": {
@@ -1342,6 +1452,10 @@
             "type": "number",
             "example": 0
           },
+          "comment": {
+            "type": "string",
+            "example": ""
+          },
           "latitude": {
             "type": "string",
             "example": "10.111111111111111"
@@ -1431,6 +1545,10 @@
             "isSiteReportedIssue": {
               "type": "number",
               "example": 0
+            },
+            "comment": {
+              "type": "string",
+              "example": ""
             },
             "latitude": {
               "type": "string",
@@ -1600,6 +1718,10 @@
             "type": "number",
             "example": 0
           },
+          "comment": {
+            "type": "string",
+            "example": ""
+          },
           "createdOn": {
             "type": "string",
             "example": ""
@@ -1638,6 +1760,10 @@
               "type": "number",
               "example": 0
             },
+            "comment": {
+              "type": "string",
+              "example": ""
+            },
             "createdOn": {
               "type": "string",
               "example": ""
@@ -1646,6 +1772,26 @@
         },
         "xml": {
           "name": "GetSiteWorks"
+        }
+      },
+      "ReportIssue": {
+        "type": "object",
+        "properties": {
+          "siteId": {
+            "type": "number",
+            "example": 1
+          },
+          "isSiteReportedIssue": {
+            "type": "number",
+            "example": 1
+          },
+          "comment": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "ReportIssue"
         }
       },
       "AddTrip": {
@@ -1830,6 +1976,34 @@
             "type": "string",
             "example": "Aman"
           },
+          "roleId": {
+            "type": "number",
+            "example": 2
+          },
+          "email": {
+            "type": "string",
+            "example": "email@gmail.com"
+          },
+          "mobile": {
+            "type": "string",
+            "example": "9999222333"
+          },
+          "address": {
+            "type": "string",
+            "example": "WhiteField"
+          },
+          "city": {
+            "type": "string",
+            "example": "Bangalore"
+          },
+          "state": {
+            "type": "string",
+            "example": "KA"
+          },
+          "country": {
+            "type": "string",
+            "example": "India"
+          },
           "isActive": {
             "type": "number",
             "example": 1
@@ -1869,6 +2043,34 @@
           "name": {
             "type": "string",
             "example": "Aman"
+          },
+          "roleId": {
+            "type": "number",
+            "example": 2
+          },
+          "email": {
+            "type": "string",
+            "example": "email@gmail.com"
+          },
+          "mobile": {
+            "type": "string",
+            "example": "9999222333"
+          },
+          "address": {
+            "type": "string",
+            "example": "WhiteField"
+          },
+          "city": {
+            "type": "string",
+            "example": "Bangalore"
+          },
+          "state": {
+            "type": "string",
+            "example": "KA"
+          },
+          "country": {
+            "type": "string",
+            "example": "India"
           },
           "isActive": {
             "type": "number",
@@ -1917,6 +2119,25 @@
         },
         "xml": {
           "name": "ChangePassword"
+        }
+      },
+      "GetRoles": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "roleId": {
+              "type": "number",
+              "example": 1
+            },
+            "roleName": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        },
+        "xml": {
+          "name": "GetRoles"
         }
       },
       "AddWorkType": {

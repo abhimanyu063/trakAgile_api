@@ -2,13 +2,14 @@ const addUser = {
     userName: "Aman123",
     password: "*****",
     name: "Aman",
-    isActive: 1,
+    roleId: 2,
     email: "email@gmail.com",
-    mobile: "+91-9999222333",
+    mobile: "9999222333",
     address: "WhiteField",
     city: "Bangalore",
     state: "KA",
     country: "India",
+    isActive: 1,
 }
 
 const addUserResponse = {
@@ -20,6 +21,13 @@ const getUser = {
     userId: 1,
     userName: "Aman123",
     name: "Aman",
+    roleId: 2,
+    email: "email@gmail.com",
+    mobile: "9999222333",
+    address: "WhiteField",
+    city: "Bangalore",
+    state: "KA",
+    country: "India",
     isActive: 1,
     createdOn: ""
 }
@@ -35,4 +43,9 @@ const changePassword = {
     newPassword: "*****",
 }
 
-module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword };
+const getRoles = [{
+    roleId: 1,
+    roleName: "",
+}]
+
+module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getRoles };

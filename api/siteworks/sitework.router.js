@@ -4,5 +4,6 @@ const apiPathDetails = require('./sitework.swagger-path-details');
 
 router.post('/siteWorks/addSiteWork', siteWorkController.addSiteWork, apiPathDetails.objectPayload);
 router.get('/siteWorks/getSiteWorkBySiteId/:siteId', siteWorkController.getSiteWorkBySiteId, apiPathDetails.getList);
+router.post('/siteWorks/reportIssue', siteWorkController.reportIssue, apiPathDetails.reportIssuePayload);
 
 module.exports = router;

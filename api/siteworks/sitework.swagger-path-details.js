@@ -45,6 +45,30 @@ module.exports = {
         }
         */
     },
+    reportIssuePayload: () => {
+        /*
+        #swagger.description = 'Report site issue' 
+        #swagger.tags = ['SiteWorks']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.requestBody = {
+            required: true,
+            description: 'add report site issue payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/ReportIssue"
+                    }  
+                }
+            }
+        } 
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/AddSiteTypeResponse' },
+            description: 'Ok' 
+        }
+        */
+    },
     getList: () => {
         /*
         #swagger.description = 'Get site work by siteId' 

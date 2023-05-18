@@ -61,6 +61,28 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    validateAdminAndGetDetails: (req, res) => {
+        try {
+            const body = req.body;
+            userService.validateAdminAndGetDetails(body, (err, results) => {
+                if (err) {
+                    return res.status(500).json({
+                        success: 0,
+                        message: err
+                    });
+                }
+                else {
+                    return res.status(200).json({
+                        success: results === undefined ? 0 : 1,
+                        data: results
+                    });
+                }
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
     changePassword: (req, res) => {
         try {
             const body = req.body;
@@ -77,6 +99,22 @@ module.exports = {
                         data: results
                     });
                 }
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
+    getRoles: (req, res) => {
+        try {
+            userService.getRoles((err, results) => {
+                if (err) {
+                    return;
+                }
+                return res.json({
+                    success: 1,
+                    data: results
+                });
             });
         }
         catch (error) {
