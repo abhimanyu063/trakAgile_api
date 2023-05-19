@@ -4,8 +4,8 @@ module.exports = {
     getDashboardDetails: (callback) => {
         try {
             pool.query(`Select 
-            (Select count(1) tripStarted from tblTrip where IFNULL(isTripStarted,0) = 1 AND IFNULL(isTripEnded,0) <> 1) as tripStarted,
-            (Select count(1) from tblTrip where IFNULL(isTripEnded,0) = 1) as tripEnded,
+            (Select count(1) tripStarted from tblTrip where IFNULL(isTripStarted,0) = 1 AND IFNULL(isTripEnded,0) <> 1) as tripStartedCount,
+            (Select count(1) from tblTrip where IFNULL(isTripEnded,0) = 1) as tripEndedCount,
             (Select count(1) from tblSiteWork where IFNULL(isWorkCompleted,0) = 1) siteWorkCompletedCount,
             (Select count(1) from tblSiteWork where IFNULL(isSiteReportedIssue,0) = 1) reportedSiteIssueCount,
             (Select count(1) from tblSiteWork sw RIGHT JOIN tblSite s ON s.siteId = sw.siteId where IFNULL(isWorkCompleted,0) <> 1 AND IFNULL(isSiteReportedIssue,0) <> 1) siteWorkInprogressCount,
