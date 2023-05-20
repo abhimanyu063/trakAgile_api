@@ -46,14 +46,19 @@ module.exports = {
     },
     validateAndGetUser: (data, callback) => {
         try {
-            pool.query(`Select userId, userName, name, roleId, email, mobile, address, city, state, country from tblUser where (userName = '${data.userName}' OR email = '${data.userName}') AND password = '${data.password}' AND isActive = 1`,
-                [],
-                (error, results, fields) => {
-                    if (error) {
-                        callback(error);
-                    }
-                    return callback(null, results[0]);
-                });
+            if (data.userName.trim() != "" && data.password != "") {
+                pool.query(`Select userId, userName, name, roleId, email, mobile, address, city, state, country from tblUser where (userName = '${data.userName}' OR email = '${data.userName}') AND password = '${data.password}' AND isActive = 1`,
+                    [],
+                    (error, results, fields) => {
+                        if (error) {
+                            callback(error);
+                        }
+                        return callback(null, results[0]);
+                    });
+            }
+            else {
+                callback('empty credentials');
+            }
         }
         catch (error) {
             console.log('Error ', error)
@@ -61,18 +66,23 @@ module.exports = {
     },
     validateAdminAndGetDetails: (data, callback) => {
         try {
-            pool.query(`Select userId, userName, name, u.roleId, email, mobile, address, city, state, country 
+            if (data.userName.trim() != "" && data.password != "") {
+                pool.query(`Select userId, userName, name, u.roleId, email, mobile, address, city, state, country 
             FROM tblUser u
             INNER JOIN tblRole r
                 ON r.roleId = u.roleId AND lower(roleName) = 'admin' AND r.isActive = 1
             WHERE (userName = '${data.userName}' OR email = '${data.userName}') AND password = '${data.password}' AND u.isActive = 1`,
-                [],
-                (error, results, fields) => {
-                    if (error) {
-                        callback(error);
-                    }
-                    return callback(null, results[0]);
-                });
+                    [],
+                    (error, results, fields) => {
+                        if (error) {
+                            callback(error);
+                        }
+                        return callback(null, results[0]);
+                    });
+            }
+            else {
+                callback('empty credentials');
+            }
         }
         catch (error) {
             console.log('Error ', error)
