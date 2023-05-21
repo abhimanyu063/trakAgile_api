@@ -113,6 +113,47 @@
         "security": []
       }
     },
+    "/forgetpassword/validateForgetPassword": {
+      "post": {
+        "tags": [
+          "Districts"
+        ],
+        "description": "Add district",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddDistrictResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddDistrictResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "description": "add district payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddDistrict"
+              }
+            }
+          }
+        }
+      }
+    },
     "/requests/addRequest": {
       "post": {
         "tags": [
