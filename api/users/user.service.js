@@ -102,5 +102,25 @@ module.exports = {
         catch (error) {
             console.log('Error ', error)
         }
-    }
+    },
+    validateForgetPassword: (data, callback) => {
+        try {
+            if (data.email.trim() != "") {
+                pool.query(`select username, email, mobile, password from tblUser where email = '${data.email}' and isActive = 1`,
+                    [],
+                    (error, results, fields) => {
+                        if (error) {
+                            callback(error);
+                        }
+                        return callback(null, results[0]);
+                    });
+            }
+            else {
+                callback('empty fields');
+            }
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }

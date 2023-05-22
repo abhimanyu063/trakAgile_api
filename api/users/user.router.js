@@ -7,5 +7,7 @@ router.get('/users/getUserById/:userId', userController.getUserById, apiPathDeta
 router.post('/users/validateAndGetUser', userController.validateAndGetUser, apiPathDetails.objectValidatePayload);
 router.post('/users/validateAdminAndGetDetails', userController.validateAdminAndGetDetails, apiPathDetails.objectValidatePayload);
 router.post('/users/changePassword', userController.changePassword, apiPathDetails.objectChangePassPayload);
+router.post('/users/validateForgetPassword', userController.validateForgetPassword, apiPathDetails.objectPayload);
+
 
 module.exports = router;

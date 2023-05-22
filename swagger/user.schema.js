@@ -42,5 +42,17 @@ const changePassword = {
     oldPassword: "*****",
     newPassword: "*****",
 }
+const validateForgetPasswordResponse = {
+    success: 1,
+    data: "",
+}
 
-module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword };
+const validateForgetPassword = {
+    userName: "",
+    email: "",
+    mobile: 0000000000,
+    isActive: 1,
+}
+
+
+module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword,  validateForgetPasswordResponse, validateForgetPassword};
