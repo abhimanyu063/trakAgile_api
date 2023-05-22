@@ -53,6 +53,15 @@ const validateForgetPassword = {
     mobile: 0000000000,
     isActive: 1,
 }
+const validateUserNameandEmail = {
+    userName: "",
+    email: "",
+    mobile: 0000000000,
+}
+const validateUserNameandEmailResponse = {
+    success: 1,
+    data: "",
+}
 
 
-module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword,  validateForgetPasswordResponse, validateForgetPassword};
+module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword,  validateForgetPasswordResponse, validateForgetPassword, validateUserNameandEmail, validateUserNameandEmailResponse};

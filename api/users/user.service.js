@@ -123,4 +123,19 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    validateUserNameandEmail: (data, callback) => {
+        try {
+            pool.query(`select userName, email, mobile from tblUser where userName = '${data.userName}'  or email = '${data.email}' or mobile = '${data.mobile}'`,
+                [],
+                (error, results, fields) => {
+                    if (error) {
+                        callback(error);
+                    }
+                    return callback(null, results[0]);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }

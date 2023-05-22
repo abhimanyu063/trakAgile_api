@@ -1023,6 +1023,47 @@
         }
       }
     },
+    "/users/validateUserNameandEmail": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Add user",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddUserResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddUserResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "description": "add user payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUser"
+              }
+            }
+          }
+        }
+      }
+    },
     "/workTypes/addWorkType": {
       "post": {
         "tags": [
@@ -2322,6 +2363,50 @@
         },
         "xml": {
           "name": "GetWorkTypes"
+        }
+      },
+      "ValidateForgetPassword": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "example": ""
+          },
+          "email": {
+            "type": "string",
+            "example": ""
+          },
+          "mobile": {
+            "type": "number",
+            "example": 0
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "ValidateForgetPassword"
+        }
+      },
+      "ValidateUserNameandEmail": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "example": ""
+          },
+          "email": {
+            "type": "string",
+            "example": ""
+          },
+          "mobile": {
+            "type": "number",
+            "example": 0
+          }
+        },
+        "xml": {
+          "name": "ValidateUserNameandEmail"
         }
       }
     }
