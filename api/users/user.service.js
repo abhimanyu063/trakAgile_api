@@ -152,4 +152,22 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    getSiteReportedIsuueDetails: (data, callback) => {
+        try {
+            pool.query(`select  sw.comment, sw.createdOn,  s.siteVillageName, s.siteName, u.name, u.email, u.mobile, u.address from tblSiteWork sw
+            Inner Join tblSite s on sw.siteid = s.siteID
+            Inner join tblTrip t on sw.siteid = t.tripID
+            Inner join tblUser u on t.userID = u.userId
+            where isSiteReportedIssue = 1`,
+                (error, results, fields) => {
+                    if (error) {
+                        return callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }

@@ -1102,6 +1102,44 @@
         }
       }
     },
+    "/users/getSiteReportedIsuueDetails": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Add user",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddUserResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddUserResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "description": "add user payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUser"
+              }
+            }
+          }
+        }
+      }
+    },
     "/workTypes/addWorkType": {
       "post": {
         "tags": [
