@@ -149,5 +149,22 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    getUserDetails: (req, res) => {
+        try {
+            const body = req.body;
+            userService.getUserDetails(body, (err, results) => {
+                if (err) {
+                    return;
+                }
+                return res.json({
+                    success: 1,
+                    data: results
+                });
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }
 

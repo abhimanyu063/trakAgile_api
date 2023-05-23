@@ -138,4 +138,18 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    getUserDetails: (data, callback) => {
+        try {
+            pool.query(`select userName, name, email, mobile, address, city, state, country, isActive, createdOn, roleId from tblUser`,
+                (error, results, fields) => {
+                    if (error) {
+                        return callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }
