@@ -30,18 +30,20 @@ module.exports = {
             CASE WHEN tripTypeId = 1 THEN 'Local' 
                 WHEN tripTypeId = 2 THEN 'Non-Local' 
                 ELSE '' END tripTypeDescription, 
-            s.tripId, isTripStarted, isTripEnded, IFNULL(sw.isWorkCompleted,0) isWorkCompleted, IFNULL(sw.isSiteReportedIssue,0) isSiteReportedIssue, sw.comment, latitude, longitude, endLatitude, endLongitude, s.createdOn
+            s.tripId, isTripStarted, isTripEnded, sw.workTypeId, wt.workTypeName, IFNULL(sw.isWorkCompleted,0) isWorkCompleted, IFNULL(sw.isSiteReportedIssue,0) isSiteReportedIssue, sw.comment, latitude, longitude, endLatitude, endLongitude, s.createdOn
             FROM tblTrip t
+            INNER JOIN tblUser u
+                ON u.userId = t.userId AND u.isActive = 1
             INNER JOIN tblSite s
                 ON s.tripId = t.tripId
-            LEFT JOIN tblSiteWork sw
-                ON sw.siteId = s.siteId
             LEFT JOIN tblSiteType st
                 ON st.siteTypeId = s.siteTypeId AND st.isActive = 1
             LEFT JOIN tblDistrict d
                 ON d.districtId = s.districtId AND d.isActive = 1
-            LEFT JOIN tblUser u
-                ON u.userId = t.userId AND u.isActive = 1
+            LEFT JOIN tblSiteWork sw
+                ON sw.siteId = s.siteId
+            LEFT JOIN tblWorkType wt
+                ON wt.workTypeId = sw.workTypeId
             WHERE t.userId = ${userId}
             order by s.siteId desc`,
                 [userId],
@@ -62,18 +64,20 @@ module.exports = {
             CASE WHEN tripTypeId = 1 THEN 'Local' 
                 WHEN tripTypeId = 2 THEN 'Non-Local' 
                 ELSE '' END tripTypeDescription, 
-            s.tripId, isTripStarted, isTripEnded, IFNULL(sw.isWorkCompleted,0) isWorkCompleted, IFNULL(sw.isSiteReportedIssue,0) isSiteReportedIssue, sw.comment, latitude, longitude, endLatitude, endLongitude, s.createdOn
+            s.tripId, isTripStarted, isTripEnded, sw.workTypeId, wt.workTypeName, IFNULL(sw.isWorkCompleted,0) isWorkCompleted, IFNULL(sw.isSiteReportedIssue,0) isSiteReportedIssue, sw.comment, latitude, longitude, endLatitude, endLongitude, s.createdOn
             FROM tblTrip t
+            INNER JOIN tblUser u
+                ON u.userId = t.userId AND u.isActive = 1
             INNER JOIN tblSite s
                 ON s.tripId = t.tripId
-            LEFT JOIN tblSiteWork sw
-                ON sw.siteId = s.siteId
             LEFT JOIN tblSiteType st
                 ON st.siteTypeId = s.siteTypeId AND st.isActive = 1
             LEFT JOIN tblDistrict d
                 ON d.districtId = s.districtId AND d.isActive = 1
-            LEFT JOIN tblUser u
-                ON u.userId = t.userId AND u.isActive = 1
+            LEFT JOIN tblSiteWork sw
+                ON sw.siteId = s.siteId
+            LEFT JOIN tblWorkType wt
+                ON wt.workTypeId = sw.workTypeId
             WHERE s.createdOn between '${startDate} 00:00:00' and '${endDate} 23:59:59'
             order by s.siteId desc`,
                 (error, results, fields) => {

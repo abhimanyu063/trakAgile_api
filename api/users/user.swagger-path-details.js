@@ -112,5 +112,43 @@ module.exports = {
             description: 'Ok' 
         }
         */
-    }
+    },
+    forgetPassPathPayload: () => {
+        /*
+        #swagger.description = 'User forget password' 
+        #swagger.summary = 'User forget password',
+        #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/ForgetPassword' },
+            description: 'Ok' 
+        }
+        */
+    },
+    validateUserNameEmailAndMobilePayload: () => {
+        /*
+        #swagger.description = 'Validate username, email and mobile in user registration to avoid duplicacy' 
+        #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.requestBody = {
+            required: true,
+            description: 'Validate user name email and mobile payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/ValidateUserNameEmailAndMobile"
+                    }  
+                }
+            }
+        } 
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/AddUserResponse' },
+            description: 'Ok' 
+        }
+        */
+    },
 }

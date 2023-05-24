@@ -122,10 +122,9 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    validateForgetPassword: (req, res) => {
+    forgetPassword: (req, res) => {
         try {
-            const body = req.body;
-            userService.validateForgetPassword(body, (err, results) => {
+            userService.forgetPassword(req.params.userName, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -144,10 +143,10 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    validateUserNameAndEmail: (req, res) => {
+    validateUserNameEmailAndMobile: (req, res) => {
         try {
             const body = req.body;
-            userService.validateUserNameAndEmail(body, (err, results) => {
+            userService.validateUserNameEmailAndMobile(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,

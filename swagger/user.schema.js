@@ -59,18 +59,19 @@ const getUsers = [{
     createdOn: "2023-04-27T17:15:03.000Z",
 }]
 
-const validateForgetPassword = {
+const forgetPassword = {
+    name: "",
     userName: "",
     email: "",
     mobile: 0000000000,
-    isActive: 1,
+    password: "*****"
 }
 
-const validateUserNameAndEmail = {
+const validateUserNameEmailAndMobile = {
     userName: "",
     email: "",
-    mobile: 0000000000,
+    mobile: "0000000000",
 }
 
 
-module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, validateForgetPassword, validateUserNameAndEmail };
+module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile };

@@ -24,7 +24,8 @@ const getSite = {
     tripTypeId: 1,
     tripTypeDescription: "",
     tripId: 1,
-    createdOn: "",
+    workTypeId:10, 
+    workTypeName:"Development",
     isTripStarted: 1,
     isTripEnded: 0,
     isWorkCompleted: 0,
@@ -34,6 +35,7 @@ const getSite = {
     longitude: "10.1111111111111",
     endLatitude: "10.111111111111111",
     endLongitude: "10.1111111111111",
+    createdOn: "",
 }
 
 const getSites = [getSite]

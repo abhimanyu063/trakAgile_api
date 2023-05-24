@@ -47,7 +47,8 @@ module.exports = {
     validateAndGetUser: (data, callback) => {
         try {
             if (data.userName.trim() != "" && data.password != "") {
-                pool.query(`Select userId, userName, name, roleId, email, mobile, address, city, state, country from tblUser where (userName = '${data.userName}' OR email = '${data.userName}') AND password = '${data.password}' AND isActive = 1`,
+                pool.query(`Select userId, userName, name, roleId, email, mobile, address, city, state, country 
+                from tblUser where (userName = '${data.userName}' OR email = '${data.userName}' OR mobile = '${data.userName}') AND password = '${data.password}' AND isActive = 1`,
                     [],
                     (error, results, fields) => {
                         if (error) {
@@ -71,7 +72,7 @@ module.exports = {
             FROM tblUser u
             INNER JOIN tblRole r
                 ON r.roleId = u.roleId AND lower(roleName) = 'admin' AND r.isActive = 1
-            WHERE (userName = '${data.userName}' OR email = '${data.userName}') AND password = '${data.password}' AND u.isActive = 1`,
+            WHERE (userName = '${data.userName}' OR email = '${data.userName}' OR mobile = '${data.userName}') AND password = '${data.password}' AND u.isActive = 1`,
                     [],
                     (error, results, fields) => {
                         if (error) {
@@ -118,10 +119,10 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    validateForgetPassword: (data, callback) => {
+    forgetPassword: (userName, callback) => {
         try {
-            if (data.email.trim() != "") {
-                pool.query(`select username, email, mobile, password from tblUser where email = '${data.email}' and isActive = 1`,
+            if (userName.trim() != "") {
+                pool.query(`select name, username, email, mobile, password from tblUser where userName = '${userName}' OR email = '${userName}' OR mobile = '${userName}' and isActive = 1`,
                     [],
                     (error, results, fields) => {
                         if (error) {
@@ -131,14 +132,14 @@ module.exports = {
                     });
             }
             else {
-                callback('empty fields');
+                callback('empty user name');
             }
         }
         catch (error) {
             console.log('Error ', error)
         }
     },
-    validateUserNameAndEmail: (data, callback) => {
+    validateUserNameEmailAndMobile: (data, callback) => {
         try {
             pool.query(`select userName, email, mobile from tblUser where userName = '${data.userName}'  or email = '${data.email}' or mobile = '${data.mobile}'`,
                 [],

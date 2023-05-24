@@ -8,8 +8,8 @@ router.post('/users/validateAndGetUser', userController.validateAndGetUser, apiP
 router.post('/users/validateAdminAndGetDetails', userController.validateAdminAndGetDetails, apiPathDetails.objectValidatePayload);
 router.post('/users/changePassword', userController.changePassword, apiPathDetails.objectChangePassPayload);
 router.get('/users/getUsers', userController.getUsers, apiPathDetails.getList);
-router.post('/users/validateForgetPassword', userController.validateForgetPassword, apiPathDetails.objectPayload);
-router.post('/users/validateUserNameAndEmail', userController.validateUserNameAndEmail, apiPathDetails.objectPayload);
+router.get('/users/forgetPassword/:userName', userController.forgetPassword, apiPathDetails.forgetPassPathPayload);
+router.post('/users/validateUserNameEmailAndMobile', userController.validateUserNameEmailAndMobile, apiPathDetails.validateUserNameEmailAndMobilePayload);
 router.get('/users/getSiteReportedIssueDetails', userController.getSiteReportedIssueDetails, apiPathDetails.getReportedSites);
 
 

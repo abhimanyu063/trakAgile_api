@@ -1010,25 +1010,35 @@
         "security": []
       }
     },
-    "/users/validateForgetPassword": {
-      "post": {
+    "/users/forgetPassword/{userName}": {
+      "get": {
         "tags": [
           "Users"
         ],
-        "description": "Add user",
-        "parameters": [],
+        "summary": "User forget password",
+        "description": "User forget password",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Ok",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddUserResponse"
+                  "$ref": "#/components/schemas/ForgetPassword"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddUserResponse"
+                  "$ref": "#/components/schemas/ForgetPassword"
                 }
               }
             }
@@ -1037,26 +1047,15 @@
             "description": "Internal Server Error"
           }
         },
-        "security": [],
-        "requestBody": {
-          "required": true,
-          "description": "add user payload",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddUser"
-              }
-            }
-          }
-        }
+        "security": []
       }
     },
-    "/users/validateUserNameAndEmail": {
+    "/users/validateUserNameEmailAndMobile": {
       "post": {
         "tags": [
           "Users"
         ],
-        "description": "Add user",
+        "description": "Validate username, email and mobile in user registration to avoid duplicacy",
         "parameters": [],
         "responses": {
           "200": {
@@ -1081,11 +1080,11 @@
         "security": [],
         "requestBody": {
           "required": true,
-          "description": "add user payload",
+          "description": "Validate user name email and mobile payload",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AddUser"
+                "$ref": "#/components/schemas/ValidateUserNameEmailAndMobile"
               }
             }
           }
@@ -1657,9 +1656,13 @@
             "type": "number",
             "example": 1
           },
-          "createdOn": {
+          "workTypeId": {
+            "type": "number",
+            "example": 10
+          },
+          "workTypeName": {
             "type": "string",
-            "example": ""
+            "example": "Development"
           },
           "isTripStarted": {
             "type": "number",
@@ -1696,6 +1699,10 @@
           "endLongitude": {
             "type": "string",
             "example": "10.1111111111111"
+          },
+          "createdOn": {
+            "type": "string",
+            "example": ""
           }
         },
         "xml": {
@@ -1751,9 +1758,13 @@
               "type": "number",
               "example": 1
             },
-            "createdOn": {
+            "workTypeId": {
+              "type": "number",
+              "example": 10
+            },
+            "workTypeName": {
               "type": "string",
-              "example": ""
+              "example": "Development"
             },
             "isTripStarted": {
               "type": "number",
@@ -1790,6 +1801,10 @@
             "endLongitude": {
               "type": "string",
               "example": "10.1111111111111"
+            },
+            "createdOn": {
+              "type": "string",
+              "example": ""
             }
           }
         },
@@ -2409,9 +2424,13 @@
           "name": "GetUsers"
         }
       },
-      "ValidateForgetPassword": {
+      "ForgetPassword": {
         "type": "object",
         "properties": {
+          "name": {
+            "type": "string",
+            "example": ""
+          },
           "userName": {
             "type": "string",
             "example": ""
@@ -2424,16 +2443,16 @@
             "type": "number",
             "example": 0
           },
-          "isActive": {
-            "type": "number",
-            "example": 1
+          "password": {
+            "type": "string",
+            "example": "*****"
           }
         },
         "xml": {
-          "name": "ValidateForgetPassword"
+          "name": "ForgetPassword"
         }
       },
-      "ValidateUserNameAndEmail": {
+      "ValidateUserNameEmailAndMobile": {
         "type": "object",
         "properties": {
           "userName": {
@@ -2445,12 +2464,12 @@
             "example": ""
           },
           "mobile": {
-            "type": "number",
-            "example": 0
+            "type": "string",
+            "example": "0000000000"
           }
         },
         "xml": {
-          "name": "ValidateUserNameAndEmail"
+          "name": "ValidateUserNameEmailAndMobile"
         }
       },
       "AddWorkType": {
