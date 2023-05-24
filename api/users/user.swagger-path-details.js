@@ -84,5 +84,33 @@ module.exports = {
             description: 'Ok' 
         }
         */
+    },
+    getList: () => {
+        /*
+        #swagger.description = 'Get user list' 
+        #swagger.summary = 'get user list with details',
+        #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/GetUsers' },
+            description: 'Ok' 
+        }
+        */
+    },
+    getReportedSites: () => {
+        /*
+        #swagger.description = 'Get sites repoted issue' 
+        #swagger.summary = 'get sites reported issue',
+        #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/GetDashboardDetails' },
+            description: 'Ok' 
+        }
+        */
     }
 }

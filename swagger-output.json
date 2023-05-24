@@ -982,6 +982,34 @@
         }
       }
     },
+    "/users/getUsers": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get user list with details",
+        "description": "Get user list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUsers"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUsers"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
     "/users/validateForgetPassword": {
       "post": {
         "tags": [
@@ -1023,7 +1051,7 @@
         }
       }
     },
-    "/users/validateUserNameandEmail": {
+    "/users/validateUserNameAndEmail": {
       "post": {
         "tags": [
           "Users"
@@ -1064,12 +1092,13 @@
         }
       }
     },
-    "/users/getUserDetails": {
+    "/users/getSiteReportedIssueDetails": {
       "get": {
         "tags": [
           "Users"
         ],
-        "description": "Add user",
+        "summary": "get sites reported issue",
+        "description": "Get sites repoted issue",
         "parameters": [],
         "responses": {
           "200": {
@@ -1077,67 +1106,18 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddUserResponse"
+                  "$ref": "#/components/schemas/GetDashboardDetails"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddUserResponse"
+                  "$ref": "#/components/schemas/GetDashboardDetails"
                 }
               }
             }
           }
         },
-        "security": [],
-        "requestBody": {
-          "required": true,
-          "description": "add user payload",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddUser"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/getSiteReportedIsuueDetails": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "description": "Add user",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddUserResponse"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddUserResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [],
-        "requestBody": {
-          "required": true,
-          "description": "add user payload",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddUser"
-              }
-            }
-          }
-        }
+        "security": []
       }
     },
     "/workTypes/addWorkType": {
@@ -2366,6 +2346,113 @@
           "name": "ChangePassword"
         }
       },
+      "GetUsers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "number",
+              "example": 1
+            },
+            "userName": {
+              "type": "string",
+              "example": "Aman10"
+            },
+            "name": {
+              "type": "string",
+              "example": "Aman"
+            },
+            "email": {
+              "type": "string",
+              "example": "aman@gmail.com"
+            },
+            "mobile": {
+              "type": "string",
+              "example": "0000000000"
+            },
+            "address": {
+              "type": "string",
+              "example": "address"
+            },
+            "city": {
+              "type": "string",
+              "example": "city"
+            },
+            "state": {
+              "type": "string",
+              "example": "state"
+            },
+            "country": {
+              "type": "string",
+              "example": "country"
+            },
+            "roleId": {
+              "type": "number",
+              "example": 2
+            },
+            "roleName": {
+              "type": "string",
+              "example": "User"
+            },
+            "isActive": {
+              "type": "number",
+              "example": 1
+            },
+            "createdOn": {
+              "type": "string",
+              "example": "2023-04-27T17:15:03.000Z"
+            }
+          }
+        },
+        "xml": {
+          "name": "GetUsers"
+        }
+      },
+      "ValidateForgetPassword": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "example": ""
+          },
+          "email": {
+            "type": "string",
+            "example": ""
+          },
+          "mobile": {
+            "type": "number",
+            "example": 0
+          },
+          "isActive": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "ValidateForgetPassword"
+        }
+      },
+      "ValidateUserNameAndEmail": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "example": ""
+          },
+          "email": {
+            "type": "string",
+            "example": ""
+          },
+          "mobile": {
+            "type": "number",
+            "example": 0
+          }
+        },
+        "xml": {
+          "name": "ValidateUserNameAndEmail"
+        }
+      },
       "AddWorkType": {
         "type": "object",
         "properties": {
@@ -2439,50 +2526,6 @@
         },
         "xml": {
           "name": "GetWorkTypes"
-        }
-      },
-      "ValidateForgetPassword": {
-        "type": "object",
-        "properties": {
-          "userName": {
-            "type": "string",
-            "example": ""
-          },
-          "email": {
-            "type": "string",
-            "example": ""
-          },
-          "mobile": {
-            "type": "number",
-            "example": 0
-          },
-          "isActive": {
-            "type": "number",
-            "example": 1
-          }
-        },
-        "xml": {
-          "name": "ValidateForgetPassword"
-        }
-      },
-      "ValidateUserNameandEmail": {
-        "type": "object",
-        "properties": {
-          "userName": {
-            "type": "string",
-            "example": ""
-          },
-          "email": {
-            "type": "string",
-            "example": ""
-          },
-          "mobile": {
-            "type": "number",
-            "example": 0
-          }
-        },
-        "xml": {
-          "name": "ValidateUserNameandEmail"
         }
       }
     }

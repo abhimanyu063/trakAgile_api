@@ -105,6 +105,23 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    getUsers: (req, res) => {
+        try {
+            const body = req.body;
+            userService.getUsers(body, (err, results) => {
+                if (err) {
+                    return;
+                }
+                return res.json({
+                    success: 1,
+                    data: results
+                });
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
     validateForgetPassword: (req, res) => {
         try {
             const body = req.body;
@@ -127,10 +144,10 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    validateUserNameandEmail: (req, res) => {
+    validateUserNameAndEmail: (req, res) => {
         try {
             const body = req.body;
-            userService.validateUserNameandEmail(body, (err, results) => {
+            userService.validateUserNameAndEmail(body, (err, results) => {
                 if (err) {
                     return res.status(500).json({
                         success: 0,
@@ -149,27 +166,10 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getUserDetails: (req, res) => {
+    getSiteReportedIssueDetails: (req, res) => {
         try {
             const body = req.body;
-            userService.getUserDetails(body, (err, results) => {
-                if (err) {
-                    return;
-                }
-                return res.json({
-                    success: 1,
-                    data: results
-                });
-            });
-        }
-        catch (error) {
-            console.log('Error ', error)
-        }
-    },
-    getSiteReportedIsuueDetails: (req, res) => {
-        try {
-            const body = req.body;
-            userService.getSiteReportedIsuueDetails(body, (err, results) => {
+            userService.getSiteReportedIssueDetails(body, (err, results) => {
                 if (err) {
                     return;
                 }

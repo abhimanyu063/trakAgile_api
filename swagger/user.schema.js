@@ -42,10 +42,22 @@ const changePassword = {
     oldPassword: "*****",
     newPassword: "*****",
 }
-const validateForgetPasswordResponse = {
-    success: 1,
-    data: "",
-}
+
+const getUsers = [{
+    userId: 1,
+    userName: "Aman10",
+    name: "Aman",
+    email: "aman@gmail.com",
+    mobile: "0000000000",
+    address: "address",
+    city: "city",
+    state: "state",
+    country: "country",
+    roleId: 2,
+    roleName: "User",
+    isActive: 1,
+    createdOn: "2023-04-27T17:15:03.000Z",
+}]
 
 const validateForgetPassword = {
     userName: "",
@@ -53,15 +65,12 @@ const validateForgetPassword = {
     mobile: 0000000000,
     isActive: 1,
 }
-const validateUserNameandEmail = {
+
+const validateUserNameAndEmail = {
     userName: "",
     email: "",
     mobile: 0000000000,
 }
-const validateUserNameandEmailResponse = {
-    success: 1,
-    data: "",
-}
 
 
-module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword,  validateForgetPasswordResponse, validateForgetPassword, validateUserNameandEmail, validateUserNameandEmailResponse};
+module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, validateForgetPassword, validateUserNameAndEmail };

@@ -103,6 +103,21 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    getUsers: (data, callback) => {
+        try {
+            pool.query(`select userId, userName, name, email, mobile, address, city, state, country, u.roleId, roleName, u.isActive, createdOn 
+            from tblUser u INNER JOIN tblRole r ON r.roleId = u.roleId AND r.isActive = 1`,
+                (error, results, fields) => {
+                    if (error) {
+                        return callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
     validateForgetPassword: (data, callback) => {
         try {
             if (data.email.trim() != "") {
@@ -123,7 +138,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    validateUserNameandEmail: (data, callback) => {
+    validateUserNameAndEmail: (data, callback) => {
         try {
             pool.query(`select userName, email, mobile from tblUser where userName = '${data.userName}'  or email = '${data.email}' or mobile = '${data.mobile}'`,
                 [],
@@ -138,27 +153,14 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getUserDetails: (data, callback) => {
+    getSiteReportedIssueDetails: (data, callback) => {
         try {
-            pool.query(`select userName, name, email, mobile, address, city, state, country, isActive, createdOn, roleId from tblUser`,
-                (error, results, fields) => {
-                    if (error) {
-                        return callback(error);
-                    }
-                    return callback(null, results);
-                });
-        }
-        catch (error) {
-            console.log('Error ', error)
-        }
-    },
-    getSiteReportedIsuueDetails: (data, callback) => {
-        try {
-            pool.query(`select  sw.comment, sw.createdOn,  s.siteVillageName, s.siteName, u.name, u.email, u.mobile, u.address from tblSiteWork sw
-            Inner Join tblSite s on sw.siteid = s.siteID
-            Inner join tblTrip t on sw.siteid = t.tripID
-            Inner join tblUser u on t.userID = u.userId
-            where isSiteReportedIssue = 1`,
+            pool.query(`select  sw.comment, sw.createdOn,  s.siteVillageName, s.siteName, u.name, u.email, u.mobile, u.address 
+            from tblTrip t
+            Inner Join tblSite s on s.tripId = t.tripId
+            INNER JOIN tblSiteWork sw on sw.siteId = s.siteId
+            Inner join tblUser u on u.userId = t.userId AND u.isActive = 1
+            where IFNULL(isSiteReportedIssue,0) = 1`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

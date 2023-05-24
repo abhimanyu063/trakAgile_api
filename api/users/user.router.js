@@ -7,10 +7,10 @@ router.get('/users/getUserById/:userId', userController.getUserById, apiPathDeta
 router.post('/users/validateAndGetUser', userController.validateAndGetUser, apiPathDetails.objectValidatePayload);
 router.post('/users/validateAdminAndGetDetails', userController.validateAdminAndGetDetails, apiPathDetails.objectValidatePayload);
 router.post('/users/changePassword', userController.changePassword, apiPathDetails.objectChangePassPayload);
+router.get('/users/getUsers', userController.getUsers, apiPathDetails.getList);
 router.post('/users/validateForgetPassword', userController.validateForgetPassword, apiPathDetails.objectPayload);
-router.post('/users/validateUserNameandEmail', userController.validateUserNameandEmail, apiPathDetails.objectPayload);
-router.get('/users/getUserDetails', userController.getUserDetails, apiPathDetails.objectPayload);
-router.get('/users/getSiteReportedIsuueDetails', userController.getSiteReportedIsuueDetails, apiPathDetails.objectPayload);
+router.post('/users/validateUserNameAndEmail', userController.validateUserNameAndEmail, apiPathDetails.objectPayload);
+router.get('/users/getSiteReportedIssueDetails', userController.getSiteReportedIssueDetails, apiPathDetails.getReportedSites);
 
 
 module.exports = router;
