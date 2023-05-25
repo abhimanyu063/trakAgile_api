@@ -107,7 +107,7 @@ module.exports = {
     getUsers: (data, callback) => {
         try {
             pool.query(`select userId, userName, name, email, mobile, address, city, state, country, u.roleId, roleName, u.isActive, createdOn 
-            from tblUser u INNER JOIN tblRole r ON r.roleId = u.roleId AND r.isActive = 1`,
+            from tblUser u INNER JOIN tblRole r ON r.roleId = u.roleId AND r.isActive = 1 order by createdOn desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
@@ -161,7 +161,7 @@ module.exports = {
             Inner Join tblSite s on s.tripId = t.tripId
             INNER JOIN tblSiteWork sw on sw.siteId = s.siteId
             Inner join tblUser u on u.userId = t.userId AND u.isActive = 1
-            where IFNULL(isSiteReportedIssue,0) = 1`,
+            where IFNULL(isSiteReportedIssue,0) = 1 order by createdOn desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
