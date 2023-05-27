@@ -1095,8 +1095,8 @@
         "tags": [
           "Users"
         ],
-        "summary": "get sites reported issue",
-        "description": "Get sites repoted issue",
+        "summary": "get sonline users",
+        "description": "Get online users",
         "parameters": [],
         "responses": {
           "200": {
@@ -1110,6 +1110,34 @@
               "application/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/GetDashboardDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/users/getSupervisor": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get supervisor list",
+        "description": "Get supervisor list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSupervisors"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSupervisors"
                 }
               }
             }
@@ -2474,6 +2502,33 @@
         },
         "xml": {
           "name": "ValidateUserNameEmailAndMobile"
+        }
+      },
+      "GetSupervisors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "supervisorId": {
+              "type": "number",
+              "example": 3
+            },
+            "name": {
+              "type": "string",
+              "example": "Aman"
+            },
+            "roleId": {
+              "type": "number",
+              "example": 2
+            },
+            "roleName": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        },
+        "xml": {
+          "name": "GetSupervisors"
         }
       },
       "AddWorkType": {

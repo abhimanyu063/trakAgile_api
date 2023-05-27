@@ -9,7 +9,7 @@ module.exports = {
                     data.workTypeId,
                     data.documentDescription,
                     data.docPath,
-                    data.isWorkCompleted,
+                    1,
                     0,
                     new Date(),
                 ],
@@ -43,7 +43,7 @@ module.exports = {
             pool.query(`insert into tblSiteWork (siteId, isSiteReportedIssue, isWorkCompleted, comment, createdOn) values (?,?,?,?,?)`,
                 [
                     data.siteId,
-                    data.isSiteReportedIssue,
+                    1,
                     0,
                     data.comment,
                     new Date(),

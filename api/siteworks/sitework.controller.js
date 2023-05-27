@@ -45,9 +45,12 @@ module.exports = {
                 } else if (err) {
                     return next(err);
                 }
-
                 const body = req.body;
-                body.docPath = `${fileLocation}/${fileName}`;
+                body.docPath = fileName == '' ? '' : `${fileLocation}/${fileName}`;
+                if (body.siteId == '') {
+                    const error = new Error('siteId is blank');
+                    return next(error);
+                }
                 siteWorkService.addSiteWork(body, (err, results) => {
                     if (err) {
                         return next(err);

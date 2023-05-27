@@ -57,7 +57,7 @@ module.exports = {
                 if (err) {
                     return next(err);
                 }
-                let array;
+                let array = [];
                 if (results.docPath != null) {
                     try {
                         array = convertImageToByteArray(results.docPath)

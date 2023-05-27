@@ -46,20 +46,15 @@ module.exports = {
     },
     validateAndGetUser: (data, callback) => {
         try {
-            if (data.userName.trim() != "" && data.password != "") {
-                pool.query(`Select userId, userName, name, roleId, email, mobile, address, city, state, country 
+            pool.query(`Select userId, userName, name, roleId, email, mobile, address, city, state, country 
                 from tblUser where (userName = '${data.userName}' OR email = '${data.userName}' OR mobile = '${data.userName}') AND password = '${data.password}' AND isActive = 1`,
-                    [],
-                    (error, results, fields) => {
-                        if (error) {
-                            callback(error);
-                        }
-                        return callback(null, results[0]);
-                    });
-            }
-            else {
-                callback('empty credentials');
-            }
+                [],
+                (error, results, fields) => {
+                    if (error) {
+                        callback(error);
+                    }
+                    return callback(null, results[0]);
+                });
         }
         catch (error) {
             console.log('Error ', error)
@@ -67,23 +62,19 @@ module.exports = {
     },
     validateAdminAndGetDetails: (data, callback) => {
         try {
-            if (data.userName.trim() != "" && data.password != "") {
-                pool.query(`Select userId, userName, name, u.roleId, email, mobile, address, city, state, country 
+            pool.query(`Select userId, userName, name, u.roleId, email, mobile, address, city, state, country 
             FROM tblUser u
             INNER JOIN tblRole r
                 ON r.roleId = u.roleId AND lower(roleName) = 'admin' AND r.isActive = 1
             WHERE (userName = '${data.userName}' OR email = '${data.userName}' OR mobile = '${data.userName}') AND password = '${data.password}' AND u.isActive = 1`,
-                    [],
-                    (error, results, fields) => {
-                        if (error) {
-                            callback(error);
-                        }
-                        return callback(null, results[0]);
-                    });
-            }
-            else {
-                callback('empty credentials');
-            }
+                [],
+                (error, results, fields) => {
+                    if (error) {
+                        callback(error);
+                    }
+                    return callback(null, results[0]);
+                });
+
         }
         catch (error) {
             console.log('Error ', error)
@@ -176,4 +167,18 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    getSupervisor: (callback) => {
+        try {
+            pool.query(`select supervisorId, name, roleId from tblUser where roleId > 2 and isActive = 1`,
+                (error, results, fields) => {
+                    if (error) {
+                        return callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    }
 }

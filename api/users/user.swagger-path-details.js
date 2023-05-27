@@ -101,8 +101,8 @@ module.exports = {
     },
     getOnlineUsers: () => {
         /*
-        #swagger.description = 'Get sites repoted issue' 
-        #swagger.summary = 'get sites reported issue',
+        #swagger.description = 'Get online users' 
+        #swagger.summary = 'get sonline users',
         #swagger.tags = ['Users']
         #swagger.security: [{
             basicAuth: [],
@@ -147,6 +147,20 @@ module.exports = {
         } 
         #swagger.responses[200] = { 
             schema: { '$ref': '#/components/schemas/AddUserResponse' },
+            description: 'Ok' 
+        }
+        */
+    },
+    getSupervisorList: () => {
+        /*
+        #swagger.description = 'Get supervisor list' 
+        #swagger.summary = 'get supervisor list',
+        #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/GetSupervisors' },
             description: 'Ok' 
         }
         */

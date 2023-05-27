@@ -37,6 +37,10 @@ module.exports = {
     validateAndGetUser: (req, res, next) => {
         try {
             const body = req.body;
+            if (body.userName.trim() == "" || body.password == "") {
+                const error = new Error('empty credentials');
+                return next(error);
+            }
             userService.validateAndGetUser(body, (err, results) => {
                 if (err) {
                     return next(err);
@@ -54,6 +58,10 @@ module.exports = {
     validateAdminAndGetDetails: (req, res, next) => {
         try {
             const body = req.body;
+            if (body.userName.trim() == "" || body.password == "") {
+                const error = new Error('empty credentials');
+                return next(error);
+            }
             userService.validateAdminAndGetDetails(body, (err, results) => {
                 if (err) {
                     return next(err);
@@ -151,5 +159,21 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    getSupervisor: (req, res, next) => {
+        try {
+            userService.getSupervisor((err, results) => {
+                if (err) {
+                    return next(err);
+                }
+                return res.status(200).json({
+                    success: 1,
+                    data: results
+                });
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    }
 }
 

@@ -73,5 +73,12 @@ const validateUserNameEmailAndMobile = {
     mobile: "0000000000",
 }
 
+const getSupervisors = [{
+    supervisorId: 3,
+    name: "Aman",
+    roleId: 2,
+    roleName: "",
+}]
 
-module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile };
+
+module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors };
