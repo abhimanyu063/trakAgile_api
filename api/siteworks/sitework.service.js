@@ -3,14 +3,14 @@ const pool = require('../../config/database');
 module.exports = {
     addSiteWork: (data, callback) => {
         try {
-            pool.query(`insert into tblSiteWork (siteId, workTypeId, comment, docPath, isSiteReportedIssue, isWorkCompleted, createdOn) values (?,?,?,?,?,?,?)`,
+            pool.query(`insert into tblSiteWork (siteId, workTypeId, comment, docPath, isWorkCompleted, isSiteReportedIssue, createdOn) values (?,?,?,?,?,?,?)`,
                 [
                     data.siteId,
                     data.workTypeId,
                     data.documentDescription,
                     data.docPath,
-                    data.isSiteReportedIssue,
                     data.isWorkCompleted,
+                    0,
                     new Date(),
                 ],
                 (error, results, fields) => {
@@ -40,7 +40,7 @@ module.exports = {
     },
     reportIssue: (data, callback) => {
         try {
-            pool.query(`insert into tblSiteWork (siteId, isSiteReportedIssue,isWorkCompleted, comment, createdOn) values (?,?,?,?,?)`,
+            pool.query(`insert into tblSiteWork (siteId, isSiteReportedIssue, isWorkCompleted, comment, createdOn) values (?,?,?,?,?)`,
                 [
                     data.siteId,
                     data.isSiteReportedIssue,

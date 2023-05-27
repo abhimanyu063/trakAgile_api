@@ -1,11 +1,11 @@
 const dashboardService = require('./dashboard.service');
 
 module.exports = {
-    getDashboardDetails: (req, res) => {
+    getDashboardDetails: (req, res, next) => {
         try {
             dashboardService.getDashboardDetails((err, results) => {
                 if (err) {
-                    return;
+                    return next(err);
                 }
                 return res.json({
                     success: 1,

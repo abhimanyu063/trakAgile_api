@@ -1,10 +1,12 @@
 const errorHandler = (err, req, res, next) => {
-    if (typeof (err) === 'string') {
-        // custom application error
-        return res.status(400).json({ message: err });
-    }
-    // default to 500 server error
-    return res.status(500).json({ message: err.message });
+    console.log(req.path)
+    console.log(err.message)
+    err.statusCode = err.statusCode || 500;
+    err.status = err.status || 0
+    res.status(err.statusCode).json({
+        status: 0,
+        message: 'Error occured. Please contact administrator.'
+    });
 }
 
 module.exports = errorHandler;

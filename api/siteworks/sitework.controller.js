@@ -1,14 +1,9 @@
 const siteWorkService = require('./sitework.service');
+const { randomNumber } = require('../../helper/common');
 const multer = require('multer');
 
 let fileName = '';
 const fileLocation = 'uploads/sitework';
-
-const randomNumber = (min = 1, max = 100000000000000000) => {
-    return Math.floor(
-        Math.random() * (max - min + 1) + min
-    )
-}
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -29,7 +24,7 @@ const fileFilter = (req, file, cb) => {
         cb(null, true);
     } else {
         //cb(null, false);
-        return cb(new Error('file format not allowed'));
+        return cb(new Error(`file format not allowed - file name : ${file.originalname}`));
     }
 };
 
@@ -42,43 +37,38 @@ const upload = multer({
 }).single('docPath');
 
 module.exports = {
-    addSiteWork: (req, res) => {
+    addSiteWork: (req, res, next) => {
         try {
             upload(req, res, function (err) {
                 if (err instanceof multer.MulterError) {
-                    res.send(err.message);
+                    return next(err);
                 } else if (err) {
-                    res.send(err.message);
+                    return next(err);
                 }
-                else {
-                    const body = req.body;
-                    body.docPath = `${fileLocation}/${fileName}`;
 
-                    siteWorkService.addSiteWork(body, (err, results) => {
-                        if (err) {
-                            return res.status(500).json({
-                                success: 0,
-                                message: err
-                            });
-                        }
-                        return res.status(200).json({
-                            success: 1,
-                            data: results
-                        });
+                const body = req.body;
+                body.docPath = `${fileLocation}/${fileName}`;
+                siteWorkService.addSiteWork(body, (err, results) => {
+                    if (err) {
+                        return next(err);
+                    }
+                    return res.status(200).json({
+                        success: 1,
+                        data: results
                     });
-                }
-            });
+                });
 
+            });
         }
         catch (error) {
             console.log('Error ', error)
         }
     },
-    getSiteWorkBySiteId: (req, res) => {
+    getSiteWorkBySiteId: (req, res, next) => {
         try {
             siteWorkService.getSiteWorkBySiteId(req.params.siteId, (err, results) => {
                 if (err) {
-                    return;
+                    return next(err);
                 }
                 return res.json({
                     success: 1,
@@ -90,15 +80,12 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    reportIssue: (req, res) => {
+    reportIssue: (req, res, next) => {
         try {
             const body = req.body;
             siteWorkService.reportIssue(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
                 return res.status(200).json({
                     success: 1,

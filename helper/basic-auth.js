@@ -1,7 +1,4 @@
 const basicAuth = (req, res, next) => {
-    console.log(req)
-    console.log(req.headers.authorization)
-
     if (req.path === '/users/validateAndGetUser') {
         return next();
     }

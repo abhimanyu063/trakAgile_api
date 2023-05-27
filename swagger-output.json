@@ -66,9 +66,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -135,9 +132,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -256,9 +250,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -353,9 +344,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -408,7 +396,7 @@
         "security": []
       }
     },
-    "/sites/getSites/{startDate}/{endDate}": {
+    "/sites/getSites/{startDate}/{endDate}/{status}": {
       "get": {
         "tags": [
           "Sites"
@@ -425,6 +413,50 @@
           },
           {
             "name": "endDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSites"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSites"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/sites/getImage/{siteWorkId}": {
+      "get": {
+        "tags": [
+          "Sites"
+        ],
+        "description": "Get site by userId",
+        "parameters": [
+          {
+            "name": "siteWorkId",
             "in": "path",
             "required": true,
             "schema": {
@@ -474,9 +506,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -543,9 +572,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -569,9 +595,9 @@
                     "type": "string",
                     "format": "binary"
                   },
-                  "isSiteReportedIssue": {
-                    "type": "number",
-                    "example": 1
+                  "documentDescription": {
+                    "type": "string",
+                    "example": "doc description"
                   },
                   "isWorkCompleted": {
                     "type": "number",
@@ -643,9 +669,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -684,9 +707,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -762,9 +782,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -803,9 +820,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -881,9 +895,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -922,9 +933,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -963,9 +971,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -1042,9 +1047,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": []
@@ -1072,9 +1074,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -1089,34 +1088,6 @@
             }
           }
         }
-      }
-    },
-    "/users/getSiteReportedIssueDetails": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "summary": "get sites reported issue",
-        "description": "Get sites repoted issue",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetDashboardDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetDashboardDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": []
       }
     },
     "/workTypes/addWorkType": {
@@ -1141,9 +1112,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [],
@@ -1656,6 +1624,10 @@
             "type": "number",
             "example": 1
           },
+          "siteWorkId": {
+            "type": "number",
+            "example": 1
+          },
           "workTypeId": {
             "type": "number",
             "example": 10
@@ -1755,6 +1727,10 @@
               "example": ""
             },
             "tripId": {
+              "type": "number",
+              "example": 1
+            },
+            "siteWorkId": {
               "type": "number",
               "example": 1
             },

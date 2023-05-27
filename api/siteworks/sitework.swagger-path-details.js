@@ -26,9 +26,9 @@ module.exports = {
                                 'type': 'string',
                                 'format': 'binary'
                             },
-                            'isSiteReportedIssue':{
-                                'type': 'number',
-                                'example': 1
+                            'documentDescription':{
+                                'type': 'string',
+                                'example': 'doc description'
                             },
                             'isWorkCompleted':{
                                 'type': 'number',

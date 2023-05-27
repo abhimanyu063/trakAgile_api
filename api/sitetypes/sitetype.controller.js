@@ -1,15 +1,12 @@
 const siteTypeService = require('./sitetype.service');
 
 module.exports = {
-    addSiteType: (req, res) => {
+    addSiteType: (req, res, next) => {
         try {
             const body = req.body;
             siteTypeService.addSiteType(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
                 return res.status(200).json({
                     success: 1,
@@ -21,11 +18,11 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getSiteTypes: (req, res) => {
+    getSiteTypes: (req, res, next) => {
         try {
             siteTypeService.getSiteTypes((err, results) => {
                 if (err) {
-                    return;
+                    return next(err);
                 }
                 return res.json({
                     success: 1,

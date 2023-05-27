@@ -1,11 +1,11 @@
 const roleService = require('./role.service');
 
 module.exports = {
-    getRoles: (req, res) => {
+    getRoles: (req, res, next) => {
         try {
             roleService.getRoles((err, results) => {
                 if (err) {
-                    return;
+                    return next(err);
                 }
                 return res.json({
                     success: 1,

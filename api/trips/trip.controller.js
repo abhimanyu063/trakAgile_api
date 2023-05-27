@@ -1,15 +1,12 @@
 const tripService = require('./trip.service');
 
 module.exports = {
-    addTrip: (req, res) => {
+    addTrip: (req, res, next) => {
         try {
             const body = req.body;
             tripService.addTrip(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
                 return res.status(200).json({
                     success: 1,
@@ -21,11 +18,11 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getTripsByUserId: (req, res) => {
+    getTripsByUserId: (req, res, next) => {
         try {
             tripService.getTripsByUserId(req.params.userId, (err, results) => {
                 if (err) {
-                    return;
+                    return next(err);
                 }
                 return res.json({
                     success: 1,
@@ -37,15 +34,12 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    updateTrip: (req, res) => {
+    updateTrip: (req, res, next) => {
         try {
             const body = req.body;
             tripService.updateTrip(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
                 return res.status(200).json({
                     success: 1,

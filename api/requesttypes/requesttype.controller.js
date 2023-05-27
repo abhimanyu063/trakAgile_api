@@ -1,15 +1,12 @@
 const requestTypeService = require('./requesttype.service');
 
 module.exports = {
-    addRequestType: (req, res) => {
+    addRequestType: (req, res, next) => {
         try {
             const body = req.body;
             requestTypeService.addRequestType(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
                 return res.status(200).json({
                     success: 1,
@@ -21,11 +18,11 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getRequestTypes: (req, res) => {
+    getRequestTypes: (req, res, next) => {
         try {
             requestTypeService.getRequestTypes((err, results) => {
                 if (err) {
-                    return;
+                    return next(err);
                 }
                 return res.json({
                     success: 1,
