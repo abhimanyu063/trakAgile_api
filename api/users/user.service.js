@@ -154,14 +154,17 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getSiteReportedIssueDetails: (data, callback) => {
+    getOnlineUsers: (data, callback) => {
         try {
-            pool.query(`select  sw.comment, sw.createdOn,  s.siteVillageName, s.siteName, u.name, u.email, u.mobile, u.address 
-            from tblTrip t
-            Inner Join tblSite s on s.tripId = t.tripId
-            INNER JOIN tblSiteWork sw on sw.siteId = s.siteId
-            Inner join tblUser u on u.userId = t.userId AND u.isActive = 1
-            where IFNULL(isSiteReportedIssue,0) = 1 order by createdOn desc`,
+            pool.query(`SELECT st.siteTypeDescription, d.districtName,
+            u.name, u.email, s.tripTypeId, count(1) as count from tblSite s
+            INNER JOIN tblTrip t on s.tripId = t.tripId
+            INNER JOIN tblSiteType st on st.siteTypeId = s.siteTypeID
+            INNER JOIN tblDistrict d on d.districtId = s.districtId
+            INNER JOIN tblUser u on u.userId = t.userID
+            WHERE t.isTripStarted = 1 and u.isActive = 1
+            group by st.siteTypeDescription, d.districtName,
+            u.name, u.email, s.tripTypeId`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

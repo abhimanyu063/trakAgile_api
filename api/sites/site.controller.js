@@ -25,7 +25,7 @@ module.exports = {
                 if (err) {
                     return next(err);
                 }
-                return res.json({
+                return res.status(200).json({
                     success: 1,
                     data: results
                 });
@@ -41,7 +41,7 @@ module.exports = {
                 if (err) {
                     return next(err);
                 }
-                return res.json({
+                return res.status(200).json({
                     success: 1,
                     data: results
                 });
@@ -66,7 +66,7 @@ module.exports = {
                         return next(err);
                     }
                 }
-                return res.json({
+                return res.status(200).json({
                     success: 1,
                     data: array
                 });

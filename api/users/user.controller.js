@@ -1,35 +1,14 @@
 const userService = require('./user.service');
 
 module.exports = {
-    addUser: (req, res) => {
+    addUser: (req, res, next) => {
         try {
             const body = req.body;
             userService.addUser(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
-                else {
-                    return res.status(200).json({
-                        success: 1,
-                        data: results
-                    });
-                }
-            });
-        }
-        catch (error) {
-            console.log('Error ', error)
-        }
-    },
-    getUserById: (req, res) => {
-        try {
-            userService.getUserById(req.params.userId, (err, results) => {
-                if (err) {
-                    return;
-                }
-                return res.json({
+                return res.status(200).json({
                     success: 1,
                     data: results
                 });
@@ -39,80 +18,81 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    validateAndGetUser: (req, res) => {
+    getUserById: (req, res, next) => {
+        try {
+            userService.getUserById(req.params.userId, (err, results) => {
+                if (err) {
+                    return next(err);
+                }
+                return res.status(200).json({
+                    success: 1,
+                    data: results
+                });
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
+    validateAndGetUser: (req, res, next) => {
         try {
             const body = req.body;
             userService.validateAndGetUser(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
-                else {
-                    return res.status(200).json({
-                        success: results === undefined ? 0 : 1,
-                        data: results
-                    });
-                }
+                return res.status(200).json({
+                    success: results === undefined ? 0 : 1,
+                    data: results
+                });
             });
         }
         catch (error) {
             console.log('Error ', error)
         }
     },
-    validateAdminAndGetDetails: (req, res) => {
+    validateAdminAndGetDetails: (req, res, next) => {
         try {
             const body = req.body;
             userService.validateAdminAndGetDetails(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
-                else {
-                    return res.status(200).json({
-                        success: results === undefined ? 0 : 1,
-                        data: results
-                    });
-                }
+                return res.status(200).json({
+                    success: results === undefined ? 0 : 1,
+                    data: results
+                });
             });
         }
         catch (error) {
             console.log('Error ', error)
         }
     },
-    changePassword: (req, res) => {
+    changePassword: (req, res, next) => {
         try {
             const body = req.body;
             userService.changePassword(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
-                else {
-                    return res.status(200).json({
-                        success: (results !== undefined && results.affectedRows > 0) ? 1 : 0,
-                        data: results
-                    });
-                }
+                return res.status(200).json({
+                    success: (results !== undefined && results.affectedRows > 0) ? 1 : 0,
+                    data: results
+                });
             });
         }
         catch (error) {
             console.log('Error ', error)
         }
     },
-    getUsers: (req, res) => {
+    getUsers: (req, res, next) => {
         try {
             const body = req.body;
             userService.getUsers(body, (err, results) => {
                 if (err) {
-                    return;
+                    return next(err);
                 }
-                return res.json({
+                return res.status(200).json({
                     success: 1,
                     data: results
                 });
@@ -122,57 +102,47 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    forgetPassword: (req, res) => {
+    forgetPassword: (req, res, next) => {
         try {
             userService.forgetPassword(req.params.userName, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
-                else {
-                    return res.status(200).json({
-                        success: results === undefined ? 0 : 1,
-                        data: results
-                    });
-                }
+                return res.status(200).json({
+                    success: results === undefined ? 0 : 1,
+                    data: results
+                });
             });
         }
         catch (error) {
             console.log('Error ', error)
         }
     },
-    validateUserNameEmailAndMobile: (req, res) => {
+    validateUserNameEmailAndMobile: (req, res, next) => {
         try {
             const body = req.body;
             userService.validateUserNameEmailAndMobile(body, (err, results) => {
                 if (err) {
-                    return res.status(500).json({
-                        success: 0,
-                        message: err
-                    });
+                    return next(err);
                 }
-                else {
-                    return res.status(200).json({
-                        success: results === undefined ? 0 : 1,
-                        data: results
-                    });
-                }
+                return res.status(200).json({
+                    success: results === undefined ? 0 : 1,
+                    data: results
+                });
             });
         }
         catch (error) {
             console.log('Error ', error)
         }
     },
-    getSiteReportedIssueDetails: (req, res) => {
+    getOnlineUsers: (req, res, next) => {
         try {
             const body = req.body;
-            userService.getSiteReportedIssueDetails(body, (err, results) => {
+            userService.getOnlineUsers(body, (err, results) => {
                 if (err) {
-                    return;
+                    return next(err);
                 }
-                return res.json({
+                return res.status(200).json({
                     success: 1,
                     data: results
                 });

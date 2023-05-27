@@ -10,7 +10,7 @@ router.post('/users/changePassword', userController.changePassword, apiPathDetai
 router.get('/users/getUsers', userController.getUsers, apiPathDetails.getList);
 router.get('/users/forgetPassword/:userName', userController.forgetPassword, apiPathDetails.forgetPassPathPayload);
 router.post('/users/validateUserNameEmailAndMobile', userController.validateUserNameEmailAndMobile, apiPathDetails.validateUserNameEmailAndMobilePayload);
-router.get('/users/getSiteReportedIssueDetails', userController.getSiteReportedIssueDetails, apiPathDetails.getReportedSites);
+router.get('/users/getOnlineUsers', userController.getOnlineUsers, apiPathDetails.getOnlineUsers);
 
 
 module.exports = router;

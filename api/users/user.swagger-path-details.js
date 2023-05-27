@@ -99,7 +99,7 @@ module.exports = {
         }
         */
     },
-    getReportedSites: () => {
+    getOnlineUsers: () => {
         /*
         #swagger.description = 'Get sites repoted issue' 
         #swagger.summary = 'get sites reported issue',
