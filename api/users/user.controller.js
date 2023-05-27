@@ -137,8 +137,7 @@ module.exports = {
     },
     getOnlineUsers: (req, res, next) => {
         try {
-            const body = req.body;
-            userService.getOnlineUsers(body, (err, results) => {
+            userService.getOnlineUsers((err, results) => {
                 if (err) {
                     return next(err);
                 }

@@ -154,7 +154,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getOnlineUsers: (data, callback) => {
+    getOnlineUsers: (callback) => {
         try {
             pool.query(`SELECT st.siteTypeDescription, d.districtName,
             u.name, u.email, s.tripTypeId, count(1) as count from tblSite s
