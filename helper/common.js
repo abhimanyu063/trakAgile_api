@@ -20,4 +20,17 @@ const convertImageToByteArray = (filePath) => {
     }
 }
 
-module.exports = { randomNumber, convertImageToByteArray };
+const createNestedDirectory = (path) => {
+    path.split('/').reduce(
+        (directories, directory) => {
+            directories += `${directory}/`;
+            if (!fs.existsSync(directories)) {
+                fs.mkdirSync(directories);
+            }
+            return directories;
+        },
+        '',
+    );
+}
+
+module.exports = { randomNumber, convertImageToByteArray, createNestedDirectory };

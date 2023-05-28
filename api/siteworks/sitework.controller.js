@@ -1,5 +1,5 @@
 const siteWorkService = require('./sitework.service');
-const { randomNumber } = require('../../helper/common');
+const { randomNumber, createNestedDirectory } = require('../../helper/common');
 const multer = require('multer');
 
 let fileName = '';
@@ -37,8 +37,9 @@ const upload = multer({
 }).single('docPath');
 
 module.exports = {
-    addSiteWork: (req, res, next) => {
+    addSiteWork: async (req, res, next) => {
         try {
+            await createNestedDirectory(fileLocation);
             upload(req, res, function (err) {
                 if (err instanceof multer.MulterError) {
                     return next(err);
@@ -86,6 +87,10 @@ module.exports = {
     reportIssue: (req, res, next) => {
         try {
             const body = req.body;
+            if (body.siteId == '') {
+                const error = new Error('siteId is blank');
+                return next(error);
+            }
             siteWorkService.reportIssue(body, (err, results) => {
                 if (err) {
                     return next(err);
