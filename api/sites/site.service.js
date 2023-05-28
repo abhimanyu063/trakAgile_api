@@ -110,7 +110,6 @@ module.exports = {
     },
     addLocation: (data, callback) => {
         try {
-            console.log(data);
             pool.query(`insert into tblLocation (tripID, latitude, longitude, createdOn) values (?,?,?,?)`,
                 [
                     data.tripID,
