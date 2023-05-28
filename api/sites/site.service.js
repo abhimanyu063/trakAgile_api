@@ -107,5 +107,26 @@ module.exports = {
         catch (error) {
             console.log('Error ', error)
         }
-    }
+    },
+    addLocation: (data, callback) => {
+        try {
+            console.log(data);
+            pool.query(`insert into tblLocation (tripID, latitude, longitude, createdOn) values (?,?,?,?)`,
+                [
+                    data.tripID,
+                    data.latitude,
+                    data.longitude,
+                    new Date()
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }

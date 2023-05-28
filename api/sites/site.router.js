@@ -6,5 +6,6 @@ router.post('/sites/addSite', siteController.addSite, apiPathDetails.objectPaylo
 router.get('/sites/getSitesByUserId/:userId', siteController.getSitesByUserId, apiPathDetails.getList);
 router.get('/sites/getSites/:startDate/:endDate/:status', siteController.getSites, apiPathDetails.getListByDates);
 router.get('/sites/getImage/:siteWorkId', siteController.getImage, apiPathDetails.getList);
+router.post('/sites/addLocation', siteController.addLocation, apiPathDetails.objectPayload);
 
 module.exports = router;

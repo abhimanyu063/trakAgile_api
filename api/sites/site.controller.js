@@ -76,4 +76,22 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    addLocation: (req, res, next) => {
+        try {
+            const body = req.body;
+            console.log(body);
+            siteService.addLocation(body, (err, results) => {
+                if (err) {
+                    return next(err);
+                }
+                return res.status(200).json({
+                    success: 1,
+                    data: results
+                });
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }

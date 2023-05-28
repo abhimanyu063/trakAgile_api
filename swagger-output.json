@@ -484,6 +484,44 @@
         "security": []
       }
     },
+    "/sites/addLocation": {
+      "post": {
+        "tags": [
+          "Sites"
+        ],
+        "description": "Add site",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSiteResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "description": "add site payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSite"
+              }
+            }
+          }
+        }
+      }
+    },
     "/siteTypes/addSiteType": {
       "post": {
         "tags": [
