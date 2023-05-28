@@ -19,7 +19,7 @@ const getSite = {
     siteTypeDescription: "",
     siteVillageName: "",
     userId: 1,
-    userName: "",
+    name: "",
     district: 1,
     tripTypeId: 1,
     tripTypeDescription: "",

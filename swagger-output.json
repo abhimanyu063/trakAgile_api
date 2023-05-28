@@ -1146,6 +1146,34 @@
         "security": []
       }
     },
+    "/users/getUserHierarchy": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get user hierarchy",
+        "description": "Get user hierarchy",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserHierarchy"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserHierarchy"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
     "/workTypes/addWorkType": {
       "post": {
         "tags": [
@@ -1660,7 +1688,7 @@
             "type": "number",
             "example": 1
           },
-          "userName": {
+          "name": {
             "type": "string",
             "example": ""
           },
@@ -1766,7 +1794,7 @@
               "type": "number",
               "example": 1
             },
-            "userName": {
+            "name": {
               "type": "string",
               "example": ""
             },
@@ -2276,6 +2304,10 @@
             "type": "string",
             "example": "India"
           },
+          "supervisorId": {
+            "type": "number",
+            "example": 2
+          },
           "isActive": {
             "type": "number",
             "example": 1
@@ -2343,6 +2375,14 @@
           "country": {
             "type": "string",
             "example": "India"
+          },
+          "supervisorId": {
+            "type": "number",
+            "example": 2
+          },
+          "supervisorName": {
+            "type": "string",
+            "example": ""
           },
           "isActive": {
             "type": "number",
@@ -2442,6 +2482,14 @@
               "type": "string",
               "example": "User"
             },
+            "supervisorId": {
+              "type": "number",
+              "example": 2
+            },
+            "supervisorName": {
+              "type": "string",
+              "example": ""
+            },
             "isActive": {
               "type": "number",
               "example": 1
@@ -2529,6 +2577,82 @@
         },
         "xml": {
           "name": "GetSupervisors"
+        }
+      },
+      "GetUserHierarchy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "number",
+              "example": 1
+            },
+            "userName": {
+              "type": "string",
+              "example": "Aman10"
+            },
+            "name": {
+              "type": "string",
+              "example": "Aman"
+            },
+            "email": {
+              "type": "string",
+              "example": "aman@gmail.com"
+            },
+            "mobile": {
+              "type": "string",
+              "example": "0000000000"
+            },
+            "address": {
+              "type": "string",
+              "example": "address"
+            },
+            "city": {
+              "type": "string",
+              "example": "city"
+            },
+            "state": {
+              "type": "string",
+              "example": "state"
+            },
+            "country": {
+              "type": "string",
+              "example": "country"
+            },
+            "roleId": {
+              "type": "number",
+              "example": 2
+            },
+            "roleName": {
+              "type": "string",
+              "example": "User"
+            },
+            "supervisorId": {
+              "type": "number",
+              "example": 0
+            },
+            "supervisorName": {
+              "type": "string",
+              "example": ""
+            },
+            "isActive": {
+              "type": "number",
+              "example": 1
+            },
+            "createdOn": {
+              "type": "string",
+              "example": "2023-04-27T17:15:03.000Z"
+            },
+            "users": {
+              "type": "array",
+              "example": [],
+              "items": {}
+            }
+          }
+        },
+        "xml": {
+          "name": "GetUserHierarchy"
         }
       },
       "AddWorkType": {

@@ -12,6 +12,7 @@ router.get('/users/forgetPassword/:userName', userController.forgetPassword, api
 router.post('/users/validateUserNameEmailAndMobile', userController.validateUserNameEmailAndMobile, apiPathDetails.validateUserNameEmailAndMobilePayload);
 router.get('/users/getOnlineUsers', userController.getOnlineUsers, apiPathDetails.getOnlineUsers);
 router.get('/users/getSupervisor', userController.getSupervisor, apiPathDetails.getSupervisorList);
+router.get('/users/getUserHierarchy', userController.getUserHierarchy, apiPathDetails.getUserHierarchy);
 
 
 module.exports = router;

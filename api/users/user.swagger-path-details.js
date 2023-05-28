@@ -165,4 +165,18 @@ module.exports = {
         }
         */
     },
+    getUserHierarchy: () => {
+        /*
+        #swagger.description = 'Get user hierarchy' 
+        #swagger.summary = 'get user hierarchy',
+        #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/GetUserHierarchy' },
+            description: 'Ok' 
+        }
+        */
+    },
 }

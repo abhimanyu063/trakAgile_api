@@ -26,7 +26,7 @@ module.exports = {
     },
     getSitesByUserId: (userId, callback) => {
         try {
-            pool.query(`select s.siteId, siteName, s.siteTypeId, siteTypeDescription, siteVillageName, t.userId, u.Name userName, s.districtId, districtName, tripTypeId,
+            pool.query(`select s.siteId, siteName, s.siteTypeId, siteTypeDescription, siteVillageName, t.userId, u.Name name, s.districtId, districtName, tripTypeId,
             CASE WHEN tripTypeId = 1 THEN 'Local' 
                 WHEN tripTypeId = 2 THEN 'Non-Local' 
                 ELSE '' END tripTypeDescription, 
@@ -60,7 +60,7 @@ module.exports = {
     },
     getSites: (startDate, endDate, status, callback) => {
         try {
-            pool.query(`select s.siteId, siteName, s.siteTypeId, siteTypeDescription, siteVillageName, t.userId, u.Name userName, s.districtId, districtName, tripTypeId,
+            pool.query(`select s.siteId, siteName, s.siteTypeId, siteTypeDescription, siteVillageName, t.userId, u.Name name, s.districtId, districtName, tripTypeId,
             CASE WHEN tripTypeId = 1 THEN 'Local' 
                 WHEN tripTypeId = 2 THEN 'Non-Local' 
                 ELSE '' END tripTypeDescription, 

@@ -1,4 +1,5 @@
 const userService = require('./user.service');
+const { HierarchyTree } = require('./user.common');
 
 module.exports = {
     addUser: (req, res, next) => {
@@ -168,6 +169,22 @@ module.exports = {
                 return res.status(200).json({
                     success: 1,
                     data: results
+                });
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
+    getUserHierarchy: (req, res, next) => {
+        try {
+            userService.getUserHierarchy((err, results) => {
+                if (err) {
+                    return next(err);
+                }
+                return res.status(200).json({
+                    success: 1,
+                    data: HierarchyTree(results)
                 });
             });
         }

@@ -9,6 +9,7 @@ const addUser = {
     city: "Bangalore",
     state: "KA",
     country: "India",
+    supervisorId: 2,
     isActive: 1,
 }
 
@@ -28,6 +29,8 @@ const getUser = {
     city: "Bangalore",
     state: "KA",
     country: "India",
+    supervisorId: 2,
+    supervisorName: "",
     isActive: 1,
     createdOn: ""
 }
@@ -55,6 +58,8 @@ const getUsers = [{
     country: "country",
     roleId: 2,
     roleName: "User",
+    supervisorId: 2,
+    supervisorName: "",
     isActive: 1,
     createdOn: "2023-04-27T17:15:03.000Z",
 }]
@@ -80,5 +85,23 @@ const getSupervisors = [{
     roleName: "",
 }]
 
+const getUserHierarchy = [{
+    userId: 1,
+    userName: "Aman10",
+    name: "Aman",
+    email: "aman@gmail.com",
+    mobile: "0000000000",
+    address: "address",
+    city: "city",
+    state: "state",
+    country: "country",
+    roleId: 2,
+    roleName: "User",
+    supervisorId: 0,
+    supervisorName: "",
+    isActive: 1,
+    createdOn: "2023-04-27T17:15:03.000Z",
+    users: []
+}]
 
-module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors };
+module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors, getUserHierarchy };

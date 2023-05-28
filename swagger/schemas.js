@@ -7,7 +7,7 @@ const { addSite, addSiteResponse, getSite, getSites } = require('./site.schema')
 const { addSiteType, addSiteTypeResponse, getSiteType, getSiteTypes } = require('./sitetype.schema');
 const { addSiteWork, addSiteWorkResponse, getSiteWork, getSiteWorks, reportIssue } = require('./sitework.schema');
 const { addTrip, updateTrip, addTripResponse, getTrip, getTrips } = require('./trip.schema');
-const { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors } = require('./user.schema');
+const { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors, getUserHierarchy } = require('./user.schema');
 const { addWorkType, addWorkTypeResponse, getWorkType, getWorkTypes } = require('./worktype.schema');
 
 module.exports = {
@@ -52,6 +52,7 @@ module.exports = {
     ForgetPassword: forgetPassword,
     ValidateUserNameEmailAndMobile: validateUserNameEmailAndMobile,
     GetSupervisors: getSupervisors,
+    GetUserHierarchy: getUserHierarchy,
     AddWorkType: addWorkType,
     AddWorkTypeResponse: addWorkTypeResponse,
     GetWorkType: getWorkType,

@@ -32,7 +32,7 @@ module.exports = {
     },
     getUserById: (userId, callback) => {
         try {
-            pool.query(`select userId, userName, name, roleId, email, mobile, address, city, state, country, createdOn from tblUser where userId = ${userId} and isActive = 1`,
+            pool.query(`select userId, userName, name, roleId, email, mobile, address, city, state, country, supervisorId, createdOn from tblUser where userId = ${userId} and isActive = 1`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
@@ -46,7 +46,7 @@ module.exports = {
     },
     validateAndGetUser: (data, callback) => {
         try {
-            pool.query(`Select userId, userName, name, roleId, email, mobile, address, city, state, country 
+            pool.query(`Select userId, userName, name, roleId, email, mobile, address, city, state, country, supervisorId 
                 from tblUser where (userName = '${data.userName}' OR email = '${data.userName}' OR mobile = '${data.userName}') AND password = '${data.password}' AND isActive = 1`,
                 [],
                 (error, results, fields) => {
@@ -97,7 +97,7 @@ module.exports = {
     },
     getUsers: (data, callback) => {
         try {
-            pool.query(`select userId, userName, name, email, mobile, address, city, state, country, u.roleId, roleName, u.isActive, createdOn 
+            pool.query(`select userId, userName, name, email, mobile, address, city, state, country, u.roleId, roleName, supervisorId, u.isActive, createdOn 
             from tblUser u INNER JOIN tblRole r ON r.roleId = u.roleId AND r.isActive = 1 order by createdOn desc`,
                 (error, results, fields) => {
                     if (error) {
@@ -170,6 +170,26 @@ module.exports = {
     getSupervisor: (callback) => {
         try {
             pool.query(`select supervisorId, name, roleId from tblUser where roleId > 2 and isActive = 1`,
+                (error, results, fields) => {
+                    if (error) {
+                        return callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
+    getUserHierarchy: (callback) => {
+        try {
+            pool.query(`select u.userId, u.name, u.userName, u.email, u.mobile, u.address, u.city, u.state, u.country, u.roleId, r.roleName, u.supervisorId, IFNULL(u2.name,'') supervisorName 
+            from tblUser u 
+            INNER JOIN tblRole r
+                ON r.roleId = u.roleId AND r.roleId IN (2,3) AND r.isActive = 1
+            LEFT JOIN tblUser u2
+                ON u2.userId = u.supervisorId AND u2.isActive = 1
+            where u.isActive = 1`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
