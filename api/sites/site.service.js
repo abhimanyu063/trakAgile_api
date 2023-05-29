@@ -146,11 +146,13 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getLocation: (data, callback) => {
+    getLocation: (userId, callback) => {
         try {
-            pool.query(`SELECT l.latitude, l.longitude, l.tripId, t.createdOn from tblLocation l
-            INNER JOIN tblTrip t on l.tripId = t.tripId
-            WHERE t.userId = 3 order by t.createdOn desc`,
+            pool.query(`SELECT l.latitude, l.longitude, l.tripId, t.createdOn, u.name 
+            from tblUser u
+            INNER JOIN tblTrip t on u.userId = t.userId and IFNULL(isTripStarted ,0) = 1 and  IFNULL(isTripEnded ,0) = 0
+            INEER JOIN tblLocation l on l.tripId = t.tripId
+            WHERE (t.userId = ${userId} or ${userId} = 0) order by t.createdOn desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
