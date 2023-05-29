@@ -8,6 +8,7 @@ router.get('/sites/getSites/:startDate/:endDate/:status', siteController.getSite
 router.get('/sites/getImage/:siteWorkId', siteController.getImage, apiPathDetails.getList);
 router.post('/sites/addLocation', siteController.addLocation, apiPathDetails.objectPayload);
 router.get('/sites/getSiteReportedIsuueDetails', siteController.getSiteReportedIsuueDetails, apiPathDetails.objectPayload);
+router.get('/sites/getLocation', siteController.getLocation, apiPathDetails.objectPayload);
 
 
 module.exports = router;

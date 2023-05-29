@@ -110,4 +110,21 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    getLocation: (req, res) => {
+        try {
+            const body = req.body;
+            siteService.getLocation(body, (err, results) => {
+                if (err) {
+                    return;
+                }
+                return res.json({
+                    success: 1,
+                    data: results
+                });
+            });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
 }
