@@ -560,13 +560,22 @@
         }
       }
     },
-    "/sites/getLocation": {
+    "/sites/getLocation/{userId}": {
       "get": {
         "tags": [
           "Sites"
         ],
         "description": "Add site",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Ok",
@@ -2758,7 +2767,15 @@
               "type": "string",
               "example": "2023-04-27T17:15:03.000Z"
             },
-            "users": {
+            "cssClass": {
+              "type": "string",
+              "example": "ngx-org-ceo"
+            },
+            "image": {
+              "type": "string",
+              "example": "assets/user.png"
+            },
+            "childs": {
               "type": "array",
               "example": [],
               "items": {}

@@ -101,7 +101,10 @@ const getUserHierarchy = [{
     supervisorName: "",
     isActive: 1,
     createdOn: "2023-04-27T17:15:03.000Z",
-    users: []
+    cssClass: 'ngx-org-ceo', 
+    image: 'assets/user.png',
+    childs: []
+
 }]
 
 module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors, getUserHierarchy };
