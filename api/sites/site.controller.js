@@ -112,8 +112,8 @@ module.exports = {
     },
     getLocation: (req, res) => {
         try {
-            const body = req.body;
-            siteService.getLocation(body, (err, results) => {
+    
+            siteService.getLocation(req.params.userId, (err, results) => {
                 if (err) {
                     return;
                 }
