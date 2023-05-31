@@ -4,7 +4,7 @@ module.exports = {
     addUser: (data, callback) => {
         try {
             pool.query(`insert into tblUser (password, name, userName, roleId, email, mobile, 
-                address, city, state, country, isActive, createdOn) values (?,?,?,?,?,?,?,?,?,?,?,?)`,
+                address, city, state, country, isActive, createdOn, supervisorId) values (?,?,?,?,?,?,?,?,?,?,?,?,?)`,
                 [
                     data.password,
                     data.name,
@@ -18,6 +18,7 @@ module.exports = {
                     data.country,
                     data.isActive,
                     new Date(),
+                    data.supervisorId
                 ],
                 (error, results, fields) => {
                     if (error) {
