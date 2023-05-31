@@ -169,7 +169,7 @@ module.exports = {
     },
     getSupervisor: (callback) => {
         try {
-            pool.query(`select supervisorId, name, roleId from tblUser where roleId > 2 and isActive = 1`,
+            pool.query(`select supervisorId, name, roleId, userId from tblUser where roleId > 2 and isActive = 1`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
