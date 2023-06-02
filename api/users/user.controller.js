@@ -96,14 +96,13 @@ module.exports = {
     },
     getUsers: (req, res, next) => {
         try {
-            const body = req.body;
-            userService.getUsers(body, (err, results) => {
+            userService.getUsers(req.params.userId, (err, results) => {
                 if (err) {
                     return next(err);
                 }
                 return res.status(200).json({
                     success: 1,
-                    data: results
+                    data: results,
                 });
             });
         }

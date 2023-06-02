@@ -96,10 +96,10 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getUsers: (data, callback) => {
+    getUsers: (userId, callback) => {
         try {
-            pool.query(`select userId, userName, name, email, mobile, address, city, state, country, u.roleId, roleName, supervisorId, u.isActive, createdOn 
-            from tblUser u INNER JOIN tblRole r ON r.roleId = u.roleId AND r.isActive = 1 order by createdOn desc`,
+            pool.query(`select userId, userName, name, email, mobile, address, city, state, country, supervisorId, isActive, createdOn
+            from tblUser WHERE supervisorId = ${userId} and isActive = 1 order by createdOn desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

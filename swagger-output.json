@@ -1110,14 +1110,23 @@
         }
       }
     },
-    "/users/getUsers": {
+    "/users/getUsers/{userId}": {
       "get": {
         "tags": [
           "Users"
         ],
         "summary": "get user list with details",
         "description": "Get user list",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Ok",
