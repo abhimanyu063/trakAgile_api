@@ -63,10 +63,10 @@ module.exports = {
     },
     validateAdminAndGetDetails: (data, callback) => {
         try {
-            pool.query(`Select userId, userName, name, u.roleId, email, mobile, address, city, state, country 
+            pool.query(`Select userId, userName, name, u.roleId, u.supervisorId, email, mobile, address, city, state, country
             FROM tblUser u
             INNER JOIN tblRole r
-                ON r.roleId = u.roleId AND lower(roleName) = 'admin' AND r.isActive = 1
+                ON r.roleId = u.roleId AND (lower(roleName) = 'admin' or lower(roleName) = 'supervisor') AND r.isActive = 1
             WHERE (userName = '${data.userName}' OR email = '${data.userName}' OR mobile = '${data.userName}') AND password = '${data.password}' AND u.isActive = 1`,
                 [],
                 (error, results, fields) => {
