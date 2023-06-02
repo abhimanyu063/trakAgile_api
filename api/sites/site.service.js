@@ -148,12 +148,14 @@ module.exports = {
     },
     getLocation: (userId, callback) => {
         try {
-            pool.query(`SELECT l.latitude, l.longitude, l.tripId, t.createdOn, u.name, l.siteId, s.siteName, u.userId
+            pool.query(`SELECT l.locationId, t.tripId, t.latitude tripStartLatitude, t.longitude tripStartLongitude,
+                l.latitude, l.longitude, l.CreatedOn,
+                IFNULL(s.siteId,0) siteId, s.siteName, s.CreatedOn siteCreatedOn, u.userId, u.name
             from tblUser u
             INNER JOIN tblTrip t on u.userId = t.userId and IFNULL(isTripStarted ,0) = 1 and  IFNULL(isTripEnded ,0) = 0
-            INNER JOIN tblLocation l on l.tripId = t.tripId
+            LEFT JOIN tblLocation l on l.tripId = t.tripId
             LEFT JOIN tblSite s on s.siteId = l.siteId
-            WHERE (u.userId = ${userId} or ${userId} = 0) and u.isActive = 1 order by l.createdOn desc`,
+            WHERE (u.userId = ${userId} or ${userId} = 0) and u.isActive = 1 order by l.locationId`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

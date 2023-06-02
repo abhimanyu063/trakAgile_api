@@ -148,7 +148,7 @@ module.exports = {
     },
     getOnlineUsers: (callback) => {
         try {
-            pool.query(`SELECT st.siteTypeDescription, d.districtName,
+            pool.query(`SELECT st.siteTypeDescription, d.districtName, u.userId,
             u.name, u.email, s.tripTypeId, count(1) as count from tblSite s
             INNER JOIN tblTrip t on s.tripId = t.tripId
             INNER JOIN tblSiteType st on st.siteTypeId = s.siteTypeID
