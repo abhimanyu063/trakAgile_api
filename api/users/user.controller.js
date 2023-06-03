@@ -177,7 +177,7 @@ module.exports = {
     },
     getUserHierarchy: (req, res, next) => {
         try {
-            userService.getUserHierarchy((err, results) => {
+            userService.getUserHierarchy(req.params.supervisorId, (err, results) => {
                 if (err) {
                     return next(err);
                 }

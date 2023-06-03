@@ -183,12 +183,13 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getUserHierarchy: (callback) => {
+    getUserHierarchy: (supervisorId, callback) => {
         try {
+            console.log(supervisorId);
             pool.query(`select u.userId, u.name, u.userName, u.email, u.mobile, u.address, u.city, u.state, u.country, u.roleId, r.roleName title, u.supervisorId, IFNULL(u2.name,'') supervisorName , 'ngx-org-ceo' cssClass, 'assets/user.png' image
             from tblUser u 
             INNER JOIN tblRole r
-                ON r.roleId = u.roleId AND r.roleId IN (2,3) AND r.isActive = 1
+                ON r.roleId = u.roleId AND r.roleId IN (2,3) AND r.isActive = 1 and u.supervisorId = ${supervisorId}
             LEFT JOIN tblUser u2
                 ON u2.userId = u.supervisorId AND u2.isActive = 1
             where u.isActive = 1`,
