@@ -47,9 +47,10 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getRequests: (startDate, endDate, callback) => {
+    getRequests: (startDate, endDate, supervisorId, callback) => {
         try {
-            pool.query(`select requestId, requestComment, r.requestTypeId, rt.requestTypeDescription, r.userId, u2.name requestByUserName, isApproved, approvedByUserId, u.name approvedByUserName, requestDate, r.createdOn 
+            console.log(startDate, endDate, supervisorId);
+            pool.query(`select requestId, requestComment, r.requestTypeId, rt.requestTypeDescription, r.userId, u2.name requestByUserName, isApproved, approvedByUserId, u.name approvedByUserName, requestDate, r.createdOn, u2.supervisorId
             from tblRequest r
             INNER JOIN tblRequestType rt
                 on rt.requestTypeId = r.requestTypeId AND rt.isActive = 1
@@ -57,7 +58,7 @@ module.exports = {
                 on u.userId = r.approvedByUserId
             LEFT JOIN tblUser u2
                 on u2.userId = r.userId
-            WHERE r.createdOn between '${startDate} 00:00:00' and '${endDate} 23:59:59'
+             WHERE r.createdOn between '${startDate} 00:00:00' and '${endDate} 23:59:59' and u2.supervisorId = ${supervisorId}
             order by requestId desc`,
                 (error, results, fields) => {
                     if (error) {

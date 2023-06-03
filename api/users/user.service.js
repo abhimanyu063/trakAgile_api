@@ -98,8 +98,9 @@ module.exports = {
     },
     getUsers: (userId, callback) => {
         try {
-            pool.query(`select userId, userName, name, email, mobile, address, city, state, country, supervisorId, isActive, createdOn
-            from tblUser WHERE supervisorId = ${userId} and isActive = 1 order by createdOn desc`,
+            pool.query(`select userId, userName, name, email, mobile, address, city, state, country, u.roleId, roleName, u.supervisorId, u.isActive, createdOn 
+            from tblUser u INNER JOIN tblRole r ON r.roleId = u.roleId
+            WHERE u.supervisorId = ${userId} and u.isActive = 1 order by createdOn desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);
@@ -146,7 +147,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getOnlineUsers: (callback) => {
+    getOnlineUsers: (supervisorId, callback) => {
         try {
             pool.query(`SELECT st.siteTypeDescription, d.districtName, u.userId,
             u.name, u.email, s.tripTypeId, count(1) as count from tblSite s
@@ -154,7 +155,7 @@ module.exports = {
             INNER JOIN tblSiteType st on st.siteTypeId = s.siteTypeID
             INNER JOIN tblDistrict d on d.districtId = s.districtId
             INNER JOIN tblUser u on u.userId = t.userID
-            WHERE t.isTripStarted = 1 and u.isActive = 1
+            WHERE t.isTripStarted = 1 and u.isActive = 1 and u.supervisorId = ${supervisorId}
             group by st.siteTypeDescription, d.districtName,
             u.name, u.email, s.tripTypeId`,
                 (error, results, fields) => {

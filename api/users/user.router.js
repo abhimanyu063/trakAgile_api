@@ -10,7 +10,7 @@ router.post('/users/changePassword', userController.changePassword, apiPathDetai
 router.get('/users/getUsers/:userId', userController.getUsers, apiPathDetails.getList);
 router.get('/users/forgetPassword/:userName', userController.forgetPassword, apiPathDetails.forgetPassPathPayload);
 router.post('/users/validateUserNameEmailAndMobile', userController.validateUserNameEmailAndMobile, apiPathDetails.validateUserNameEmailAndMobilePayload);
-router.get('/users/getOnlineUsers', userController.getOnlineUsers, apiPathDetails.getOnlineUsers);
+router.get('/users/getOnlineUsers/:supervisorId', userController.getOnlineUsers, apiPathDetails.getOnlineUsers);
 router.get('/users/getSupervisor', userController.getSupervisor, apiPathDetails.getSupervisorList);
 router.get('/users/getUserHierarchy', userController.getUserHierarchy, apiPathDetails.getUserHierarchy);
 

@@ -184,7 +184,7 @@
         "security": []
       }
     },
-    "/requests/getRequests/{startDate}/{endDate}": {
+    "/requests/getRequests/{startDate}/{endDate}/{supervisorId}": {
       "get": {
         "tags": [
           "Requests"
@@ -201,6 +201,14 @@
           },
           {
             "name": "endDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "supervisorId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1222,14 +1230,23 @@
         }
       }
     },
-    "/users/getOnlineUsers": {
+    "/users/getOnlineUsers/{supervisorId}": {
       "get": {
         "tags": [
           "Users"
         ],
         "summary": "get sonline users",
         "description": "Get online users",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "supervisorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Ok",

@@ -36,7 +36,7 @@ module.exports = {
     },
     getRequests: (req, res, next) => {
         try {
-            requestService.getRequests(req.params.startDate, req.params.endDate, (err, results) => {
+            requestService.getRequests(req.params.startDate, req.params.endDate, req.params.supervisorId, (err, results) => {
                 if (err) {
                     return next(err);
                 }

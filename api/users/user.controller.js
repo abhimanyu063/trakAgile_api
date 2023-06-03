@@ -145,7 +145,7 @@ module.exports = {
     },
     getOnlineUsers: (req, res, next) => {
         try {
-            userService.getOnlineUsers((err, results) => {
+            userService.getOnlineUsers(req.params.supervisorId,(err, results) => {
                 if (err) {
                     return next(err);
                 }
