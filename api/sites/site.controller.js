@@ -37,7 +37,7 @@ module.exports = {
     },
     getSites: (req, res, next) => {
         try {
-            siteService.getSites(req.params.startDate, req.params.endDate, req.params.status, (err, results) => {
+            siteService.getSites(req.params.startDate, req.params.endDate, req.params.status, req.params.supervisorId, (err, results) => {
                 if (err) {
                     return next(err);
                 }
@@ -95,8 +95,7 @@ module.exports = {
     },
     getSiteReportedIsuueDetails: (req, res) => {
         try {
-            const body = req.body;
-            siteService.getSiteReportedIsuueDetails(body, (err, results) => {
+            siteService.getSiteReportedIsuueDetails(req.params.supervisorId, (err, results) => {
                 if (err) {
                     return;
                 }

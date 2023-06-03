@@ -404,7 +404,7 @@
         "security": []
       }
     },
-    "/sites/getSites/{startDate}/{endDate}/{status}": {
+    "/sites/getSites/{startDate}/{endDate}/{status}/{supervisorId}": {
       "get": {
         "tags": [
           "Sites"
@@ -429,6 +429,14 @@
           },
           {
             "name": "status",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "supervisorId",
             "in": "path",
             "required": true,
             "schema": {
@@ -530,13 +538,22 @@
         }
       }
     },
-    "/sites/getSiteReportedIsuueDetails": {
+    "/sites/getSiteReportedIsuueDetails/{supervisorId}": {
       "get": {
         "tags": [
           "Sites"
         ],
         "description": "Add site",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "supervisorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Ok",

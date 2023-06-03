@@ -58,7 +58,7 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getSites: (startDate, endDate, status, callback) => {
+    getSites: (startDate, endDate, status, supervisorId, callback) => {
         try {
             pool.query(`select s.siteId, siteName, s.siteTypeId, siteTypeDescription, siteVillageName, t.userId, u.Name name, s.districtId, districtName, tripTypeId,
             CASE WHEN tripTypeId = 1 THEN 'Local' 
@@ -67,7 +67,7 @@ module.exports = {
             s.tripId, isTripStarted, isTripEnded, sw.siteWorkId, sw.workTypeId, wt.workTypeName, IFNULL(sw.isWorkCompleted,0) isWorkCompleted, IFNULL(sw.isSiteReportedIssue,0) isSiteReportedIssue, sw.comment, latitude, longitude, endLatitude, endLongitude, s.createdOn
             FROM tblTrip t
             INNER JOIN tblUser u
-                ON u.userId = t.userId AND u.isActive = 1
+                ON u.userId = t.userId AND u.isActive = 1 and u.supervisorId = ${supervisorId}
             INNER JOIN tblSite s
                 ON s.tripId = t.tripId AND s.createdOn between '${startDate} 00:00:00' and '${endDate} 23:59:59'
             LEFT JOIN tblSiteType st
@@ -128,13 +128,14 @@ module.exports = {
             console.log('Error ', error)
         }
     },
-    getSiteReportedIsuueDetails: (data, callback) => {
+    getSiteReportedIsuueDetails:(supervisorId, callback) => {
         try {
-            pool.query(`select  sw.comment, sw.createdOn,  s.siteVillageName, s.siteName, u.name, u.email, u.mobile, u.address from tblSiteWork sw
+            pool.query(`select  sw.comment, sw.createdOn,  s.siteVillageName, s.siteName, u.name, u.email, u.mobile, u.address , u.supervisorId
+            from tblSiteWork sw
             Inner Join tblSite s on sw.siteid = s.siteID
             Inner join tblTrip t on sw.siteid = t.tripID
             Inner join tblUser u on t.userID = u.userId
-            where isSiteReportedIssue = 1 order by sw.createdOn desc`,
+            where isSiteReportedIssue = 1 and u.supervisorId = ${supervisorId} order by sw.createdOn desc`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

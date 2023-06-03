@@ -49,7 +49,6 @@ module.exports = {
     },
     getRequests: (startDate, endDate, supervisorId, callback) => {
         try {
-            console.log(startDate, endDate, supervisorId);
             pool.query(`select requestId, requestComment, r.requestTypeId, rt.requestTypeDescription, r.userId, u2.name requestByUserName, isApproved, approvedByUserId, u.name approvedByUserName, requestDate, r.createdOn, u2.supervisorId
             from tblRequest r
             INNER JOIN tblRequestType rt
