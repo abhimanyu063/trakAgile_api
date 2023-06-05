@@ -179,4 +179,18 @@ module.exports = {
         }
         */
     },
+    getTrackingUsers: () => {
+        /*
+        #swagger.description = 'Get users for tracking' 
+        #swagger.summary = 'get users for tracking',
+        #swagger.tags = ['Users']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/GetTrackingUsers' },
+            description: 'Ok' 
+        }
+        */
+    },
 }

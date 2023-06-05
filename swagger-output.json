@@ -1258,6 +1258,34 @@
         "security": []
       }
     },
+    "/users/getTrackingUsers": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "get users for tracking",
+        "description": "Get users for tracking",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTrackingUsers"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTrackingUsers"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
     "/users/getSupervisor": {
       "get": {
         "tags": [
@@ -2843,6 +2871,25 @@
         },
         "xml": {
           "name": "GetOnlineUsers"
+        }
+      },
+      "GetTrackingUsers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "number",
+              "example": 5
+            },
+            "name": {
+              "type": "string",
+              "example": "Sujeet, Kumar"
+            }
+          }
+        },
+        "xml": {
+          "name": "GetTrackingUsers"
         }
       },
       "AddWorkType": {

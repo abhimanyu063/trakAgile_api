@@ -11,6 +11,7 @@ router.get('/users/getUsers/:userId', userController.getUsers, apiPathDetails.ge
 router.get('/users/forgetPassword/:userName', userController.forgetPassword, apiPathDetails.forgetPassPathPayload);
 router.post('/users/validateUserNameEmailAndMobile', userController.validateUserNameEmailAndMobile, apiPathDetails.validateUserNameEmailAndMobilePayload);
 router.get('/users/getOnlineUsers/:supervisorId', userController.getOnlineUsers, apiPathDetails.getOnlineUsers);
+router.get('/users/getTrackingUsers', userController.getTrackingUsers, apiPathDetails.getTrackingUsers);
 router.get('/users/getSupervisor', userController.getSupervisor, apiPathDetails.getSupervisorList);
 router.get('/users/getUserHierarchy', userController.getUserHierarchy, apiPathDetails.getUserHierarchy);
 

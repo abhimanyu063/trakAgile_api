@@ -169,6 +169,23 @@ module.exports = {
             console.log('Error ', error)
         }
     },
+    getTrackingUsers: (callback) => {
+        try {
+            pool.query(`SELECT u.userId, u.name 
+            from tblUser u
+            INNER JOIN tblTrip t on t.userId = u.userId and t.isTripStarted = 1 and t.isTripEnded = 0
+            WHERE u.isActive = 1`,
+                (error, results, fields) => {
+                    if (error) {
+                        return callback(error);
+                    }
+                    return callback(null, results);
+                });
+        }
+        catch (error) {
+            console.log('Error ', error)
+        }
+    },
     getSupervisor: (callback) => {
         try {
             pool.query(`select supervisorId, name, roleId, userId from tblUser where roleId > 2 and isActive = 1`,

@@ -111,4 +111,9 @@ const getOnlineUsers = [{
     count: 1
 }]
 
-module.exports = { addUser, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors, getUserHierarchy, getOnlineUsers };
+const getTrackingUsers = [{
+    userId: 5,
+    name: "Sujeet, Kumar"
+}]
+
+module.exports = { addUser, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors, getUserHierarchy, getOnlineUsers, getTrackingUsers };

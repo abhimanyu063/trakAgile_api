@@ -53,7 +53,7 @@ const hierarchyTreeUsers = (arr, supervisorId = 0) => {
     userIds = [];
     userIds.push(supervisorId);
     allHierarchyUsers(arr, supervisorId);
-    return userIds.sort();
+    return userIds.sort().toString();
 }
 
 module.exports = { randomNumber, convertImageToByteArray, createNestedDirectory, hierarchyTree, hierarchyTreeUsers };
