@@ -1,21 +1,14 @@
 const addTrip = {
     userId: 1,
-    isTripStarted: 1,
-    isTripEnded: 0,
     latitude: "10.111111111111111",
     longitude: "10.1111111111111",
 }
 
 const updateTrip = {
     tripId: 1,
-    isTripEnded: 0,
+    isTripEnded: 1,
     endLatitude: "10.111111111111111",
     endLongitude: "10.1111111111111",
-}
-
-const addTripResponse = {
-    success: 1,
-    data: "",
 }
 
 const getTrip = {
@@ -33,4 +26,4 @@ const getTrip = {
 
 const getTrips = [getTrip]
 
-module.exports = { addTrip, updateTrip, addTripResponse, getTrip, getTrips };
+module.exports = { addTrip, updateTrip, getTrip, getTrips };

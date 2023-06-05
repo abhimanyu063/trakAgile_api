@@ -3,14 +3,14 @@ const pool = require('../../config/database');
 module.exports = {
     addTrip: (data, callback) => {
         try {
-            pool.query(`insert into tblTrip (userId, isTripStarted, isTripEnded, createdOn, latitude, longitude) values (?,?,?,?,?,?)`,
+            pool.query(`insert into tblTrip (userId, isTripStarted, isTripEnded, latitude, longitude, createdOn) values (?,?,?,?,?,?)`,
                 [
                     data.userId,
-                    data.isTripStarted,
-                    data.isTripEnded,
-                    new Date(),
+                    1,
+                    0,
                     data.latitude,
                     data.longitude,
+                    new Date(),
                 ],
                 (error, results, fields) => {
                     if (error) {

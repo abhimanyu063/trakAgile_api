@@ -18,7 +18,7 @@ module.exports = {
             }
         } 
         #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/AddUserResponse' },
+            schema: { '$ref': '#/components/schemas/AddResponse' },
             description: 'Ok' 
         }
         */
@@ -80,7 +80,7 @@ module.exports = {
             }
         } 
         #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/AddUserResponse' },
+            schema: { '$ref': '#/components/schemas/AddResponse' },
             description: 'Ok' 
         }
         */
@@ -102,13 +102,13 @@ module.exports = {
     getOnlineUsers: () => {
         /*
         #swagger.description = 'Get online users' 
-        #swagger.summary = 'get sonline users',
+        #swagger.summary = 'get online users',
         #swagger.tags = ['Users']
         #swagger.security: [{
             basicAuth: [],
         }],
         #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/GetDashboardDetails' },
+            schema: { '$ref': '#/components/schemas/GetOnlineUsers' },
             description: 'Ok' 
         }
         */
@@ -146,7 +146,7 @@ module.exports = {
             }
         } 
         #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/AddUserResponse' },
+            schema: { '$ref': '#/components/schemas/AddResponse' },
             description: 'Ok' 
         }
         */

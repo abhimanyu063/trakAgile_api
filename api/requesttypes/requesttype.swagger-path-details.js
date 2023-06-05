@@ -18,7 +18,7 @@ module.exports = {
             }
         } 
         #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/AddRequestTypeResponse' },
+            schema: { '$ref': '#/components/schemas/AddResponse' },
             description: 'Ok' 
         }
         */

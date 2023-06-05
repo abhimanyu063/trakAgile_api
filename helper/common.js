@@ -33,4 +33,27 @@ const createNestedDirectory = (path) => {
     );
 }
 
-module.exports = { randomNumber, convertImageToByteArray, createNestedDirectory };
+const hierarchyTree = (arr, supervisorId = 0) =>
+    arr.filter(item => item.supervisorId === supervisorId)
+        .map(user => ({
+            ...user, childs: hierarchyTree(arr,
+                user.userId)
+        }));
+
+
+const allHierarchyUsers = (arr, supervisorId) => {
+    arr.filter(item => item.supervisorId === supervisorId)
+        .map(user => {
+            userIds.push(user.userId);
+            allHierarchyUsers(arr, user.userId);
+        });
+}
+let userIds = [];
+const hierarchyTreeUsers = (arr, supervisorId = 0) => {
+    userIds = [];
+    userIds.push(supervisorId);
+    allHierarchyUsers(arr, supervisorId);
+    return userIds.sort();
+}
+
+module.exports = { randomNumber, convertImageToByteArray, createNestedDirectory, hierarchyTree, hierarchyTreeUsers };

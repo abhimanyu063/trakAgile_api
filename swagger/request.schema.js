@@ -2,14 +2,7 @@ const addRequest = {
     requestComment: "",
     requestTypeId: 1,
     userId: 1,
-    isApproved: 1,
-    approvedByUserId: 1,
     requestDate: "",
-}
-
-const addRequestResponse = {
-    success: 1,
-    data: "",
 }
 
 const getRequest = {
@@ -23,9 +16,10 @@ const getRequest = {
     approvedByUserId: 1,
     approvedBuUserName: "",
     requestDate: "",
-    createdOn: ""
+    createdOn: "",
+    supervisorId: 0
 }
 
 const getRequests = [getRequest]
 
-module.exports = { addRequest, addRequestResponse, getRequest, getRequests };
+module.exports = { addRequest, getRequest, getRequests };

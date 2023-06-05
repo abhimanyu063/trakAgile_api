@@ -13,11 +13,6 @@ const addUser = {
     isActive: 1,
 }
 
-const addUserResponse = {
-    success: 1,
-    data: "",
-}
-
 const getUser = {
     userId: 1,
     userName: "Aman123",
@@ -82,7 +77,7 @@ const getSupervisors = [{
     supervisorId: 3,
     name: "Aman",
     roleId: 2,
-    roleName: "",
+    userId: 1,
 }]
 
 const getUserHierarchy = [{
@@ -101,10 +96,19 @@ const getUserHierarchy = [{
     supervisorName: "",
     isActive: 1,
     createdOn: "2023-04-27T17:15:03.000Z",
-    cssClass: 'ngx-org-ceo', 
+    cssClass: 'ngx-org-ceo',
     image: 'assets/user.png',
     childs: []
-
 }]
 
-module.exports = { addUser, addUserResponse, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors, getUserHierarchy };
+const getOnlineUsers = [{
+    siteTypeDescription: "Intra Village",
+    districtName: "Godda",
+    userId: 5,
+    name: "Sujeet, Kumar",
+    email: "sj@gmail.com",
+    tripTypeId: 2,
+    count: 1
+}]
+
+module.exports = { addUser, getUser, validateUser, changePassword, getUsers, forgetPassword, validateUserNameEmailAndMobile, getSupervisors, getUserHierarchy, getOnlineUsers };

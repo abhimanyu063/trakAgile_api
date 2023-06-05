@@ -18,7 +18,7 @@ module.exports = {
             }
         } 
         #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/AddSiteResponse' },
+            schema: { '$ref': '#/components/schemas/AddResponse' },
             description: 'Ok' 
         }
         */
@@ -48,5 +48,68 @@ module.exports = {
             description: 'Ok' 
         }
         */
-    }
+    },
+    getImage: () => {
+        /*
+        #swagger.description = 'Get site by userId' 
+        #swagger.tags = ['Sites']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/AddResponse' },
+            description: 'Ok' 
+        }
+        */
+    },
+    addLocationPayload: () => {
+        /*
+        #swagger.description = 'Add location' 
+        #swagger.tags = ['Sites']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.requestBody = {
+            required: true,
+            description: 'add location payload',
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/AddLocation"
+                    }  
+                }
+            }
+        } 
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/AddResponse' },
+            description: 'Ok' 
+        }
+        */
+    },
+    getLocation: () => {
+        /*
+        #swagger.description = 'Get locations' 
+        #swagger.tags = ['Sites']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/GetLocation' },
+            description: 'Ok' 
+        }
+        */
+    },
+    getReportedSite: () => {
+        /*
+        #swagger.description = 'Get reported sites' 
+        #swagger.tags = ['Sites']
+        #swagger.security: [{
+            basicAuth: [],
+        }],
+        #swagger.responses[200] = { 
+            schema: { '$ref': '#/components/schemas/GetReportedSites' },
+            description: 'Ok' 
+        }
+        */
+    },
 }

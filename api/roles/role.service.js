@@ -3,7 +3,7 @@ const pool = require('../../config/database');
 module.exports = {
     getRoles: (callback) => {
         try {
-            pool.query(`select roleId, roleName from tblRole where isActive = 1`,
+            pool.query(`select roleId, roleName, isActive from tblRole where isActive = 1`,
                 (error, results, fields) => {
                     if (error) {
                         return callback(error);

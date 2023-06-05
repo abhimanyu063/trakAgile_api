@@ -29,10 +29,6 @@ module.exports = {
                             'documentDescription':{
                                 'type': 'string',
                                 'example': 'doc description'
-                            },
-                            'isWorkCompleted':{
-                                'type': 'number',
-                                'example': 1
                             }
                         }
                     }  
@@ -40,7 +36,7 @@ module.exports = {
             }
         } 
         #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/AddSiteWorkResponse' },
+            schema: { '$ref': '#/components/schemas/AddResponse' },
             description: 'Ok' 
         }
         */
@@ -64,7 +60,7 @@ module.exports = {
             }
         } 
         #swagger.responses[200] = { 
-            schema: { '$ref': '#/components/schemas/AddSiteTypeResponse' },
+            schema: { '$ref': '#/components/schemas/AddResponse' },
             description: 'Ok' 
         }
         */

@@ -110,11 +110,12 @@ module.exports = {
     },
     addLocation: (data, callback) => {
         try {
-            pool.query(`insert into tblLocation (tripID, latitude, longitude, createdOn) values (?,?,?,?)`,
+            pool.query(`insert into tblLocation (tripID, latitude, longitude, siteId, createdOn) values (?,?,?,?,?)`,
                 [
                     data.tripID,
                     data.latitude,
                     data.longitude,
+                    data.siteId,
                     new Date()
                 ],
                 (error, results, fields) => {
@@ -150,7 +151,7 @@ module.exports = {
     getLocation: (userId, callback) => {
         try {
             pool.query(`SELECT l.locationId, t.tripId, t.latitude tripStartLatitude, t.longitude tripStartLongitude,
-                l.latitude, l.longitude, l.CreatedOn,
+                l.latitude, l.longitude, l.createdOn,
                 IFNULL(s.siteId,0) siteId, s.siteName, s.CreatedOn siteCreatedOn, u.userId, u.name
             from tblUser u
             INNER JOIN tblTrip t on u.userId = t.userId and IFNULL(isTripStarted ,0) = 1 and  IFNULL(isTripEnded ,0) = 0

@@ -6,7 +6,7 @@ module.exports = {
             pool.query(`insert into tblWorkType (workTypeName, isActive) values (?,?)`,
                 [
                     data.workTypeName,
-                    data.isActive,
+                    1,
                 ],
                 (error, results, fields) => {
                     if (error) {

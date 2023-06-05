@@ -1,11 +1,5 @@
 const addRequestType = {
-    requestTypeDescription: "",
-    isActive: 1,
-}
-
-const addRequestTypeResponse = {
-    success: 1,
-    data: "",
+    requestTypeDescription: ""
 }
 
 const getRequestType = {
@@ -16,4 +10,4 @@ const getRequestType = {
 
 const getRequestTypes = [getRequestType]
 
-module.exports = { addRequestType, addRequestTypeResponse, getRequestType, getRequestTypes };
+module.exports = { addRequestType, getRequestType, getRequestTypes };

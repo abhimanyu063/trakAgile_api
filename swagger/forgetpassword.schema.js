@@ -1,8 +1,3 @@
-const validateForgetPasswordResponse = {
-    success: 1,
-    data: "",
-}
-
 const validateForgetPassword = {
     userName: "",
     email: "",
@@ -12,4 +7,4 @@ const validateForgetPassword = {
 
 const validateForgetPasswords = [validateForgetPassword]
 
-module.exports = { validateForgetPasswordResponse, validateForgetPasswords, validateForgetPassword };
+module.exports = { validateForgetPasswords, validateForgetPassword };

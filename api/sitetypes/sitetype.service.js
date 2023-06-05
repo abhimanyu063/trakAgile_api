@@ -6,7 +6,7 @@ module.exports = {
             pool.query(`insert into tblSiteType (siteTypeDescription, isActive) values (?,?)`,
                 [
                     data.siteTypeDescription,
-                    data.isActive,
+                    1,
                 ],
                 (error, results, fields) => {
                     if (error) {

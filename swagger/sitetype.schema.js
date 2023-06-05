@@ -1,11 +1,5 @@
 const addSiteType = {
-    siteTypeDescription: "",
-    isActive: 1,
-}
-
-const addSiteTypeResponse = {
-    success: 1,
-    data: "",
+    siteTypeDescription: ""
 }
 
 const getSiteType = {
@@ -16,4 +10,4 @@ const getSiteType = {
 
 const getSiteTypes = [getSiteType]
 
-module.exports = { addSiteType, addSiteTypeResponse, getSiteType, getSiteTypes };
+module.exports = { addSiteType, getSiteType, getSiteTypes };

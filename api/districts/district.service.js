@@ -3,10 +3,10 @@ const pool = require('../../config/database');
 module.exports = {
     addDistrict: (data, callback) => {
         try {
-            pool.query(`insert into tblDistrict (districtName, isActive) values (?,?)`,
+            pool.query(`insert into tblDistrict (districtName) values (?,?)`,
                 [
                     data.districtName,
-                    data.isActive,
+                    1,
                 ],
                 (error, results, fields) => {
                     if (error) {

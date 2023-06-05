@@ -1,9 +1,8 @@
 const addDistrict = {
-    districtName: "",
-    isActive: 1,
+    districtName: ""
 }
 
-const addDistrictResponse = {
+const addResponse = {
     success: 1,
     data: "",
 }
@@ -16,4 +15,4 @@ const getDistrict = {
 
 const getDistricts = [getDistrict]
 
-module.exports = { addDistrict, addDistrictResponse, getDistrict, getDistricts };
+module.exports = { addDistrict, addResponse, getDistrict, getDistricts };

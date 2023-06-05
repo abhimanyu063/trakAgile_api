@@ -1,5 +1,5 @@
 const userService = require('./user.service');
-const { HierarchyTree } = require('./user.common');
+const { hierarchyTree } = require('../../helper/common');
 
 module.exports = {
     addUser: (req, res, next) => {
@@ -145,7 +145,7 @@ module.exports = {
     },
     getOnlineUsers: (req, res, next) => {
         try {
-            userService.getOnlineUsers(req.params.supervisorId,(err, results) => {
+            userService.getOnlineUsers(req.params.supervisorId, (err, results) => {
                 if (err) {
                     return next(err);
                 }
@@ -177,13 +177,13 @@ module.exports = {
     },
     getUserHierarchy: (req, res, next) => {
         try {
-            userService.getUserHierarchy(req.params.supervisorId, (err, results) => {
+            userService.getUserHierarchy((err, results) => {
                 if (err) {
                     return next(err);
                 }
                 return res.status(200).json({
                     success: 1,
-                    data: HierarchyTree(results)
+                    data: hierarchyTree(results)
                 });
             });
         }
